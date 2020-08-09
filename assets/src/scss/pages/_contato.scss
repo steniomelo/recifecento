@@ -1,0 +1,179 @@
+#contato {
+    .contato-header {
+        @include flexbox();
+        margin-top: 140px;
+        margin-bottom: 70px;
+        .contato-title {
+            @include flex-grow(0);
+            height: 260px;
+            border-right:1px solid $gray;
+            margin-right: 50px;
+            .title {
+                @include transform(rotate(90deg));
+                @include transform-origin(left center);
+                font-size: 48px;
+            }
+        }
+        .contato-option {
+            @include flex(1 0 auto);
+            @include flexbox();
+            @include flex-direction(row);
+            @include justify-content(stretch);
+            @include align-items(stretch);
+            a {
+                @include flex(1 0 auto);
+                @include flexbox();
+                @include flex-direction(column);
+                @include justify-content(center);
+                @include align-items(center);
+                border: 1px solid $gray;
+                padding: 50px 0;
+
+                img {
+                    margin-bottom: 15px;
+                }
+
+                span {
+                    font-size: 30px;
+                    font-weight: 500;
+                    text-align: center;
+                    line-height: 30px;
+                }
+            }
+
+            &.active {
+                a {
+                    background-color: $accent;
+                    color: white;
+
+                    img {
+                        filter: brightness(10);
+                    }
+                }
+            }
+
+        }
+    }   
+
+    .contato-content {
+        margin-bottom: 70px;
+        .space {
+            margin-right: 50px;
+        }
+        .sidebar {
+    
+            .nf-form-cont {
+                padding: 30px 25px;
+                padding-bottom: 0;
+                border: 1px solid $gray;
+    
+                .nf-form-title {
+                    * {
+                        font-size:16px;
+                        margin-bottom: 0;
+                    }
+                }
+    
+                .nf-form-layout {
+                    form {
+                        margin-top: 0;
+                    }
+    
+                    .html-container {
+                        color: $text-gray;
+                        border-bottom: 1px solid $gray;
+                    }
+                }
+    
+                .nf-error-msg {
+                    margin-bottom: 20px;
+                }
+            }
+    
+            textarea {
+                height: 120px;
+            }
+    
+        }
+
+        .content-options {
+            .option {
+                border: 1px solid $gray;
+                height: 120px;
+                @include flexbox();
+                @include align-items(center);
+                margin-bottom: 15px;
+                
+                .option-image {
+                    text-align: center;
+                }
+
+                .option-text {
+                    strong {
+                        display: block;
+                        font-size: 16px;
+                        font-weight: 500;
+                    }
+
+                    span {
+                        display: block;
+                        font-size: 14px;
+                        color: $text-gray;
+                    }
+                }
+            }
+        }
+    
+    }
+    .nf-response-msg {
+        p { margin-bottom: 20px!important; }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    #contato {
+        .contato-header {
+            @include flex-direction(column);
+            margin-bottom: 20px;
+            margin-top: 30px;
+            .contato-title {
+                display: none;
+            }
+
+            .contato-option {
+                margin-bottom: 15px;
+
+                a {
+                    span {
+                            font-size: 24px;
+                            line-height: 26px;
+        
+                    }
+                }
+            }
+        }
+
+        .content-options {
+            .option {
+                .option-image {
+                    @include flex-basis(40%);
+                }
+            }
+        }
+
+        .contato-content {
+            .sidebar {
+                margin-top: 30px;
+                .nf-form-cont {
+                    padding: 0;
+                    border: 0;
+                }
+            }
+        }
+
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>7669C196-C867-4D40-A20A-11408F457905</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon/cinza/quarto" fill-rule="nonzero">
+            <g id="icon/cinza/quartos/large">
+                <path d="M3.5625,11.8125 L20.4375,11.8125 L20.4375,5.625 C20.4375,3.24327202 18.506728,1.3125 16.125,1.3125 L7.875,1.3125 C5.49327202,1.3125 3.5625,3.24327202 3.5625,5.625 L3.5625,11.8125 Z" id="Rectangle-2" stroke="#D8D8D8" stroke-width="2.625" transform="translate(12.000000, 6.562500) rotate(-360.000000) translate(-12.000000, -6.562500) "></path>
+                <rect id="Rectangle-2" stroke="#D8D8D8" stroke-width="2.625" x="1.3125" y="11.8125" width="21.375" height="8.625" rx="1.875"></rect>
+                <path d="M13.3125,8.4375 L13.3125,11.4375 L15.9375,11.4375 C16.1446068,11.4375 16.3125,11.2696068 16.3125,11.0625 L16.3125,8.8125 C16.3125,8.60539322 16.1446068,8.4375 15.9375,8.4375 L13.3125,8.4375 Z" id="Rectangle-4" stroke="#D8D8D8" stroke-width="1.875" transform="translate(14.812500, 9.937500) rotate(-90.000000) translate(-14.812500, -9.937500) "></path>
+                <path d="M7.6875,8.4375 L7.6875,11.4375 L10.3125,11.4375 C10.5196068,11.4375 10.6875,11.2696068 10.6875,11.0625 L10.6875,8.8125 C10.6875,8.60539322 10.5196068,8.4375 10.3125,8.4375 L7.6875,8.4375 Z" id="Rectangle-4" stroke="#D8D8D8" stroke-width="1.875" transform="translate(9.187500, 9.937500) rotate(-90.000000) translate(-9.187500, -9.937500) "></path>
+                <path d="M18.375,21.375 L19.3125,21.375 C20.0373737,21.375 20.625,21.9626263 20.625,22.6875 L20.625,22.6875 C20.625,23.4123737 20.0373737,24 19.3125,24 L18.375,24 L18.375,21.375 Z" id="Rectangle-4" fill="#D8D8D8" transform="translate(19.500000, 22.687500) rotate(-270.000000) translate(-19.500000, -22.687500) "></path>
+                <path d="M3.375,21.375 L4.3125,21.375 C5.03737373,21.375 5.625,21.9626263 5.625,22.6875 L5.625,22.6875 C5.625,23.4123737 5.03737373,24 4.3125,24 L3.375,24 L3.375,21.375 Z" id="Rectangle-4" fill="#D8D8D8" transform="translate(4.500000, 22.687500) rotate(-270.000000) translate(-4.500000, -22.687500) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

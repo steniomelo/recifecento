@@ -1,0 +1,116 @@
+.footer-nav {
+    @include flexbox();
+    @include align-items(center);
+    @include align-content(center);
+
+    border-right:1px solid $gray;
+    border-top: 1px solid $gray;
+    border-bottom: 1px solid $gray;
+    padding: 0;
+    @include flex(0 0 auto);
+    @include flex-grow(1);
+    @include align-items(stretch);
+    border-left:1px solid $gray;
+
+        padding: 0;
+        @include flexbox();
+        @include justify-content(stretch);
+        @include align-items(stretch);
+        @include flex-grow(1);
+        border-left:1px solid $gray;
+        ul {
+            padding: 0;
+            @include flexbox();
+            @include justify-content(stretch);
+            @include align-items(stretch);
+            @include flex-grow(1);
+            height: 100px;
+            margin: 0;
+        }
+        
+        li {
+
+            @include flex();
+            @include justify-content(center);
+            @include flex-direction(column);
+            @include flexbox();
+            @include flex-grow(1);
+            border-right: 1px solid rgba(#cccccc, .5);
+            &:last-child {
+                border:0;
+            }
+
+
+        }
+
+
+    a {
+        @include flex();
+        @include flex-basis(20%);
+        @include justify-content(center);
+        @include flex-direction(column);
+        @include flexbox();
+        height: 77px;
+        text-align: center;
+        border-right: 1px solid rgba(#cccccc, .5);
+        vertical-align: middle;
+        font-size:12px;
+        font-weight: 300;
+        color: $primary;
+        text-decoration: none;
+        @include trans();
+        position: relative;
+
+        &:after {
+            content: "";
+            position:absolute;
+            top: 50%;
+            margin-top: -5px;
+            right: 20px;
+            background:url('../img/icons/plus.svg') no-repeat;
+            background-size:contain;
+            width: 11px;
+            height: 11px;
+            @include transform(scale(0));
+            @include transform-origin(center center);
+            @include trans();
+
+            @include media-breakpoint-down(lg) {
+                display: none;
+            }
+
+
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: $accent;
+            z-index: -1;
+            @include trans();
+            @include transform(scaleY(0));
+            @include transform-origin(center bottom);
+
+        }
+
+        &:hover {
+            color: white;
+
+            &:before {
+                @include transform(scaleY(1));
+            }
+
+            &:after {
+                @include transform(scale(1));
+            }
+        }
+
+        &:last-child {
+            border:0;
+        }
+    }
+}

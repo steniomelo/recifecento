@@ -1,0 +1,110 @@
+#header-nav {
+    background-color: rgba(white, .8);
+    position: absolute;
+    top: 77px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 77px);
+    z-index: -1;
+    color:white;
+    @include trans();
+    transition-delay:.2s;
+    opacity: 0;
+
+    #header-nav-container {
+        @include trans();
+        @include transform(scaleY(0));
+        @include transform-origin(center top);
+        transition-delay:0s;
+        opacity: 0;
+        background-color: $accent;
+        height: 100vh;
+
+        #header-nav-content {
+            padding: 70px 120px;
+            height: 100vh;
+
+            @include media-breakpoint-down(lg) {
+                padding: 12vw;
+            }
+
+            @include flexbox();
+            @include flex-direction(column);
+            @include justify-content(center);
+
+            #header-nav-title {
+                margin-bottom: 30px;
+                h1 {
+                    font-size: 24px;
+                }
+            }
+
+            #header-nav-menu {
+                margin-bottom: 50px;
+                display: block;
+
+                ul {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                }
+
+
+                a {
+                    display: block;
+                    color: white;
+                    margin-bottom: 20px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    position: relative;
+
+                    @include media-breakpoint-down(lg) {
+                        margin-bottom: 2vh;
+                    }
+            
+
+                    .arrow-hover {
+                        position: absolute;
+                        left: calc(100% - 32px);
+                        top: -2px;
+                        @include transform(scale(.8));
+                        @include transform-origin(left center);
+                    }
+                }
+            }
+
+            #header-nav-secondary {
+                margin-bottom: 50px;
+
+                ul {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                }
+
+                a {
+                    display: block;
+                    color: white;
+                    margin-bottom: 10px;
+                    font-size: 12px;
+                    font-weight: 500;
+                    position: relative;
+                    text-transform: uppercase;
+
+                }
+            }
+        }
+    }
+
+    &.active {
+        transition-delay:0s;
+        opacity: 1;
+        z-index: 99999;
+
+        #header-nav-container {
+            transition-delay:.2s;
+            @include transform(scaleY(1));
+            opacity: 1;
+        }
+    }
+}

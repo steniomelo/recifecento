@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>073939CE-39ED-4DE5-A6A3-A38BD758EAAB</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon/cinza/playground" fill-rule="nonzero">
+            <g id="icon/cinza/playground/large">
+                <path d="M7.6875,22.6875 L16.3125,22.6875 L16.3125,20.0625 C16.3125,19.2340729 15.6409271,18.5625 14.8125,18.5625 L9.1875,18.5625 C8.35907288,18.5625 7.6875,19.2340729 7.6875,20.0625 L7.6875,22.6875 Z" id="Rectangle-2" stroke="#D8D8D8" stroke-width="2.625" transform="translate(12.000000, 20.625000) rotate(-360.000000) translate(-12.000000, -20.625000) "></path>
+                <path d="M7.6875,5.4375 L16.3125,5.4375 L16.3125,2.8125 C16.3125,1.98407288 15.6409271,1.3125 14.8125,1.3125 L9.1875,1.3125 C8.35907288,1.3125 7.6875,1.98407288 7.6875,2.8125 L7.6875,5.4375 Z" id="Rectangle-2" stroke="#D8D8D8" stroke-width="2.625" transform="translate(12.000000, 3.375000) rotate(-180.000000) translate(-12.000000, -3.375000) "></path>
+                <rect id="Rectangle-3" fill="#D8D8D8" x="2.625" y="10.875" width="6.375" height="2.625"></rect>
+                <rect id="Rectangle-3" fill="#D8D8D8" x="15" y="10.875" width="6.375" height="2.625"></rect>
+                <rect id="Rectangle-2" stroke="#D8D8D8" stroke-width="2.625" x="1.3125" y="1.3125" width="21.375" height="21.375" rx="5.625"></rect>
+                <rect id="Rectangle-4" stroke="#D8D8D8" stroke-width="1.95" transform="translate(12.000000, 12.000000) rotate(-90.000000) translate(-12.000000, -12.000000) " x="9.6" y="9.6" width="4.8" height="4.8" rx="2.4"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

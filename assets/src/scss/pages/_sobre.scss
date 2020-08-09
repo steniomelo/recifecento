@@ -1,0 +1,75 @@
+#sobre {
+    font-size: 14px;
+    .sobre-header {
+        margin-top: 100px;
+        margin-bottom: 40px;
+        .header-title {
+            font-size: 4.8rem;
+            margin-bottom: 30px;
+            line-height: 5.4rem;
+            color: $primary;
+        }
+        .header-description {
+            font-size: 14px;
+            color: $text-gray;
+        }
+    }
+
+    .sobre-section {
+        margin-bottom: 80px;
+        .section-title {
+            font-size: 30px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: $primary;
+        }
+
+        .section-description {
+            color: $text-gray;
+        }
+    }
+
+    #equipe {
+        .section-title {
+            font-size: 30px;
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    #sobre {
+        .sobre-header {
+            margin-top: 50px;
+        }
+        .row {
+            margin: -15px;
+
+            [class*="col"] {
+                padding: 0 30px;
+            }
+
+            .section-image {
+                margin: 20px 0;
+                padding: 0;
+            }
+        }
+
+        .sobre-section {
+            .section-title {
+                font-size: 24px;
+            }
+        }
+        #equipe {
+            margin-left: 10px;
+            .section-header {
+                .section-title {
+                    font-size:24px;
+                    line-height: 32px;
+                    text-align: left;
+                    padding-left: 10px;
+                }
+            }
+        }
+
+    }
+}

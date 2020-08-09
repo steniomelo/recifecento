@@ -1,0 +1,15 @@
+{
+  "name": "mark",
+  "dependencies": {
+    "bootstrap-sass": "^3",
+    "chosen": "^1",
+    "html5shiv": "^3",
+    "iCheck": "^1",
+    "jquery": "^1",
+    "jquery-smooth-scroll": "^2",
+    "jquery-validation": "^1",
+    "jquery.inputmask": "^3",
+    "respond": "^1",
+    "slick-carousel": "^1"
+  }
+}

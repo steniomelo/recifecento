@@ -1,0 +1,25 @@
+.btn {
+    @include border-radius(0);
+    font-size:14px;
+    padding: 15px;
+    border:0;
+    &.btn-primary {
+        background-color: $accent;
+    }
+
+    &.btn-secondary {
+        background-color: white;
+        color: $accent !important;
+        font-weight: 500;
+
+        &:hover {
+            background-color: $accent;
+            color: white !important;
+        }
+    }
+
+    &.btn-rounded {
+        @include border-radius(50px);
+        padding: 13px;
+    }
+}

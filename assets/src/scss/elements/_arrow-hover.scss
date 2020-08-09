@@ -1,0 +1,40 @@
+.arrow-hover {
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(center);
+    &:before {
+        content: '';
+        background: url('../img/icons/arrow.svg') no-repeat;
+        background-size: auto 100%;
+        background-position: left center;
+        margin-top: 5px;
+        width:0px;
+        height: 20px;
+        margin-bottom:0;
+        @include trans();
+        display: block;
+    }
+    &:after {
+        content: '';
+        background: url('../img/icons/arrow.svg') no-repeat;
+        background-size: contain;
+        margin-top: 5px;
+        width:32px;
+        height: 20px;
+        margin-bottom:0;
+        @include trans();
+        display: block;
+    }
+
+    &.gray {
+        &:before, &:after {
+            background-image: url('../img/icons/arrow-gray.svg');
+        }
+    }
+}
+
+*:hover > .arrow-hover, .arrow-hover-active {
+    &:before {
+        width: 20px;
+    }
+}

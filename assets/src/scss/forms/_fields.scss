@@ -1,0 +1,309 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea,
+select,
+.form-control {
+	-webkit-appearance: none;
+   	-moz-appearance:    none;
+   	appearance:         none;
+	outline: none;
+	background-color: white;
+	@include border-radius(3px);
+	padding: 13px 17px;
+	border:1px solid #ddd;
+	font-size:12px;
+	height: auto;
+	line-height: initial !important;
+	//min-width: 250px;
+
+	&:focus {
+		border-color: $accent;
+	}
+
+	&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+		color: $text-gray;
+	}
+	&::-moz-placeholder { /* Firefox 19+ */
+		color: $text-gray;
+	}
+	&:-ms-input-placeholder { /* IE 10+ */
+		color: $text-gray;
+	}
+	&:-moz-placeholder { /* Firefox 18- */
+		color: $text-gray;
+	}
+
+}
+
+.select, .listselect-container {
+	background-color: white;
+	padding: 0;
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	
+
+	&:before {
+		//content: fa-content($fa-var-angle-down);
+		// font-family: 'Font Awesome 5 Free';
+		// font-weight: 900;
+		content: ' ';
+		background: url("../img/icons/arrow-down.svg") no-repeat;
+		position:absolute;
+		right: 20px;
+		top:20px;
+		font-size:20px;
+		color: $accent;
+		z-index: 1;
+		width: 10px;
+		height: 6px;
+		background-size: contain;
+	}
+	select {
+		background:none;
+		position: relative;
+		z-index: 2;
+		padding-right: 45px !important;
+		font-weight: 300;
+
+		&:not([aria-invalid="false"]) {
+			color: $text-gray;
+		}
+
+	}
+
+	.dropdown {
+		border: 1px solid $gray;
+		min-width: 170px;
+
+		&:before {
+			//content: fa-content($fa-var-angle-down);
+			// font-family: 'Font Awesome 5 Free';
+			// font-weight: 900;
+			content: ' ';
+			background: url("../img/icons/arrow-down.svg") no-repeat;
+			position:absolute;
+			right: 20px;
+			top:16px;
+			font-size:20px;
+			color: $accent;
+			z-index: 1;
+			width: 10px;
+			height: 6px;
+			background-size: contain;
+			@include transition();
+		}
+
+		.btn {
+			padding: 7px 15px;
+			padding-right: 45px !important;
+			width: 100%;
+			text-align: left;
+
+			&:after {
+				display: none;
+			}
+		}
+
+		.dropdown-menu {
+			font-size: 14px;
+			width: 100%;
+
+			.dropdown-item {
+				padding: 7px 12px;
+			}
+		}
+
+		&.show {
+			&:before {
+				@include transform(rotate(180deg));
+			}
+		}
+	}
+}
+
+.select {
+	&:before {
+		display: none !important;
+	}
+}
+
+textarea {
+	width: 100%;
+}
+
+.form-group {
+	position: relative;
+	@include border-radius(5px);
+
+	.fas, .far {
+		position: absolute;
+		right: 20px;
+		top: 50%;
+		transform: translateY(-50%);
+		font-size:20px;
+	}
+
+	&.has-icon {
+		.form-control {
+			padding-right: 45px;
+		}
+	}
+}
+
+.form-inline {
+	.form-group {
+		margin-right: 15px;
+		padding-right: 0;
+		padding-left: 0;
+
+		.form-control {
+			width: 100%;
+		}
+	}
+}
+
+.field-wrap .btn-block {
+	display: block !important;
+	width: 100% !important;
+}
+
+.radios {
+	@include flexbox();
+	> * {
+		@include flex(1 1 auto);
+
+		.form-check-label {
+			padding:0 10px;
+			font-size: 12px;
+			padding-top: 2px;
+			color: $primary;
+			cursor: pointer;
+			font-weight: 300;
+			white-space: nowrap;
+		}
+
+		.form-check-input {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+
+			border: 1px solid $gray;
+			padding: 7px;
+			@include border-radius(100px);
+			position: relative;
+			outline: none;
+
+			&:checked {
+				border-color: $accent;
+				border-width: 1px;
+				position: relative;
+				outline: none;
+				&:before {
+					content: "";
+					background-color: $accent;
+					width: 5px;
+					height: 5px;
+					@include border-radius(100px);
+					@include transform(translate(-50%, -50%));
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					display: block;
+				}
+			}
+		}
+
+		.form-check-input:checked + .form-check-label {
+			color: $accent;
+			cursor: pointer;
+		}
+	}
+
+	@include media-breakpoint-down(lg) {
+		@include flex-wrap(wrap);
+
+		> * {
+			margin-bottom: 10px;
+		}
+	}
+
+	&.white {
+		> * {
+			.form-check-input {
+				//border-color: white;
+				&:checked {
+					border-color: white;
+
+					&:before {
+						background-color: white;
+					}
+				}
+			}
+		}
+	}
+
+}
+
+// nf-field .nf-field-container {
+// 	float: left;
+// 	width: calc(50% - 20px);
+// 	margin-right: 20px;
+// 	clear: none;
+// 	margin-bottom: 10px;
+
+// 	&.html, &.submit-container, &.textarea-container {
+// 		width:calc(100% - 20px);
+// 		clear:both;
+// 		margin-top: 30px;
+
+// 		h4 {
+// 			font-weight: bold;
+// 			color: $accent;
+// 			text-transform: uppercase;
+// 		}
+// 	}
+
+// 	&.date-container {
+// 		background-color: white;
+// 		padding: 0;
+// 		position: relative;
+	
+// 		&:before {
+// 			//content: fa-content($fa-var-calendar);
+// 			font-family: 'Font Awesome 5 Free';
+// 			font-weight: 900;
+// 			position:absolute;
+// 			right: 20px;
+// 			top: 50%;
+// 			transform:translateY(-50%);
+// 			font-size:20px;
+// 			color: $accent;
+// 			z-index: 1;
+// 		}
+// 		select {
+// 			background:none;
+// 			position: relative;
+// 			z-index: 2;
+// 			padding-right: 45px !important;
+// 		}
+// 	}
+// }
+
+// label {
+// 	color: $accent;
+// 	text-transform: uppercase;
+// }

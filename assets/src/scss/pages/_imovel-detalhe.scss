@@ -1,0 +1,514 @@
+#imovel-detalhe {
+    .imovel-header {
+        .container {
+            @include flexbox();
+            @include align-items(center);
+
+            > * {
+                padding:15px 10px;
+            }
+
+            .imovel-construtora {
+                font-weight: bold;
+                text-transform: uppercase;
+                font-size:10px;
+            }
+
+            .imovel-price {
+                @include flexbox();
+                @include align-items(center);
+                @include align-content(center);
+
+                hr {
+                    width: 24px;
+                    border-color: $text-gray;
+                }
+
+                > small {
+                    margin: 0 10px;
+                }
+
+                .price {
+                    position: relative;
+                    top: -3px;
+                }
+
+                @include media-breakpoint-down(md) {
+                    @include flex-direction(column);
+                    @include align-items(flex-end);
+                    @include flex-shrink(0);
+
+                    > small {
+                        margin: 0;
+                    }
+                }
+            }
+
+            .imovel-btn {
+                @include flexbox();
+                @include justify-content(flex-start);
+                @include align-items(center);
+                background-color: $accent;
+                color: white;
+                padding: 30px;
+                width: 260px;
+                margin-right:-120px;
+                margin-left: 30px;
+                font-weight:500;
+                
+                span {
+                    font-size:14px;
+                    margin-right: 15px;
+                }
+
+                .arrow-hover {
+                    margin-top: -5px;
+                }
+            }
+        }
+    }
+
+    .imovel-destaque {
+        height: 500px;
+        margin-bottom: 30px;
+
+        @include media-breakpoint-down(md) {
+            height: 200px;
+            margin-bottom: 20px;
+        }
+
+        .slick-list, .slick-track, .tab-pane {
+            height: 100%;
+        }
+
+        #imovel-galeria {
+            position: relative;
+            .arrow {
+                position: absolute;
+                top: 50%;
+                width: 20px;
+                z-index: 9999;
+                @include transform(translateY(-50%));
+                @include trans();
+                @include opacity(.5);
+                
+                &:not(.slick-disabled) {
+                    cursor: pointer;
+                }
+
+                &.slick-disabled {
+                    @include opacity(.2);
+                }
+
+                &.arrow-prev {
+                    left: 40px;
+                }
+
+                &.arrow-next {
+                    right: 40px;
+                    img {
+                        @include transform(rotate(180deg));
+                    }
+                }
+
+                &:not(.slick-disabled):hover {
+                    @include opacity(1);
+                }
+            }
+        }
+
+        .imovel-galeria {
+            
+            overflow:hidden;
+            height:100%;
+            width:100%;
+            margin:0;
+            padding:0;
+            position:relative;
+            background:#000;
+            @include flexbox();
+            
+            &.slick-slider {
+                display:block;
+
+                .galeria-foto {
+                    width:20vw !important;
+                    float:left;
+                    @include transform(translate3d(0,0,0));
+
+                    &.current {
+                        width:40vw !important;
+                    }
+
+                    &.notCurrent {
+                        width:15vw !important;
+                    }
+
+                    @include media-breakpoint-down(md) {
+                        width:33.33vw !important;
+
+                        &.current {
+                            width:60vw !important;
+                        }
+    
+                        &.notCurrent {
+                            width:20vw !important;
+                        }
+    
+                    }
+        
+                }
+            }
+
+            .galeria-foto {
+                @include flex(1 0 auto);
+                height:100%;
+                overflow:hidden;
+                position: relative;
+                background-repeat:no-repeat;
+                background-position: center;
+                background-size: cover;  
+                outline: none;
+
+                @include opacity(.8);
+                //@include transition(all .6s cubic-bezier(0.250, 0.460, 0.450, 0.940));
+                @include trans();
+
+                &:last-child {
+                    float:left;
+                }
+                
+                &.current {
+                    @include flex-grow(2);
+                    @include opacity(1);
+                    cursor: pointer;
+                }
+
+                &.notCurrent {
+                    @include flex-grow(1);
+                }
+            }
+        }
+
+        #imovel-mapa {
+            height: 500px;
+
+        }
+        #mapa, #street-view {
+            width: 100%;
+            height: 500px;
+
+            @include media-breakpoint-down(md) {
+                height: 200px;
+            }
+        }
+
+
+    }
+
+    .imovel-container {
+        margin-bottom: 30px;
+
+        .imovel-content {
+            margin-top: 40px;
+
+            .content-header {
+                .content-title {
+                    h1 {
+                        font-size:30px;
+                        font-size:30px;
+                    }
+                    p {
+                        font-size:14px;
+                        color: $text-gray;
+                    }
+
+                   
+                }
+            }
+        }
+
+        
+        .imovel-info {
+            @include flexbox();
+            @include align-items(center);
+            @include justify-content(flex-start);
+            @include align-content(flex-start);
+            margin: 30px 0;
+            padding: 20px 0;
+            border-top: 1px solid $gray;
+            border-bottom:1px solid $gray;
+
+            .info {
+                @include flex(0 0 100px);
+                @include flexbox();
+                @include flex-direction(column);
+                @include align-items(flex-start);
+                @include justify-content(center);
+                @include align-content(center);
+                
+                small {
+                    margin-top: 10px;
+                    color: $text-gray;
+                    font-size:12px;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .imovel-description {
+            > h2 {
+                margin-bottom: 20px;
+                font-size: 24px;
+                font-weight: 300;
+            }
+            .description {
+                font-size:14px;
+                color: $text-gray;
+                margin-bottom: 20px;
+            }
+        }
+
+        .imovel-more-info {
+            @include flexbox();
+            @include align-items(stretch);
+            @include justify-content(flex-start);
+            @include align-content(flex-start);
+            @include flex-wrap(wrap);
+            margin-right: -20px;
+            margin-top: 20px;
+
+            .info {
+                @include flex(0 0 calc(25% - 20px));
+                @include flexbox();
+                @include flex-direction(column);
+                @include align-items(flex-start);
+                @include justify-content(center);
+                @include align-content(center);
+                margin-bottom: 20px;
+                margin-right: 20px;
+                padding: 20px;
+                border: 1px solid $gray;
+
+                img {
+                    height: 25px;
+                    width: auto;
+                    margin-bottom: 10px;
+                }
+
+                small {
+                    font-size:12px;
+                    font-weight: 500;
+                    color: $text-gray;
+                }
+
+                // &:nth-child(4n) {
+                //     margin-right: 0;
+                // }
+
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+
+            padding: 0 20px;
+
+            .nav {
+                @include flex-wrap(nowrap);
+                margin: 0 -5px;
+
+                .nav-item {
+                    @include flex(1 1 auto);
+                    text-align:center;
+                    margin: 0 5px;
+                    .nav-link {
+                        padding: 8px;
+                        margin: 0 !important;
+                    }
+                }
+            }
+
+            .imovel-info {
+                @include flex-wrap(wrap);
+
+                .info {
+                   flex: 0 0 93px !important;
+                   margin-bottom: 10px;
+                }
+            }
+
+            .imovel-more-info {
+                @include flex-wrap(nowrap);
+                overflow-x:scroll;
+                padding-right: 20px;
+
+                .info {
+                    width: 150px;
+                    @include flex-basis(150px);
+
+                }
+            }
+
+        }
+
+
+    }
+
+    .sidebar {
+        padding-left: 40px;
+
+        .vamosnegocias-form {
+            padding: 30px 25px;
+            padding-bottom: 0;
+            border: 1px solid $gray;
+
+            #nf-form-1-cont,
+            #nf-form-6-cont,
+            #nf-form-5-cont,
+            #nf-form-7-cont {
+                display: none;
+                &.show {
+                    display: block;
+                }
+            }
+
+            .nf-form-title {
+                display: none;
+            }
+            .talk_broker {
+                text-align: center;
+                font-family: 'ITC Avant Garde Gothic';
+                font-weight: 500;
+                font-size: 10px;
+                color: #3d4345;
+                line-height: 2;
+                padding: 17px 0;
+                display: block;
+            }
+        }
+
+        .simulation-tabs {
+            list-style: none;
+            width: 100%;
+            padding: 0;
+            display: flex;
+            margin: 0 0 22px 0;
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
+            li {
+                width: 100%;
+                margin-right: 5px;
+                &:nth-child(1) {
+                    span { max-width: 64px; }
+                    &.current {
+                        .icon {
+                            path, 
+                            svg {
+                                fill: #fff;
+                                stroke: #fff;
+                            }
+                        }
+                    }
+                }
+                &:nth-child(2) {
+                    span { max-width: 87px; }
+                    &.current {
+                        .icon {
+                            path, svg { fill: #fff; }
+                        }
+                    }
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+                &.current {
+                    background-color: $blue;
+                    a { border: 1px solid $blue; }
+                    span { color: #fff; }
+                }
+            }
+            a {
+                border: 1px solid $gray;
+                width: 100%;
+                height: 83px;
+                display: flex;
+                cursor: pointer;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+                span {
+                    text-align: center;
+                    font-family: 'ITC Avant Garde Gothic';
+                    font-weight: 500;
+                    font-size: 9.5px;
+                    color: $black;
+                    display: block;
+                    line-height: 1.2;
+                }
+            }
+            .icon {
+                width: 21px;
+                height: 21px;
+                margin-bottom: 4px;
+            }
+        }
+
+        .nf-form-cont {
+            .nf-form-title {
+                * {
+                    font-size:16px;
+                    margin-bottom: 0;
+                }
+            }
+
+            .nf-form-layout {
+                form {
+                    margin-top: 0;
+                }
+
+                .html-container {
+                    color: $text-gray;
+                    // border-bottom: 1px solid $gray;
+                }
+            }
+
+            .nf-error-msg {
+                margin-bottom: 20px;
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+    }
+}
+.nf-response-msg {
+    //background-color: #9ffc97;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    p {
+        text-align: center;
+        font-size: 12px;
+        color: #096e00;
+        line-height: 1.38;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        letter-spacing: normal;
+    }
+}
+.nf-after-form-content {
+    .nf-error-msg {
+        text-align: center;
+        font-size: 12px;
+        color: #e80000;
+        line-height: 1.33;
+        letter-spacing: normal;
+    }    
+}

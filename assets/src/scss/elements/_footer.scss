@@ -1,0 +1,197 @@
+#footer {
+    #footer-contact {
+        @include flexbox();
+        @include align-items(center);
+        @include align-content(center);
+
+        > * {
+            @include flex(1 1 20%);
+            height: 150px;
+
+            &:first-child {
+                border-top: 1px solid $gray;
+            }
+            &.contact-title {
+                border-top: 1px solid $gray;
+                border-right: 1px solid $gray;
+
+                @include flexbox();
+                @include flex-direction(column);
+                @include justify-content(center);
+
+                h2 {
+                    font-size: 48px;
+                }
+            }
+
+            &.contact-phone, &.contact-whatsapp {
+                @include flexbox();
+                @include justify-content(center);
+                @include align-items(center);
+
+                img {
+                    margin-right: 10px;
+                }
+
+                span {
+                    font-size: 24px;
+                    font-weight: 500;
+                }
+            }
+
+            &.contact-phone {
+                span {
+                    display: inline-block;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+
+    #footer-info {
+        @include flexbox();
+        @include align-items(center);
+        @include align-content(center);
+
+        > * {
+            @include flex(1 1 20%);
+            padding: 30px;
+            color: $text-gray;
+        }
+        .info-logo {
+            text-align: right;
+            img {
+                height: 80px;
+            }
+        }
+        .info-nav {
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            a {
+                display: block;
+                margin-bottom: 7px;
+                font-weight: 500;
+                color: $text-gray;
+            }
+        }
+        .info-address {
+            padding-right: 70px;
+            small {
+                text-transform: uppercase;
+                margin-bottom: 10px;
+                font-size: 7px;
+                display: block;
+                letter-spacing: 1px;
+            }
+
+            a {
+                font-weight: 500;
+                color: $text-gray;
+            }
+        }
+        .info-newsletter {
+            @include flex-grow(2);
+            @include flex-basis(40%);
+            padding-right: 200px;
+
+            strong {
+                margin-bottom: 10px;
+                display: block;
+                font-weight: 500 !important;
+
+            }
+
+            .nf-form-content {
+                position: relative;
+                margin-bottom:-30px;
+                nf-field {
+                    &:last-child {
+                        position: absolute;
+                        top: 15px;
+                        right: 20px;
+                        height: 12px;
+                    }
+                }
+
+                .btn-arrow {
+                    input {
+                        border: 0;
+                        background: 0;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance: none;
+                        background: url('../img/icons/arrow-right-gray.svg') no-repeat;
+                        text-indent: -9999px;
+                        width: 20px;
+                        height: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    #footer-copyright {
+        border-top: 1px solid $gray;
+        .row {
+            padding: 30px 0;
+
+            color: $text-gray;
+
+            .social {
+                a {
+                    margin: 0 0px 0 40px;
+                }
+            }
+        }
+    }
+
+
+}
+
+@include media-breakpoint-down(md) {
+    #footer {
+        border-top: 1px solid $gray;
+        #footer-info {
+            .info-newsletter {
+                padding: 30px;
+
+
+            }
+        }
+
+        #footer-copyright {
+            .row {
+                @include flexbox();
+                @include flex-direction(column);
+                padding-top: 0;
+
+                .col-sm-7 {
+                    @include order(2);
+                    padding: 0 40px;
+                    text-align: center;
+                    padding-top: 20px;
+                    border-top: 1px solid $gray;
+                    font-size: 10px;
+                    padding-bottom: 20px;
+                }
+                .col-sm-3 {
+                    @include order(1);
+                    @include flexbox();
+                    margin-bottom: 30px;
+                    margin-top: 30px;
+                    padding: 0;
+                    max-width: none;
+                    a {
+                        @include flex-grow(1);
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+@import "footer-nav";

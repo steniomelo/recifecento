@@ -1,0 +1,35 @@
+html {
+    font-size: 10px;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'ITC Avant Garde Gothic';
+    font-weight: normal !important;
+    color: $primary;
+    font-size:12px;
+    overflow-x:hidden;
+    
+    &.search-opnened {
+        overflow: hidden;
+    }
+    
+}
+
+@include media-breakpoint-down(md) {
+    html {
+        font-size:6px;
+    }
+}
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.img-fluid {
+    width: 100%;
+}

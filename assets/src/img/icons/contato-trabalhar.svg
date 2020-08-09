@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>A60D557B-AAA9-40CB-96A5-B07433D54C08</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon/preto/equipe/large" fill-rule="nonzero">
+            <g id="trabalhe-large-black">
+                <path d="M19.5,15.5 L45.5,15.5 L45.5,7.5 C45.5,5.290861 43.709139,3.5 41.5,3.5 L23.5,3.5 C21.290861,3.5 19.5,5.290861 19.5,7.5 L19.5,15.5 Z" id="Rectangle-2" stroke="#3D4345" stroke-width="7" transform="translate(32.500000, 9.500000) rotate(-360.000000) translate(-32.500000, -9.500000) "></path>
+                <rect id="Rectangle-3" fill="#3D4345" transform="translate(45.500000, 32.500000) rotate(-270.000000) translate(-45.500000, -32.500000) " x="21" y="29" width="49" height="7"></rect>
+                <rect id="Rectangle-2" stroke="#3D4345" stroke-width="7" x="3.5" y="15.5" width="57" height="45" rx="7"></rect>
+                <rect id="Rectangle-3" fill="#3D4345" transform="translate(19.500000, 32.500000) rotate(-270.000000) translate(-19.500000, -32.500000) " x="-5" y="29" width="49" height="7"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

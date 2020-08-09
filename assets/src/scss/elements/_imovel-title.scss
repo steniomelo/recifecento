@@ -1,0 +1,16 @@
+.imovel-title {
+    .imovel-bairro {
+        font-size:20px;
+        font-weight: 300;
+        margin-bottom: 5px;
+    }
+    .imovel-nome {
+        font-size:14px;
+        color: $text-gray;
+        font-weight: normal;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+}

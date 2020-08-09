@@ -1,0 +1,261 @@
+.imovel-card {
+    @include flex(1 0 auto);
+    padding: 0px;
+    width: 100%;
+
+    .imovel-container {
+        height: 435px;
+        overflow: hidden;
+        margin-bottom: 15px;
+        border: 1px solid $gray;
+
+        .imovel-content {
+            @include trans();
+        }
+    }
+
+    .imovel-img {
+        margin-bottom: 0;
+        position: relative;
+
+        .slick-list {
+            &:before {
+                content: '';
+                display: block;
+                width: 150%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                @include transform(translateX(-50%));
+                box-shadow: inset 0 -100px 100px rgba(0,0,0,.5);
+                z-index: 9999;
+                background: rgba(0,0,0,0.2);
+            }
+        }
+
+        .slick-arrow {
+            position: absolute;
+            top: 50%;
+            width: 7px;
+            z-index: 9999;
+            @include transform(translateY(-50%));
+            @include trans();
+            @include opacity(.5);
+
+            &:before {
+                content: '';
+                background: url('../img/icons/arrow-slider.svg') no-repeat;
+                background-size: contain;
+                width: 7px;
+                height: 30px;
+                display: block;
+            }
+            
+            &:not(.slick-disabled) {
+                cursor: pointer;
+            }
+
+            &.slick-disabled {
+                @include opacity(.2);
+            }
+
+            &.slick-prev {
+                left: 20px;
+            }
+
+            &.slick-next {
+                right: 20px;
+                &:before {
+                    @include transform(rotate(180deg) translateY(9px));
+                }
+            }
+
+            &:not(.slick-disabled):hover {
+                @include opacity(1);
+            }
+        }
+
+        .images {
+            margin-bottom: 0;
+            img {
+                width: 100%;
+                height: 260px;
+                object-fit: cover;
+            }
+        }
+
+        .slick-dots {
+            bottom: 15px;
+
+            li {
+                button {
+                    
+                    &:before {
+                        @include opacity(1);
+                        color: white;
+                        font-size: 20px;
+                    }
+                }
+
+                &.slick-active {
+                    button {
+                        border: 1px solid white;
+                        @include border-radius(100px);
+                    }
+                }
+            }
+        }
+    }
+
+    .imovel-details {
+        .imovel-title {
+            padding: 20px;
+            border-bottom:1px solid $gray;
+            position: relative;
+
+            .arrow-hover {
+                position: absolute;
+                left: calc(100% - 50px);
+                top: 50%;
+                @include transform(scale(.7) translateY(-50%));
+                @include transform-origin(left top);
+            }
+
+        }
+
+        .imovel-info {
+            @include flexbox();
+            @include align-items(center);
+            @include justify-content(center);
+            @include align-content(center);
+            padding: 20px 0;
+
+
+            .info {
+                @include flex();
+                @include flexbox();
+                @include flex-direction(column);
+                @include align-items(center);
+                @include justify-content(center);
+                @include align-content(center);
+                @include flex-basis(33%);
+                @include flex-grow(0);
+                padding: 0 10px;
+
+                
+                &:first-child {
+                    border-right:1px solid $gray;
+                }
+                &:last-child {
+                    border-left:1px solid $gray;
+                }
+
+                small {
+                    margin-top: 10px;
+                    color: $text-gray;
+                    font-size:10px;
+                }
+            }
+        }
+
+        .imovel-description {
+            padding: 20px;
+            border-top:1px solid $gray;
+            font-size:12px;
+            color: $text-gray;
+        }
+
+        .imovel-price {
+            padding:0 20px;
+            > small {
+                font-size:12px;
+                color: $text-gray;
+                display: block;
+            }
+        }
+    }
+
+    // &:hover {
+    //     .imovel-container {
+    //         .imovel-content {
+    //             @include transform(translateY(-230px));
+    //         }
+    //     }
+    // }
+
+    @include media-breakpoint-down(md) {
+        padding: 0;
+        width: 100%;
+
+        position: relative;
+
+        .arrow-hover {
+            display: none;
+        }
+        
+        .imovel-content {
+            @include flexbox();
+            padding-bottom: 74px;
+
+            .imovel-img {
+                @include flex(0 0 117px);
+                width: 117px;
+
+                img {
+                    height: 150px;
+                    display: none;
+
+                    &:first-child {
+                        display: block;
+                    }
+                }
+            }
+
+            .imovel-details {
+                .imovel-title {
+                    border: 0;
+                }
+                .imovel-description {
+                    display: none;
+                }
+
+                .imovel-info {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    border-top: 1px solid $gray;
+                    border-bottom: 1px solid $gray;
+                    padding: 10px 0;
+                }
+            }
+        }
+
+        .imovel-container {
+            height: auto;
+            border: 0;
+        }
+
+        .imovel-footer {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+
+            a {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: none;
+                padding: 0;
+                text-indent: -99999px;
+            }
+
+        }
+    }
+
+}

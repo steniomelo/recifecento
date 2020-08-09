@@ -1,0 +1,25 @@
+.nav-pills {
+    .nav-item {
+        .nav-link {
+            border: 1px solid $gray;
+            margin-right: 20px;
+            padding: 10px 30px;
+            font-size:10px;
+            color: $accent;
+            @include trans();
+
+            img {
+                margin-right: 5px;
+            }
+
+            &.active {
+                background-color: $accent;
+                color: white;
+
+                img {
+                    filter: brightness(10);
+                }
+            }
+        }
+    }
+}

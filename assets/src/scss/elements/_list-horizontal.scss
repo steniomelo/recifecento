@@ -1,0 +1,56 @@
+.list-horizontal {
+    margin-bottom: 100px;
+
+    .mCSB_scrollTools {
+        @include make-container();
+        max-width: 1140px;
+        position: relative;
+        
+    }
+
+    .list-items {
+        @include flexbox();
+        overflow-x:auto;
+        width: 100%;
+
+        &:not(.mCustomScrollbar) {
+            @include flexbox();
+            padding-left: calc(50% - 570px);
+        }
+
+        &.mCustomScrollbar {
+            cursor: grab;
+        }
+
+        .mCSB_container {
+            @include flexbox();
+            padding-left: calc(50% - 570px);
+        }
+
+        .list-item {
+            @include flex();            
+        }
+
+        .space {
+            @include flex(1 0 10vw);
+            display: block;
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .list-horizontal {
+        &:not(.equipe) {
+            margin-bottom: 0;
+
+            .list-items {
+                @include flex-direction(column);
+                padding: 0 !important;
+                .mCSB_container {
+                    @include flex-direction(column);
+                    padding: 0 !important;
+                }
+            }
+        }
+    }
+}

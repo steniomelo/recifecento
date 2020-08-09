@@ -1,0 +1,12 @@
+$hamburger-layer-width                     : 20px;
+$hamburger-layer-height                    : 2px;
+$hamburger-padding-x                       : 0px;
+$hamburger-padding-y                       : 0px;
+$hamburger-layer-color                     : $accent;
+$hamburger-layer-spacing                   : 4px;
+
+.hamburger {
+    @extend .hamburger--squeeze;
+}
+
+@import '../../../node_modules/hamburgers/_sass/hamburgers/hamburgers';
