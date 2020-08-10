@@ -6,6 +6,7 @@
     z-index: 999;
     
     .header-container {
+        @include make-container();
         @include flexbox();
         @include align-items(stretch);
         @include align-content(center);

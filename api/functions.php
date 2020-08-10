@@ -88,7 +88,7 @@ function get_estabelecimentos() {
 		$imovel->address = $endereco;
 		$imovel->horario = get_field('horario_de_funcionamento', $imovel->ID);
 
-			array_push($html, '<div class="col-sm-6">
+			array_push($html, '<div class="col-sm-12">
 				<div class="list-item imovel-card ">
 					<a href="'. get_post_permalink($imovel->ID) .'">
 					<div class="imovel-container">

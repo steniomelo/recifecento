@@ -41,7 +41,7 @@ if ( function_exists( 'dslc_hf_get_header' ) ) {
 	
 	<div class="d-none d-lg-block header-desktop">
 
-		<div class="header-container">
+		<div class="header-container container">
 
 			<div class="header-logo">
 				<div class="logo">
@@ -76,20 +76,11 @@ if ( function_exists( 'dslc_hf_get_header' ) ) {
 				</a> -->
 			</nav>
 
-			<div class="header-search">
-				<img src="<?php echo ASSETS;?>/img/icons/search.svg" class="icon-search">
-				<img src="<?php echo ASSETS;?>/img/icons/x.svg" class="icon-close">
-			</div>
+			
 
-			<div class="header-language">
-				<?php 
-					wp_nav_menu( array( 'theme_location' => 'menu-idioma', 'container' => ' ' ) );
-				?>
-			</div>
+			
 
-			<a href="<?php echo ROTA_IMOVEIS;?>/minha-casa-minha-vida" class="header-mcmv">
-				<img src="<?php echo ASSETS;?>/img/layout/minha-casa-minha-vida.png" srcset="<?php echo ASSETS;?>/img/layout/minha-casa-minha-vida@2x.png 2x, <?php echo ASSETS;?>/img/layout/minha-casa-minha-vida@3x.png 3x">
-			</a>
+			
 
 		</div>
 
