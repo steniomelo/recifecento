@@ -54,6 +54,7 @@
             }
 
             .imoveis-row {
+                padding: 10px;
                 .imovel-card {
                     //display: none;
                 }
@@ -64,17 +65,17 @@
             height: calc(100vh - 80px);
             padding: 0;
 
-            &.fixed {
-                position: fixed;
-                top: 0px;
-                right: 0;
-                height:100vh;
-                width: 37%;
+            // &.fixed {
+            //     position: fixed;
+            //     top: 0px;
+            //     right: 0;
+            //     height:100vh;
+            //     width: calc(58.33333% - 250px);
 
-                #map {
-                    height: 100vh;
-                }
-            }
+            //     #map {
+            //         height: 100vh;
+            //     }
+            // }
             &.fixed-bottom {
                 margin-top: 320px;
                 position: relative;

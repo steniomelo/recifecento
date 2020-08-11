@@ -1,6 +1,5 @@
 #header {
 
-    border-bottom:1px solid $gray;
     background-color: white;
     position: relative;
     z-index: 999;
@@ -18,8 +17,8 @@
             @include align-items(center);
             @include align-content(center);
         
-            border-right:1px solid $gray;
-            border-left:1px solid $gray;
+            // border-right:1px solid $gray;
+            // border-left:1px solid $gray;
             border-left: 0;
             padding: 15px 30px;
 
@@ -36,8 +35,13 @@
         border-right: 0;
 
         .logo {
-            max-width: 50px;
+            max-width: 200px;
             position: relative;
+        }
+
+        .header-logo__img {
+            max-width: 100%;
+            width: 100%;
         }
 
         .logo-branco {
@@ -116,11 +120,10 @@
         @include justify-content(stretch);
         @include align-items(stretch);
         @include flex-grow(1);
-        border-left:1px solid $gray;
         ul {
             padding: 0;
             @include flexbox();
-            @include justify-content(stretch);
+            @include justify-content(center);
             @include align-items(stretch);
             @include flex-grow(1);
 
@@ -129,14 +132,19 @@
         
         li {
 
-            @include flex();
             @include justify-content(center);
             @include flex-direction(column);
             @include flexbox();
-            @include flex-grow(1);
-            border-right: 1px solid rgba(#cccccc, .5);
+            margin: 0 8px;
+            // @include flex-grow(1);
             &:last-child {
                 border:0;
+            }
+
+            &.current-menu-item {
+                a {
+                    color: $accent;
+                }
             }
 
 
@@ -148,67 +156,72 @@
 
             @include flexbox();
             text-align: center;
-            border-right: 1px solid rgba(#cccccc, .5);
             vertical-align: middle;
-            font-size:12px;
-            font-weight: 500;
+            font-size:13px;
+            font-weight: 300;
             color: $primary;
             text-decoration: none;
+            text-transform: uppercase;
             @include trans();
             position: relative;
 
-            &:after {
-                content: "";
-                position:absolute;
-                top: 50%;
-                margin-top: -5px;
-                right: 20px;
-                background:url('../img/icons/plus.svg') no-repeat;
-                background-size:contain;
-                width: 11px;
-                height: 11px;
-                @include transform(scale(0));
-                @include transform-origin(center center);
-                @include trans();
+            // &:after {
+            //     content: "";
+            //     position:absolute;
+            //     top: 50%;
+            //     margin-top: -5px;
+            //     right: 20px;
+            //     background:url('../img/icons/plus.svg') no-repeat;
+            //     background-size:contain;
+            //     width: 11px;
+            //     height: 11px;
+            //     @include transform(scale(0));
+            //     @include transform-origin(center center);
+            //     @include trans();
 
-                @include media-breakpoint-down(lg) {
-                    display: none;
-                }
+            //     @include media-breakpoint-down(lg) {
+            //         display: none;
+            //     }
 
 
-            }
+            // }
 
-            &:before {
-                content: "";
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background-color: $accent;
-                z-index: -1;
-                @include trans();
-                @include transform(scaleY(0));
-                @include transform-origin(center bottom);
+            // &:before {
+            //     content: "";
+            //     position: absolute;
+            //     top: 0;
+            //     bottom: 0;
+            //     left: 0;
+            //     right: 0;
+            //     background-color: $accent;
+            //     z-index: -1;
+            //     @include trans();
+            //     @include transform(scaleY(0));
+            //     @include transform-origin(center bottom);
 
-            }
+            // }
 
             &:hover {
-                color: white;
-                font-weight: 600;
+                color: $accent;
 
-                &:before {
-                    @include transform(scaleY(1));
-                }
+                // &:before {
+                //     @include transform(scaleY(1));
+                // }
 
-                &:after {
-                    @include transform(scale(1));
-                }
+                // &:after {
+                //     @include transform(scale(1));
+                // }
             }
 
             &:last-child {
                 border:0;
             }
+        }
+    }
+
+    .header-nav--secondary {
+        a {
+            color: $text-gray;
         }
     }
 

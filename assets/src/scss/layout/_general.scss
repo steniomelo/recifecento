@@ -6,9 +6,10 @@ html {
 body {
     font-family: 'ITC Avant Garde Gothic';
     font-weight: normal !important;
-    color: $primary;
+    color: $text-primary;
     font-size:12px;
     overflow-x:hidden;
+    background-color: $gray3;
     
     &.search-opnened {
         overflow: hidden;

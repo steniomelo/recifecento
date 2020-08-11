@@ -1,9 +1,16 @@
-$black:         #3d4345;
+$black:         #333333;
 $blue:          #0d2345;
+$red:           #E3072A;
+$yellow:         #F8A61F;
 $gray:          rgba(#cccccc, .5);
+$gray2:          #828282;
+$gray3:           #F4F6F8;
+$green:         #6FCF97;
 
-$primary:           $black;
-$accent:            $blue;
-$text-primary:      $primary;
-$text-accent:       $accent;
-$text-gray:         #babbba;
+
+$primary:           $red;
+$accent:            $yellow;
+$text-primary:      $black;
+$text-accent:       $yellow;
+$text-gray:         $gray2;
+$success:           $green;

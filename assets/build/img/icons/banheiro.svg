@@ -1,1 +1,20 @@
-<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"><g fill="none"><path d="M13.25 1.375h-2.125v3.312a1.063 1.063 0 0 0 2.125 0V1.376zm6.938 11.313h-2.125V1.5a1.063 1.063 0 0 1 2.125 0v11.188z" stroke="#D8D8D8" stroke-width=".5" fill="#D8D8D8"/><rect stroke="#D8D8D8" stroke-width=".5" fill="#D8D8D8" transform="matrix(-1 0 0 1 31.125 0)" x="11.125" y=".25" width="8.875" height="2.125" rx="1.063"/><rect stroke="#D8D8D8" stroke-width=".5" fill="#D8D8D8" transform="matrix(-1 0 0 1 24.375 0)" x="8.875" y="5.125" width="6.625" height="2.125" rx="1.063"/><path d="M2.959 14.25a1.643 1.643 0 0 0-1.368 2.554l1.611 2.42a3.562 3.562 0 0 0 2.966 1.588h11.731a3.563 3.563 0 0 0 3.005-1.649l1.488-2.337a1.676 1.676 0 0 0-1.413-2.576H2.959z" stroke="#D8D8D8" stroke-width="2.625"/><path d="M19.56 19.193l2.044 2.918a1.313 1.313 0 0 1-2.15 1.506l-2.044-2.919 2.15-1.505zM6.663 20.698L4.62 23.617a1.313 1.313 0 0 1-2.15-1.506l2.043-2.918 2.15 1.505z" fill="#D8D8D8"/></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>1B5CE3C6-B73A-4F16-B213-66889DDB9571</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon/cinza/banheiro" fill-rule="nonzero">
+            <g id="icon/cinza/banheiro/large">
+                <path d="M10,2.5 L10,4.625 L13.3125,4.625 C13.8993025,4.625 14.375,4.14930255 14.375,3.5625 C14.375,2.97569745 13.8993025,2.5 13.3125,2.5 L10,2.5 Z" id="Rectangle-4" stroke="#D8D8D8" stroke-width="0.5" fill="#D8D8D8" transform="translate(12.187500, 3.562500) rotate(-270.000000) translate(-12.187500, -3.562500) "></path>
+                <path d="M13,5.5 L13,7.625 L24.1875,7.625 C24.7743025,7.625 25.25,7.14930255 25.25,6.5625 C25.25,5.97569745 24.7743025,5.5 24.1875,5.5 L13,5.5 Z" id="Rectangle-4" stroke="#D8D8D8" stroke-width="0.5" fill="#D8D8D8" transform="translate(19.125000, 6.562500) scale(-1, 1) rotate(-90.000000) translate(-19.125000, -6.562500) "></path>
+                <rect id="Rectangle-4" stroke="#D8D8D8" stroke-width="0.5" fill="#D8D8D8" transform="translate(15.562500, 1.312500) scale(-1, 1) rotate(-360.000000) translate(-15.562500, -1.312500) " x="11.125" y="0.25" width="8.875" height="2.125" rx="1.0625"></rect>
+                <rect id="Rectangle-4" stroke="#D8D8D8" stroke-width="0.5" fill="#D8D8D8" transform="translate(12.187500, 6.187500) scale(-1, 1) rotate(-360.000000) translate(-12.187500, -6.187500) " x="8.875" y="5.125" width="6.625" height="2.125" rx="1.0625"></rect>
+                <path d="M2.95893184,14.25 C2.63488042,14.25 2.31806201,14.3458063 2.04831169,14.5253727 C1.29280689,15.0282943 1.08804777,16.0484505 1.59096939,16.8039553 L3.20199278,19.2240857 C3.8625144,20.2163422 4.97552773,20.8125 6.1675268,20.8125 L17.8992378,20.8125 C19.1169245,20.8125 20.2502612,20.1905537 20.9042779,19.1634107 L22.3923895,16.8263092 C22.563678,16.5572979 22.6546635,16.2450019 22.6546635,15.9260868 C22.6546635,15.0004096 21.9042539,14.25 20.9785767,14.25 L2.95893184,14.25 Z" id="Rectangle-3" stroke="#D8D8D8" stroke-width="2.625"></path>
+                <path d="M17.4456385,20.6298202 L21.0081385,20.6298202 C21.7330122,20.6298202 22.3206385,21.2174464 22.3206385,21.9423202 L22.3206385,21.9423202 C22.3206385,22.6671939 21.7330122,23.2548202 21.0081385,23.2548202 L17.4456385,23.2548202 L17.4456385,20.6298202 Z" id="Rectangle-4" fill="#D8D8D8" transform="translate(19.883138, 21.942320) rotate(-305.000000) translate(-19.883138, -21.942320) "></path>
+                <path d="M1.75232141,20.6298202 L5.31482141,20.6298202 C6.03969514,20.6298202 6.62732141,21.2174464 6.62732141,21.9423202 L6.62732141,21.9423202 C6.62732141,22.6671939 6.03969514,23.2548202 5.31482141,23.2548202 L1.75232141,23.2548202 L1.75232141,20.6298202 Z" id="Rectangle-4" fill="#D8D8D8" transform="translate(4.189821, 21.942320) rotate(-235.000000) translate(-4.189821, -21.942320) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

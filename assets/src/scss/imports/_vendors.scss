@@ -7,12 +7,12 @@
 
 .mCS-ang.mCSB_scrollTools .mCSB_draggerRail{ background-color:#e5e5e5; }
 
-.mCS-ang.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ background-color: $text-gray; }
+.mCS-ang.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ background-color: $gray; }
 
-.mCS-ang.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{ background-color:$text-gray; }
+.mCS-ang.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{ background-color:$gray; }
 
 .mCS-ang.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
-.mCS-ang.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{ background-color:darken($text-gray,10%); }
+.mCS-ang.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{ background-color:darken($gray,10%); }
 
 .mCS-ang.mCSB_scrollTools .mCSB_buttonUp{ background-position: -80px 0; }
 

@@ -10,46 +10,12 @@
 ?>
 
 <div id="footer">
-	<?php if(is_page('home')) : ?>
-	<div id="footer-contact" class="d-none d-md-flex">
-		<div class="h-space d-none d-lg-flex"></div>
-		<div class="contact-title">
-			<h2><?php echo get_the_title($GLOBALS['contato']->ID); ?></h2>
-		</div>
-		<div class="contact-phone">
-			<img src="<?php echo ASSETS;?>/img/icons/phone.svg" alt="">
-			<span><?php echo $GLOBALS['campos']['contato']['telefone']; ?></span>
-			<img src="<?php echo ASSETS;?>/img/icons/whatsapp.svg" alt="">
-		</div>
-		<!-- <div class="contact-whatsapp">
-			<span><?php echo $GLOBALS['campos']['contato']['whatsapp']; ?></span>
-		</div> -->
-		<div class="h-space d-none d-lg-flex"></div>
-	</div>
-	<?php endif; ?>
-	<nav class="footer-nav d-none d-md-flex">
-		<?php wp_nav_menu( array( 'theme_location' => 'menu-secundário', 'container' => ' ' ) );?>
 
-		<!-- <a href="<?php echo ROTA_IMOVEIS;?>/lancamentos">
-			<span>Lançamento</span>
-		</a>
-		<a href="<?php echo ROTA_IMOVEIS;?>/em-construcao">
-			<span>Em construção</span>
-		</a>
-		<a href="<?php echo ROTA_IMOVEIS;?>/pronto">
-			<span>Pronto para morar</span>
-		</a>
-		<a href="<?php echo ROTA_IMOVEIS;?>/litoral">
-			<span>Litoral</span>
-		</a>
-		<a href="<?php echo ROTA_IMOVEIS;?>/minha-casa-minha-vida">
-			<span>Minha Casa Minha Vida</span>
-		</a> -->
-	</nav>
+	
 
 	<div id="footer-info">
 		<div class="info-logo d-none d-md-block">
-			<img src="<?php echo ASSETS;?>/img/layout/logo-completo@3x.png">
+			<img src="<?php echo ASSETS;?>/img/layout/logo.png">
 		</div>
 		<nav class="info-nav d-none d-md-block">
 			<?php wp_nav_menu( array( 'theme_location' => 'menu-institucional', 'container' => ' ' ) );?>

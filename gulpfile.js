@@ -61,7 +61,7 @@ gulp.task('sass', function () {
 
 gulp.task('images', function () {
     return gulp.src(src + 'img/**/*')
-        .pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
+        //.pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
         .pipe(gulp.dest(dest + 'img'));
 });
 

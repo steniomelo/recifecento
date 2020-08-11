@@ -1,48 +1,7 @@
 <?php
-// if(isset($_GET['json'])) :
 
-//     header('Content-type: application/json');
+// Template name: Página Principal
 
-// endif;
-
-// $apitoken = APITOKEN;
-// $qtdImoveis = 6;
-
-switch (get_query_var('imoveis_cat')) {
-    case 'lancamentos':
-        $title = 'Lançamentos';
-        break;
-    case 'em-construcao':
-        $title = "Em Construção";
-        break;
-    case 'pronto':
-        $title = "Pronto para morar";
-        break;
-    case 'litoral':
-        $title = "Litoral";
-        break;
-    case 'empresarial':
-        $title = "Empresarial";
-        break;
-    case 'minha-casa-minha-vida':
-        $title = "Minha Casa Minha Vida";
-        break;
-    case 'busca':
-        $title = "Resultado da busca";
-        break;
-    default: 
-        $title = "Resultado da busca";
-        break;
-}
-
-// if(isset($_GET['json'])) :
-
-//     $imoveis = listarImoveis($filtro);
-//     echo json_encode($imoveis);
-
-// endif;
-
-// if(!isset($_GET['json'])) :
 
 get_header(); 
 ?>
@@ -57,28 +16,14 @@ get_header();
         if (have_posts()) : while (have_posts()) : the_post(); 
     ?>
 
-        <?php
-            //$imoveisTotal = 0;
-            // $imoveis = listarImoveis($filtro);
-            //$imoveisTotal = totalImoveis($filtro);
-        ?>
 
         <div class="d-flex imoveis-list">
-            <div class="col-lg-7 col-left">
-
+            <div class="col-xl-6 col-left">
 
                 <div class="imoveis">
                     <div class="imoveis-container">
                         <div class="row imoveis-row">
-                            <?php
-                            //foreach($imoveis as $imovel) {  ?>
-                                <!-- <div class="col-sm-6">
-                                    <?php 
-                                        // set_query_var( 'imovel', $imovel );
-                                        // get_template_part( 'partials/imovel', 'card' );
-                                    ?>
-                                </div> -->
-                            <?php //} ?>
+                            
                         </div>
 
                         <div class="imoveis-blank">
@@ -95,7 +40,7 @@ get_header();
                 </div>
 
             </div>
-            <div class="col-lg-5 col-right">
+            <div class="col-xl-6 col-right">
                 <div id="map"></div>
             </div>
         </div>

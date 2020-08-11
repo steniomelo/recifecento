@@ -46,11 +46,10 @@ if ( function_exists( 'dslc_hf_get_header' ) ) {
 			<div class="header-logo">
 				<div class="logo">
 					<a href="<?php echo BASE;?>">
-						<img src="<?php echo ASSETS;?>/img/layout/logo-header-footer.png" class="logo-branco" srcset="<?php echo ASSETS;?>/img/layout/logo-header-footer@2x.png 2x, <?php echo ASSETS;?>/img/layout/logo-header-footer@3x.png 3x">
-						<img src="<?php echo ASSETS;?>/img/layout/logo-header-footer.png" class="logo-azul" srcset="<?php echo ASSETS;?>/img/layout/logo-header-footer@2x.png 2x, <?php echo ASSETS;?>/img/layout/logo-header-footer@3x.png 3x">
+						<img src="<?php echo ASSETS;?>/img/layout/logo.png" class="header-logo__img">
 					</a>
 				</div>
-				<button class="hamburger" type="button">
+				<button class="hamburger d-block d-sm-none" type="button">
 					<span class="hamburger-box">
 						<span class="hamburger-inner"></span>
 					</span>
@@ -62,18 +61,14 @@ if ( function_exists( 'dslc_hf_get_header' ) ) {
 				
 					wp_nav_menu( array( 'theme_location' => 'menu-principal', 'container' => ' ' ) );
 				 ?>
-				<!-- <a href="<?php echo ROTA_IMOVEIS;?>/lancamentos">
-					<span>Lançamento</span>
-				</a>
-				<a href="<?php echo ROTA_IMOVEIS;?>/em-construcao">
-					<span>Em construção</span>
-				</a>
-				<a href="<?php echo ROTA_IMOVEIS;?>/pronto">
-					<span>Pronto para morar</span>
-				</a>
-				<a href="<?php echo ROTA_IMOVEIS;?>/litoral">
-					<span>Litoral</span>
-				</a> -->
+				
+			</nav>
+			<nav class="header-nav header-nav--secondary ml-auto">
+				<?php 
+				
+					wp_nav_menu( array( 'theme_location' => 'menu-secundário', 'container' => ' ' ) );
+				 ?>
+				
 			</nav>
 
 			

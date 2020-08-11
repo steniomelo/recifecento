@@ -433,31 +433,6 @@ function getImoveis(more) {
             toogleLoader(false);
 
 
-            function latLng(address) {
-                $.ajax({
-                    url: 'https://maps.google.com/maps/api/geocode/json?key=' + ajaxapi.google_api + '&address=' + address.post_address + ' - ' + address.post_neighborhood,
-                    type: 'GET',
-                    success: function (response) {
-
-                        //var i = $i+1;
-
-
-                        if (response.status == 'OK') {
-                            locations.push(response.results[0].geometry.location)
-                            imoveisHtml.push(responseHtml[$i]);
-                        }
-                        if (($i + 1) == $imoveisCarregadosTotais) {
-                            initMap();
-                            toogleLoader(false);
-                        } else {
-                            latLng(responseImoveis[$i + 1]);
-                        }
-
-                        $i++;
-                    }
-                })
-            }
-
             if ($imoveisTotais == 1) {
                 $('.listItemTotal [data-total]').html('Achamos <strong class="totalImoveis">' + $imoveisTotais + '</strong> imóvel com essas características');
             } else if ($imoveisTotais == 0 || $imoveisTotais > 1) {
@@ -554,8 +529,8 @@ function initMap() {
 
 
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 10,
-        center: { lat: -8.0421584, lng: -35.0088479 },
+        zoom: 14,
+        center: { lat: -8.06094, lng: -34.8801875 },
         mapTypeControl: false,
         streetViewControl: false,
         rotateControl: false,

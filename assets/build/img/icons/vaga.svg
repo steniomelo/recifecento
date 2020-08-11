@@ -1,1 +1,21 @@
-<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"><g fill="none"><path d="M20.437 20.063h-3v2.625c0 .207.168.375.375.375h2.25a.375.375 0 0 0 .375-.375v-2.625zm-13.874 0h-3v2.625c0 .207.167.375.374.375h2.25a.375.375 0 0 0 .375-.375v-2.625z" stroke="#D8D8D8" stroke-width="1.875"/><path d="M4.248 9.938h15.49l-1.114-5.214a4.313 4.313 0 0 0-4.218-3.411H9.58a4.312 4.312 0 0 0-4.217 3.41L4.248 9.939z" stroke="#D8D8D8" stroke-width="2.625"/><rect stroke="#D8D8D8" stroke-width="2.625" x="1.313" y="9.938" width="21.375" height="9.75" rx="1.875"/><rect stroke="#D8D8D8" stroke-width="1.5" transform="rotate(-90 17.438 14.812)" x="15.75" y="13.125" width="3.375" height="3.375" rx="1.688"/><rect fill="#D8D8D8" x="10.125" y="13.125" width="3.75" height="1.125" rx=".563"/><rect fill="#D8D8D8" x="10.125" y="15.375" width="3.75" height="1.125" rx=".563"/><rect stroke="#D8D8D8" stroke-width="1.5" transform="rotate(-90 6.563 14.813)" x="4.875" y="13.125" width="3.375" height="3.375" rx="1.688"/></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>E4891308-F39F-415D-9E1F-E8B3FE04D9A7</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon/cinza/vaga" fill-rule="nonzero">
+            <g id="icon/cinza/vagas/large">
+                <path d="M17.4375,20.0625 L17.4375,23.0625 L20.0625,23.0625 C20.2696068,23.0625 20.4375,22.8946068 20.4375,22.6875 L20.4375,20.4375 C20.4375,20.2303932 20.2696068,20.0625 20.0625,20.0625 L17.4375,20.0625 Z" id="Rectangle-4" stroke="#D8D8D8" stroke-width="1.875" transform="translate(18.937500, 21.562500) rotate(-270.000000) translate(-18.937500, -21.562500) "></path>
+                <path d="M3.5625,20.0625 L3.5625,23.0625 L6.1875,23.0625 C6.39460678,23.0625 6.5625,22.8946068 6.5625,22.6875 L6.5625,20.4375 C6.5625,20.2303932 6.39460678,20.0625 6.1875,20.0625 L3.5625,20.0625 Z" id="Rectangle-4" stroke="#D8D8D8" stroke-width="1.875" transform="translate(5.062500, 21.562500) rotate(-270.000000) translate(-5.062500, -21.562500) "></path>
+                <path d="M4.24761106,9.9375 L19.7377046,9.9375 L18.6235493,4.72378047 C18.1983999,2.73428245 16.4406857,1.3125 14.4062682,1.3125 L9.57904738,1.3125 C7.54462993,1.3125 5.78691571,2.73428245 5.36176632,4.72378047 L4.24761106,9.9375 Z" id="Rectangle-2" stroke="#D8D8D8" stroke-width="2.625" transform="translate(11.992658, 5.625000) rotate(-360.000000) translate(-11.992658, -5.625000) "></path>
+                <rect id="Rectangle-2" stroke="#D8D8D8" stroke-width="2.625" x="1.3125" y="9.9375" width="21.375" height="9.75" rx="1.875"></rect>
+                <rect id="Rectangle-4" stroke="#D8D8D8" stroke-width="1.5" transform="translate(17.437500, 14.812500) rotate(-90.000000) translate(-17.437500, -14.812500) " x="15.75" y="13.125" width="3.375" height="3.375" rx="1.6875"></rect>
+                <rect id="Rectangle-3" fill="#D8D8D8" x="10.125" y="13.125" width="3.75" height="1.125" rx="0.5625"></rect>
+                <rect id="Rectangle-3" fill="#D8D8D8" x="10.125" y="15.375" width="3.75" height="1.125" rx="0.5625"></rect>
+                <rect id="Rectangle-4" stroke="#D8D8D8" stroke-width="1.5" transform="translate(6.562500, 14.812500) rotate(-90.000000) translate(-6.562500, -14.812500) " x="4.875" y="13.125" width="3.375" height="3.375" rx="1.6875"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

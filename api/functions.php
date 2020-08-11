@@ -35,6 +35,55 @@ function formatarElevadores($imovel) {
 	return $imovel->nelevadores > 1 ? $imovel->nelevadores.' '.$GLOBALS['campos']['config']['geral']['elevadores'] : $imovel->nelevadores.' '.$GLOBALS['campos']['config']['geral']['elevadores'];
 }
 
+function isAberto($horarios) {
+	$map = array(
+		'á' => 'a',
+		'à' => 'a',
+		'ã' => 'a',
+		'â' => 'a',
+		'é' => 'e',
+		'ê' => 'e',
+		'í' => 'i',
+		'ó' => 'o',
+		'ô' => 'o',
+		'õ' => 'o',
+		'ú' => 'u',
+		'ü' => 'u',
+		'ç' => 'c',
+		'Á' => 'A',
+		'À' => 'A',
+		'Ã' => 'A',
+		'Â' => 'A',
+		'É' => 'E',
+		'Ê' => 'E',
+		'Í' => 'I',
+		'Ó' => 'O',
+		'Ô' => 'O',
+		'Õ' => 'O',
+		'Ú' => 'U',
+		'Ü' => 'U',
+		'Ç' => 'C'
+	);
+	$dayofweek = strftime('%A', strtotime('today'));
+	$dayofweek = explode(" ", $dayofweek);  
+	$dayofweek = strtolower(strtr($dayofweek[0], $map));
+
+	return (in_array($dayofweek, $horarios['dias_da_semana']) && compareDates($horarios['horario_de_funcionamento']['abertura'], $horarios['horario_de_funcionamento']['fechamento'])) ? 'Aberto' : 'Fechado';
+	//return date(strtotime($horarios['horario_de_funcionamento']['abertura']), time());
+}
+
+function compareDates($start, $end) {
+	$now = date(time());
+    $_start = date(strtotime($start), time());
+    $_end = date(strtotime($end), time());
+
+    if ($_start < $now && $_end > $now) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
 add_action ('wp_ajax_nopriv_get_estabelecimentos', 'get_estabelecimentos');
 add_action ('wp_ajax_get_estabelecimentos', 'get_estabelecimentos');
 
@@ -47,7 +96,7 @@ function get_estabelecimentos() {
 	$post = $_POST['post'];
 	$filters = $_POST['filters'];
 	$page = $_POST['page'];
-	$qtdImoveis = 4;
+	$qtdImoveis = 10;
 
 	// $produto = [
 	// 			'key' => 'produtos',
@@ -86,31 +135,35 @@ function get_estabelecimentos() {
 		$imovel->lat = $endereco['lat'];
 		$imovel->lng = $endereco['lng'];
 		$imovel->address = $endereco;
-		$imovel->horario = get_field('horario_de_funcionamento', $imovel->ID);
+		$imovel->horarios = get_field('horario_de_funcionamento', $imovel->ID);
+		$imovel->categoria = get_the_category($imovel->ID);
 
 			array_push($html, '<div class="col-sm-12">
 				<div class="list-item imovel-card ">
 					<a href="'. get_post_permalink($imovel->ID) .'">
 					<div class="imovel-container">
-						<div class="imovel-content">
+						<div class="imovel-content d-flex">
+
+							<div class="imovel-thumbnail">
+								'.get_the_post_thumbnail($imovel->ID, array(183,177)).'
+							</div>
 							
 
 							<div class="imovel-details">
-								<header class="imovel-title">
-									<h3 class="imovel-nome">'.$imovel->post_title.'</h3>
-									<i class="arrow-hover gray"></i>	
+								<header class="imovel-title d-flex">
+									<div>	
+										<h2 class="imovel-nome">'.$imovel->post_title.'</h2>
+										<small class="imovel-categoria">'. $imovel->categoria[0]->name .'</small>
+									</div>
+									
+									<div class="imovel-aberto ml-auto '. strtolower(isAberto($imovel->horarios)) .'">'. isAberto($imovel->horarios) .'</div>
 
 								</header>
 								
 
 								<div class="imovel-description">'. $imovel->address['address'] .'</div>
 
-								<div class="imovel-price">
-									<small>A partir de</small>
-									<strong class="price">
-										<small class="price-cifrao">R$</small>
-									</strong>
-								</div>
+								
 							</div>
 						</div>
 

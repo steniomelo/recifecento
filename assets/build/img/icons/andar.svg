@@ -1,1 +1,17 @@
-<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"><g fill="none"><path d="M19.125 21.375h3.563a1.313 1.313 0 1 1 0 2.625h-3.563v-2.625zm-14.25 0H1.312a1.313 1.313 0 1 0 0 2.625h3.563v-2.625z" fill="#D8D8D8"/><path d="M5.063 22.688h13.875V5.625a4.312 4.312 0 0 0-4.313-4.313h-5.25a4.313 4.313 0 0 0-4.313 4.313v17.063z" stroke="#D8D8D8" stroke-width="2.625"/><rect stroke="#D8D8D8" stroke-width="1.5" fill="#D8D8D8" transform="rotate(-90 14.813 12.188)" x="14.25" y="11.625" width="1.125" height="1.125" rx=".563"/></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>4F9670EB-600C-42EE-A51E-92C952A11458</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon/cinza/unidades" fill-rule="nonzero">
+            <g id="icon/cinza/unidades/large">
+                <path d="M19.125,21.375 L22.6875,21.375 C23.4123737,21.375 24,21.9626263 24,22.6875 L24,22.6875 C24,23.4123737 23.4123737,24 22.6875,24 L19.125,24 L19.125,21.375 Z" id="Rectangle-4" fill="#D8D8D8"></path>
+                <path d="M0,21.375 L3.5625,21.375 C4.28737373,21.375 4.875,21.9626263 4.875,22.6875 L4.875,22.6875 C4.875,23.4123737 4.28737373,24 3.5625,24 L0,24 L0,21.375 Z" id="Rectangle-4" fill="#D8D8D8" transform="translate(2.437500, 22.687500) scale(-1, 1) translate(-2.437500, -22.687500) "></path>
+                <path d="M5.0625,22.6875 L18.9375,22.6875 L18.9375,5.625 C18.9375,3.24327202 17.006728,1.3125 14.625,1.3125 L9.375,1.3125 C6.99327202,1.3125 5.0625,3.24327202 5.0625,5.625 L5.0625,22.6875 Z" id="Rectangle-2" stroke="#D8D8D8" stroke-width="2.625"></path>
+                <rect id="Rectangle-4" stroke="#D8D8D8" stroke-width="1.5" fill="#D8D8D8" transform="translate(14.812500, 12.187500) rotate(-90.000000) translate(-14.812500, -12.187500) " x="14.25" y="11.625" width="1.125" height="1.125" rx="0.5625"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
