@@ -1,7 +1,17 @@
+.filtros {
+    background: white;
+    padding: 20px 0;
+
+    .container {
+        padding: 0;
+    }
+}
+
 .filters {
     @include flexbox();
     @include align-items(center);
     @include align-content(center);
+    @include flex-wrap(nowrap);
 
     .slider-container {
         width: 100% !important;
@@ -55,6 +65,7 @@
     .filter {
         position: relative;
         margin: 0 10px;
+        flex: 1 1 auto;
 
         > button {
             min-width: 100px;

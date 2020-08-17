@@ -33,6 +33,7 @@
         @include trans();
         position: relative;
         border-right: 0;
+        padding-left: 0;
 
         .logo {
             max-width: 200px;
@@ -128,6 +129,10 @@
             @include flex-grow(1);
 
             margin: 0;
+        }
+
+        #menu-menu-secundario {
+            @include justify-content(flex-end);
         }
         
         li {

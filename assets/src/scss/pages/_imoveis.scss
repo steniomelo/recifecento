@@ -1,6 +1,7 @@
 #imoveis {
     position: relative;
-        padding-left: calc(50% - 570px);
+    // padding-left: calc(50% - 570px);
+    padding-top: 40px;
 
 
     [data-loader] {
@@ -41,8 +42,10 @@
 
     .imoveis-list {
 
+        padding-left: calc(50% - 570px);
+
         .col-left {
-            padding: 30px;
+            padding-right: 30px;
             height: calc(150vh - 65px);
 
             .imoveis {
@@ -54,7 +57,7 @@
             }
 
             .imoveis-row {
-                padding: 10px;
+                padding-top: 0;
                 .imovel-card {
                     //display: none;
                 }

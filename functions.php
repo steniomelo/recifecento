@@ -20,7 +20,33 @@ $GLOBALS['campos']['contato'] = get_fields($GLOBALS['contato']->ID);
 $GLOBALS['campos']['home'] = get_fields($home->ID);
 $GLOBALS['campos']['config'] = get_fields($configuracoes->ID);
 
-//var_dump($GLOBALS['campos']['config']);
+add_filter( 'http_request_host_is_external', '__return_true' );
+
+add_action( 'pre_get_posts', 'front_page' );
+
+function front_page( $query ) 
+{
+    if ( $query->is_main_query() && is_front_page() && $query->is_home() ) 
+    {
+		$query->set( 'category_name', 'comercio' );
+		$query->set( 'cat', 2);
+		$query->is_page = 0;
+        $query->is_singular = 0;
+        $query->is_archive = 1;
+	}
+	
+    return $query;
+}
+
+function redirect_comercio()
+{
+    if ( is_category( 'comercio' ) ) {
+        $url = site_url();
+        wp_safe_redirect( $url, 301 );
+        exit();
+    }
+}
+add_action( 'template_redirect', 'redirect_comercio' );
 
 function my_acf_google_map_api( $api ){
 	
@@ -98,7 +124,6 @@ function load_scripts() {
 
 
 
-
 function register_my_menu() {
 	register_nav_menu('menu-principal',__( 'Menu Principal' ));
 	register_nav_menu('menu-secundário',__( 'Menu Secundário' ));
@@ -106,3 +131,4 @@ function register_my_menu() {
 	register_nav_menu('menu-idioma',__( 'Menu Idioma' ));
   }
 add_action( 'init', 'register_my_menu' );
+

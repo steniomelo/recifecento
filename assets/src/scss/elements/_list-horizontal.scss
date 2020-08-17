@@ -1,11 +1,11 @@
 .list-horizontal {
-    margin-bottom: 100px;
+    margin-bottom: 20px;
 
     .mCSB_scrollTools {
         @include make-container();
         max-width: 1140px;
         position: relative;
-        
+        left: 10px;
     }
 
     .list-items {
@@ -15,7 +15,7 @@
 
         &:not(.mCustomScrollbar) {
             @include flexbox();
-            padding-left: calc(50% - 570px);
+            padding-left: calc(50% - 560px);
         }
 
         &.mCustomScrollbar {
@@ -24,7 +24,7 @@
 
         .mCSB_container {
             @include flexbox();
-            padding-left: calc(50% - 570px);
+            padding-left: calc(50% - 552px);
         }
 
         .list-item {

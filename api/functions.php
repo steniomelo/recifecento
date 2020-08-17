@@ -84,6 +84,16 @@ function compareDates($start, $end) {
     }
 }
 
+function isRecomendado($recomendado) {
+	return ($recomendado) ? "<span class='imovel-recomendado'>Recomendado</span>" : "";
+}
+
+function formatarHorarios($horarios) {
+	if(!empty($horarios['dias_da_semana'])) {
+		return $horarios['dias_da_semana'][0] .' - '. end($horarios['dias_da_semana']). ' • ' .  $horarios['horario_de_funcionamento']['abertura'] . ' - ' . $horarios['horario_de_funcionamento']['fechamento'] . 'h';
+	}
+}
+
 add_action ('wp_ajax_nopriv_get_estabelecimentos', 'get_estabelecimentos');
 add_action ('wp_ajax_get_estabelecimentos', 'get_estabelecimentos');
 
@@ -97,23 +107,36 @@ function get_estabelecimentos() {
 	$filters = $_POST['filters'];
 	$page = $_POST['page'];
 	$qtdImoveis = 10;
+	$categoria = '';
 
-	// $produto = [
-	// 			'key' => 'produtos',
-	// 			'value' => 258,
-	// 			'compare' => 'LIKE',
-	// 		];
+	if($filters['produto']) {
+	$produto = [
+				'key' => 'produtos',
+				'value' => $filters['produto'],
+				'compare' => 'LIKE',
+			];
 
-	// 		array_push($query_array, $produto); // Busca por produto
+			array_push($query_array, $produto); // Busca por produto
+	}
 
 	//var_dump($query); die();
+	
+	
+	if($query_vars['category_name'] && !$filters['subcategoria']) {
+		//var_dump();
+		$categoria = $query_vars['category_name'];
+	} else if($filters['subcategoria']) {
+		$categoria = $filters['subcategoria'];
+	} else {
+		$categoria = 'comercio';
+	}
 
 	$items = new WP_Query(array(
-		// 's' => 'L.', //Busca por termo keyword
+		's' => $filters['keyword'], //Busca por termo keyword
 		'post_type' => 'estabelecimentos',
 		'post_status' => 'publish',
 		'posts_per_page' => $qtdImoveis,
-		'category_name' => $query_vars['category_name'],
+		'category_name' => $categoria,
 		'paged' => $page,
 		'meta_query' => $query_array,
 	));
@@ -137,6 +160,7 @@ function get_estabelecimentos() {
 		$imovel->address = $endereco;
 		$imovel->horarios = get_field('horario_de_funcionamento', $imovel->ID);
 		$imovel->categoria = get_the_category($imovel->ID);
+		$imovel->recomendado = get_field('recomendado', $imovel->ID);
 
 			array_push($html, '<div class="col-sm-12">
 				<div class="list-item imovel-card ">
@@ -145,6 +169,7 @@ function get_estabelecimentos() {
 						<div class="imovel-content d-flex">
 
 							<div class="imovel-thumbnail">
+								'. isRecomendado($imovel->recomendado) .'
 								'.get_the_post_thumbnail($imovel->ID, array(183,177)).'
 							</div>
 							
@@ -161,7 +186,10 @@ function get_estabelecimentos() {
 								</header>
 								
 
-								<div class="imovel-description">'. $imovel->address['address'] .'</div>
+								<div class="imovel-description">
+									<div>'.  formatarHorarios($imovel->horarios) .' </div>
+									<div>'. $imovel->address['address'] .'</div>
+								</div>
 
 								
 							</div>

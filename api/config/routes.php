@@ -13,13 +13,13 @@
         //     'index.php?category=$matches[1]',
         //     'top' );
             
-        add_rewrite_rule(
-            'imoveis/imovel/([^/]*)/?$',
-            'index.php?pagename=imovel&imovel_id=$matches[1]',
-            'top' );
+        // add_rewrite_rule(
+        //     'estabelecimentos/([^/]*)/?$',
+        //     'index.php?pagename=estabelecimento&estabelecimento_id=$matches[1]',
+        //     'top' );
 
         // ROTAS
-        define('ROTA_IMOVELDETALHE', BASE.'/imoveis/imovel/'); 
+        define('ROTA_IMOVELDETALHE', BASE.'/estabelecimentos/imovel/'); 
         define('ROTA_IMOVEIS', BASE.'/imoveis'); 
             
     }

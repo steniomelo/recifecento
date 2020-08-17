@@ -8,16 +8,16 @@
  */
 get_header();
 
-$my_slug = get_query_var('imovel_id');
+// $my_slug = get_query_var('imovel_id');
 
-$args = array(
-  'name' => $my_slug,
-  'post_type' => 'properties',
-  'post_status' => 'publish',
-  'posts_per_page' => 1
-);
+// $args = array(
+//   'name' => $my_slug,
+//   'post_type' => 'properties',
+//   'post_status' => 'publish',
+//   'posts_per_page' => 1
+// );
 
-$imovel = get_posts($args);
+// $imovel = get_posts($args);
 $photo = get_field('properties_photo_cover', $imovel[0]->ID);
 $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
 //the_field('properties_builders', $imovel[0]->ID);
@@ -25,38 +25,22 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
         <!-- <pre>
             <?php //print_r($imovel); ?>
         </pre> -->
-<div id="imovel-detalhe">
+<?php if(have_posts()): while(have_posts()) : the_post(); ?>
+<div id="imovel-detalhe" class="container">
     <header class="imovel-header">
-        <div class="container">
-            <div class="imovel-title mr-auto">
-                <h2 class="imovel-bairro">
-                    <?php 
-                        $explode_neighborhood = explode('-', get_field('properties_neighborhood', $imovel[0]->ID));
-                        echo $explode_neighborhood[0];
-                    ?>
-                </h2>
-                <h3 class="imovel-nome">
-                    <?php echo get_field('properties_name', $imovel[0]->ID); ?>
-                </h3>
+        <div class="row">
+            <div class="col-sm-6 imovel-header__details">
+                <div class="imovel-header__details-text">
+                    <?php the_title(); ?>
+
+                </div>
+                <div class="imovel-header__details-photos">
+                    <?php $photos = get_field(''); ?>
+                </div>
             </div>
-
-            <!-- <div class="imovel-construtora d-none d-sm-block">
-                <small>Queiroz Galvão</small>
-            </div> -->
-
-            <div class="imovel-price">
-                <hr class="d-none d-sm-block">
-                <small>A partir de</small>
-                <strong class="price">
-                    <small class="price-cifrao">R$</small>
-                    <span class="price-valor"><?php echo number_format(get_field('properties_price', $imovel[0]->ID), 2, ',', '.'); ?></span>
-                </strong>
+            <div class="col-sm-6">
+                Mapa
             </div>
-
-            <a href="#vamosnegociar" class="imovel-btn d-none d-sm-flex">
-                <span>Vamos negociar</span>
-                <i class="arrow-hover"></i>
-            </a>
         </div>
     </header>
     
@@ -375,6 +359,8 @@ function initMap() {
 
 </script>
 
+	<?php endwhile; ?>
+	<?php endif; ?>
 
 <?php
 wp_enqueue_script('google-maps');

@@ -20,10 +20,10 @@ select,
    	-moz-appearance:    none;
    	appearance:         none;
 	outline: none;
-	background-color: white;
+	background-color: $gray3;
 	@include border-radius(3px);
 	padding: 13px 17px;
-	border:1px solid #ddd;
+	border:0px solid #ddd;
 	font-size:12px;
 	height: auto;
 	line-height: initial !important;
@@ -49,11 +49,12 @@ select,
 }
 
 .select, .listselect-container {
-	background-color: white;
+	background-color: $gray3;
 	padding: 0;
 	position: relative;
 	display: inline-block;
 	width: 100%;
+	border: 0;
 	
 
 	&:before {
@@ -86,7 +87,7 @@ select,
 	}
 
 	.dropdown {
-		border: 1px solid $gray;
+		border: 0px solid $gray;
 		min-width: 170px;
 
 		&:before {
@@ -105,12 +106,15 @@ select,
 			height: 6px;
 			background-size: contain;
 			@include transition();
+					filter: invert(100%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+
 		}
 
 		.btn {
-			padding: 7px 15px;
+			padding: 10px 15px;
 			padding-right: 45px !important;
 			width: 100%;
+			font-size: 13px;
 			text-align: left;
 
 			&:after {

@@ -31,6 +31,7 @@
     "jquery-hammerjs": "^2.0.0",
     "jquery-range": "^1.0.0",
     "malihu-custom-scrollbar-plugin": "^3.1.5",
+    "natives": "^1.1.6",
     "popper.js": "^1.14.4",
     "slick-carousel": "^1.8.1"
   }
