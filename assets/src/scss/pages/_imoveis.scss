@@ -46,13 +46,15 @@
 
         .col-left {
             padding-right: 30px;
-            height: calc(150vh - 65px);
+            // height: calc(150vh - 65px);
+            height: calc(115vh);
 
             .imoveis {
                 position: relative;
                 .imoveis-container {
                     overflow: hidden;
-                    height: calc(150vh - 345px);
+                    // height: calc(150vh - 345px);
+                    height: calc(100vh - 20px);
                 }
             }
 
@@ -265,6 +267,9 @@
 @include media-breakpoint-down(md) {
     #imoveis {
         .imoveis-list {
+            @include flexbox();
+            @include flex-direction(column);
+
             .imoveis-list-header {
                 padding: 20px;
 
@@ -310,8 +315,9 @@
                 }
             }
             .col-left {
-                padding: 0;
+                padding: 20px;
                 height: auto;
+                order: 2;
 
                 .imoveis {
                     .imoveis-container {
@@ -321,7 +327,13 @@
             }
 
             .col-right {
-                display: none;
+                order: 1;
+                height: auto;
+                margin-bottom: 20px;
+
+                #map {
+                    height: 330px;
+                }
             }
         }
     }

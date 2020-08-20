@@ -35,6 +35,10 @@ function formatarElevadores($imovel) {
 	return $imovel->nelevadores > 1 ? $imovel->nelevadores.' '.$GLOBALS['campos']['config']['geral']['elevadores'] : $imovel->nelevadores.' '.$GLOBALS['campos']['config']['geral']['elevadores'];
 }
 
+function teste() {
+	return  'teste';
+}
+
 function isAberto($horarios) {
 	$map = array(
 		'á' => 'a',
@@ -85,7 +89,7 @@ function compareDates($start, $end) {
 }
 
 function isRecomendado($recomendado) {
-	return ($recomendado) ? "<span class='imovel-recomendado'>Recomendado</span>" : "";
+	return ($recomendado) ? '<span class="tags__recomendado recomendado"><img src="'.ASSETS.'/img/icons/star.svg" class="recomendado__icon">Recomendado</span>' : "";
 }
 
 function formatarHorarios($horarios) {
@@ -106,7 +110,7 @@ function get_estabelecimentos() {
 	$post = $_POST['post'];
 	$filters = $_POST['filters'];
 	$page = $_POST['page'];
-	$qtdImoveis = 10;
+	$qtdImoveis = 4;
 	$categoria = '';
 
 	if($filters['produto']) {
@@ -166,11 +170,11 @@ function get_estabelecimentos() {
 				<div class="list-item imovel-card ">
 					<a href="'. get_post_permalink($imovel->ID) .'">
 					<div class="imovel-container">
-						<div class="imovel-content d-flex">
+						<div class="imovel-content d-flex"> 
 
 							<div class="imovel-thumbnail">
 								'. isRecomendado($imovel->recomendado) .'
-								'.get_the_post_thumbnail($imovel->ID, array(183,177)).'
+								'.get_the_post_thumbnail($imovel->ID, array(183,177), array( 'class' => 'imovel-img' )).'
 							</div>
 							
 
@@ -181,7 +185,7 @@ function get_estabelecimentos() {
 										<small class="imovel-categoria">'. $imovel->categoria[0]->name .'</small>
 									</div>
 									
-									<div class="imovel-aberto ml-auto '. strtolower(isAberto($imovel->horarios)) .'">'. isAberto($imovel->horarios) .'</div>
+									<div class="imovel-aberto imovel-status ml-auto '. strtolower(isAberto($imovel->horarios)) .'">'. isAberto($imovel->horarios) .'</div>
 
 								</header>
 								

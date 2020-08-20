@@ -188,13 +188,14 @@
 }
 
 @include media-breakpoint-down(md) {
- .filters {
-     position: relative;
-     .filter {
-         position: initial;
-         .filter-box {
-            width: calc(100vw - 40px);
-         }
-     }
- }
+    .filtros {
+        padding: 0px 20px 20px 20px;
+    }
+    .filters {
+        @include flex-direction(column);
+
+        .filter {
+            margin: 5px 0;
+        }
+    }
 }

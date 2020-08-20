@@ -1,10 +1,10 @@
 @import "mixins/mixins";
 @import "mixins/flexbox";
-@import "imports/typography";
 @import "imports/colors";
 
 $grid-gutter-width: 15px;
 @import "imports/vendors";
+@import "imports/typography";
 
 /*--------------------------------------------------------------
 # Elements
@@ -28,6 +28,8 @@ $grid-gutter-width: 15px;
 @import "elements/dropdown";
 @import "elements/footer";
 @import "elements/tolvnow";
+@import "elements/recomendado";
+@import "elements/categoria";
 
 /*--------------------------------------------------------------
 # Forms

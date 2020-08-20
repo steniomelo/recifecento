@@ -125,9 +125,13 @@ select,
 		.dropdown-menu {
 			font-size: 14px;
 			width: 100%;
+			max-height: 300px;
+			overflow:hidden;
+			overflow-y:scroll;
 
 			.dropdown-item {
 				padding: 7px 12px;
+    			white-space: pre-wrap;
 			}
 		}
 

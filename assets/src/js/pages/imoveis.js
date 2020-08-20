@@ -17,9 +17,9 @@
         postVars();
         configFilters();
         getImoveis();
-        initMap();
+        //initMap();
         loadMoreBtn();
-        onScroll();
+        //onScroll();
         //loadMore();
     }
 
@@ -462,6 +462,7 @@
                 $i = 0;
 
                 toogleTotalImoveis(true);
+
                 toogleLoadMoreBtn(true);
 
                 var responseHtml = response.html;
@@ -514,11 +515,11 @@
                         },
                         scrollInertia: 100000,
                         scrollbarPosition: 'outside',
-                        callbacks: {
-                            onTotalScroll: function () {
-                                loadMore();
-                            }
-                        }
+                        // callbacks: {
+                        //     onTotalScroll: function () {
+                        //         loadMore();
+                        //     }
+                        // }
                     });
                 }
 

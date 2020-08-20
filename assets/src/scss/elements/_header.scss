@@ -1,3 +1,19 @@
+body {
+    &.archive:not([class*='category']) {
+        #header {
+            #menu-menu-principal {
+                li {
+                    &:first-child {
+                        a {
+                            color: $accent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 #header {
 
     background-color: white;
@@ -23,7 +39,7 @@
             padding: 15px 30px;
 
             @include media-breakpoint-down(md) {
-                padding: 15px 25px;
+                padding: 15px 0px;
             }
         }
     }
@@ -72,7 +88,7 @@
     .header-desktop {
         .header-logo {
             &.active {
-                background-color: $accent;
+                background-color: white;
     
                 .logo-branco {
                     opacity: 1;
@@ -80,7 +96,7 @@
     
                 .hamburger {
                     @extend .is-active;
-                    color: $accent;
+                    color: $primary;
     
                     .hamburger-inner, .hamburger-inner::after, .hamburger-inner::before {
                         background-color: white;
@@ -91,23 +107,26 @@
     }
 
     .header-mobile {
+        .header-container {
+            padding:15px;
+        }
         .header-logo {
             img {
-                width: 50px;
+                width: 200px;
             }
         }
     }
 
     .header-hamburger {
         &.active {
-            background-color: $accent;
+            background-color: white;
 
             .hamburger {
                 @extend .is-active;
-                color: $accent;
+                color: $primary;
 
                 .hamburger-inner, .hamburger-inner::after, .hamburger-inner::before {
-                    background-color: white;
+                    background-color: $primary;
                 }
             }
         }
@@ -146,11 +165,12 @@
                 border:0;
             }
 
-            &.current-menu-item {
+            &.current-menu-item, &[class*="current"] {
                 a {
                     color: $accent;
                 }
             }
+
 
 
         }

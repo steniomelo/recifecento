@@ -17,98 +17,20 @@
         }
     }
 
-    .imovel-img {
-        margin-bottom: 0;
+    .imovel-thumbnail {
         position: relative;
 
-        .slick-list {
-            &:before {
-                content: '';
-                display: block;
-                width: 150%;
-                height: 100%;
-                position: absolute;
-                top: 0;
-                left: 50%;
-                @include transform(translateX(-50%));
-                box-shadow: inset 0 -100px 100px rgba(0,0,0,.5);
-                z-index: 9999;
-                background: rgba(0,0,0,0.2);
-            }
-        }
-
-        .slick-arrow {
+        .tags__recomendado {
             position: absolute;
-            top: 50%;
-            width: 7px;
-            z-index: 9999;
-            @include transform(translateY(-50%));
-            @include trans();
-            @include opacity(.5);
-
-            &:before {
-                content: '';
-                background: url('../img/icons/arrow-slider.svg') no-repeat;
-                background-size: contain;
-                width: 7px;
-                height: 30px;
-                display: block;
-            }
-            
-            &:not(.slick-disabled) {
-                cursor: pointer;
-            }
-
-            &.slick-disabled {
-                @include opacity(.2);
-            }
-
-            &.slick-prev {
-                left: 20px;
-            }
-
-            &.slick-next {
-                right: 20px;
-                &:before {
-                    @include transform(rotate(180deg) translateY(9px));
-                }
-            }
-
-            &:not(.slick-disabled):hover {
-                @include opacity(1);
-            }
+            top: 10px;
+            left: 10px;
         }
-
-        .images {
-            margin-bottom: 0;
-            img {
-                width: 100%;
-                height: 260px;
-                object-fit: cover;
-            }
-        }
-
-        .slick-dots {
-            bottom: 15px;
-
-            li {
-                button {
-                    
-                    &:before {
-                        @include opacity(1);
-                        color: white;
-                        font-size: 20px;
-                    }
+                        .imovel-img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
                 }
 
-                &.slick-active {
-                    button {
-                        border: 1px solid white;
-                        @include border-radius(100px);
-                    }
-                }
-            }
-        }
     }
 
     .imovel-details {
@@ -230,29 +152,14 @@
         
         .imovel-content {
             @include flexbox();
-            padding-bottom: 74px;
+            @include flex-direction(column);
 
-            .imovel-img {
-                @include flex(0 0 117px);
-                width: 117px;
-
-                img {
-                    height: 150px;
-                    display: none;
-
-                    &:first-child {
-                        display: block;
-                    }
-                }
-            }
 
             .imovel-details {
                 .imovel-title {
                     border: 0;
                 }
-                .imovel-description {
-                    display: none;
-                }
+
 
                 .imovel-info {
                     position: absolute;

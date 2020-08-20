@@ -1,4 +1,7 @@
 #footer {
+    background-color: $blue;
+    padding: 30px 0;
+    overflow: hidden;
     #footer-contact {
         @include flexbox();
         @include align-items(center);
@@ -49,14 +52,9 @@
     }
 
     #footer-info {
-        @include flexbox();
-        @include align-items(center);
-        @include align-content(center);
 
         > * {
-            @include flex(1 1 20%);
-            padding: 30px;
-            color: $text-gray;
+            color: white;
         }
         .info-logo {
             text-align: right;
@@ -74,7 +72,7 @@
                 display: block;
                 margin-bottom: 7px;
                 font-weight: 500;
-                color: $text-gray;
+                color: white;
             }
         }
         .info-address {
@@ -131,10 +129,65 @@
                 }
             }
         }
+
+        .nf-form-cont {
+            .nf-form-content  {
+                padding: 0;
+            }
+
+            .ninja-forms-field {
+                background: none;
+                border: 1px solid white;
+                color: white;
+                height: auto;
+                font-size:14px;
+                border-radius: 5px;
+
+                &::placeholder {
+                    color: white;
+                }
+
+                &[type="button"] {
+                    background-color: white;
+                    color: $blue ;
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    font-weight: 500;
+                    border: 0;
+
+                }
+            }
+
+            &#nf-form-3-cont {
+
+                nf-fields-wrap {
+                    display: flex;
+
+                    nf-field:first-child {
+                        flex: 1 1 auto;
+                    }
+                }
+
+                .ninja-forms-field {
+
+                    border-radius: 5px 0 0 5px;
+
+                    &[type="button"] {
+                        border-radius:0px 5px 5px 0;
+
+                    }
+                }
+
+                
+            }
+
+            #nf-field-4-container {
+                text-align: right;
+            }
+        }
     }
 
     #footer-copyright {
-        border-top: 1px solid $gray;
         .row {
             padding: 30px 0;
 
@@ -154,6 +207,7 @@
 @include media-breakpoint-down(md) {
     #footer {
         border-top: 1px solid $gray;
+        padding: 30px;
         #footer-info {
             .info-newsletter {
                 padding: 30px;

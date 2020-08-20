@@ -89,16 +89,12 @@ if ( function_exists( 'dslc_hf_get_header' ) ) {
 			<div class="header-logo mr-auto">
 				<div class="logo">
 					<a href="<?php echo BASE;?>">
-						<img src="<?php echo ASSETS;?>/img/layout/logo-header-footer@2x.png" class="logo-branco" >
-						<img src="<?php echo ASSETS;?>/img/layout/logo-header-footer@2x.png" class="logo-azul" >
+						<img src="<?php echo ASSETS;?>/img/layout/logo.png" class="header-logo__img">
 					</a>
 				</div>
 			</div>
 
-			<div class="header-search">
-				<img src="<?php echo ASSETS;?>/img/icons/search.svg" class="icon-search">
-				<img src="<?php echo ASSETS;?>/img/icons/x.svg" class="icon-close">
-			</div>
+			
 
 			<div class="header-hamburger">
 				<button class="hamburger" type="button">
@@ -309,7 +305,7 @@ if ( function_exists( 'dslc_hf_get_header' ) ) {
 				<h1><?php echo $GLOBALS['campos']['config']['header_-_menu']['titulo_do_menu']; ?></h1>
 			</div>
 			<nav id="header-nav-menu">
-				<?php wp_nav_menu( array( 'theme_location' => 'menu-secundário', 'container' => ' ', 'link_after' => '<i class="arrow-hover"></i>' ) );?>
+				<?php wp_nav_menu( array( 'theme_location' => 'menu-principal', 'container' => ' ', 'link_after' => '<i class="arrow-hover"></i>' ) );?>
 				<!-- <a href="<?php echo ROTA_IMOVEIS;?>/lancamentos">
 					<span>Lançamento</span>
 					<i class="arrow-hover"></i>	
@@ -342,33 +338,7 @@ if ( function_exists( 'dslc_hf_get_header' ) ) {
 			</nav>
 
 			<nav id="header-nav-secondary">
-				<?php if(is_page('home')) { ?>
-					<?php wp_nav_menu( array( 'theme_location' => 'menu-institucional', 'container' => ' ' ) );?>
-				<?php } else { ?>
-					<?php wp_nav_menu( array( 'menu' => 'menu institucional 2', 'container' => ' ' ) );?>
-				<?php } ?>
-
-
-
-				<!-- <a href="<?php echo BASE;?>/sobre">
-					<span>Quem somos</span>
-				</a>
-				<?php if(is_home()) { ?>
-					<a href="#noticias" class="smoothScroll">
-						<span>Notícias</span>
-					</a>
-				<?php } else { ?>
-					<a href="<?php echo BASE;?>/#noticias">
-						<span>Notícias</span>
-					</a>
-				<?php } ?>
-				<a href="<?php echo BASE;?>/contato">
-					<span>Contato</span>
-				</a>
-				<a href="<?php echo BASE;?>/contato/trabalheconosco">
-					<span>Trabalhe conosco</span>
-				</a> -->
-
+				<?php wp_nav_menu( array( 'theme_location' => 'menu-secundário', 'container' => ' ' ) );?>
 			</nav>
 
 			<div id="nav-footer">

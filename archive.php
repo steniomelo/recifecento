@@ -99,14 +99,16 @@ get_header();
                             <p>Altere as características de busca e tente novamente</p>
                         </div>
 
-                        <div class="p-5">
-                            <a href="#" class="btn btn-block btn-primary d-none d-md-none" data-loadmorebtn>Carregar mais</a>
-                        </div>
 
                     </div>
                 </div>
+                
+                <div class="p-5 col-sm-5 mx-auto ">
+                    <a href="#" class="btn btn-block btn-danger d-none" data-loadmorebtn>Carregar mais</a>
+                </div>
 
             </div>
+            
             <div class="col-xl-6 col-right">
                 <div id="map"></div>
             </div>
