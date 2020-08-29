@@ -21,7 +21,6 @@ $GLOBALS['campos']['home'] = get_fields($home->ID);
 $GLOBALS['campos']['config'] = get_fields($configuracoes->ID);
 
 add_filter( 'http_request_host_is_external', '__return_true' );
-
 add_action( 'pre_get_posts', 'front_page' );
 
 function front_page( $query ) 
@@ -33,6 +32,10 @@ function front_page( $query )
 		$query->is_page = 0;
         $query->is_singular = 0;
         $query->is_archive = 1;
+	}
+
+	if ($query->is_page('blog')) {
+		$query->is_archive = 1;
 	}
 	
     return $query;
@@ -132,3 +135,14 @@ function register_my_menu() {
   }
 add_action( 'init', 'register_my_menu' );
 
+function display_last_updated_date() {
+	$original_time = get_the_time('U');
+	$modified_time = get_the_modified_time('U');
+		$updated_time = get_the_modified_time(get_option( 'time_format' ));
+		$updated_day = get_the_modified_time(get_option( 'date_format' ));
+		$modified_content .= '<p class="last-modified">Última atualização: '. $updated_day . ' as '. $updated_time .'</p>';
+
+	//$modified_content .= $content;
+	echo $modified_content;
+}
+//add_filter( 'the_content', 'display_last_updated_date' );

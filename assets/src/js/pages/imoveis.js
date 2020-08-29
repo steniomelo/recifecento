@@ -509,6 +509,7 @@
                     $('.col-left .imoveis .imoveis-container').mCustomScrollbar({
                         //setWidth: 4500,
                         theme: "ang",
+                        autoHideScrollbar: true,
                         mouseWheel: {
                             enable: true,
                             preventDefault: false,

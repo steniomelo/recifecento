@@ -15,7 +15,7 @@
 
         &:not(.mCustomScrollbar) {
             @include flexbox();
-            padding-left: calc(50% - 560px);
+            padding-left: calc(50vw - 560px);
         }
 
         &.mCustomScrollbar {
@@ -24,7 +24,7 @@
 
         .mCSB_container {
             @include flexbox();
-            padding-left: calc(50% - 552px);
+            padding-left: calc(50vw - 560px);
         }
 
         .list-item {
@@ -39,18 +39,18 @@
 }
 
 @include media-breakpoint-down(md) {
-    .list-horizontal {
-        &:not(.equipe) {
-            margin-bottom: 0;
+    // .list-horizontal {
+    //     &:not(.equipe) {
+    //         margin-bottom: 0;
 
-            .list-items {
-                @include flex-direction(column);
-                padding: 0 !important;
-                .mCSB_container {
-                    @include flex-direction(column);
-                    padding: 0 !important;
-                }
-            }
-        }
-    }
+    //         .list-items {
+    //             //@include flex-direction(column);
+    //             padding: 0 !important;
+    //             .mCSB_container {
+    //                 //@include flex-direction(column);
+    //                 padding: 0 !important;
+    //             }
+    //         }
+    //     }
+    // }
 }

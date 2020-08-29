@@ -61,7 +61,8 @@ get_header();
                         <?php 
                         $produtos = get_posts( array(
                             'post_type'      => 'produtos',
-                            'post_status'    => 'publish'
+                            'post_status'    => 'publish',
+                            'posts_per_page' => -1
                         ));
                         foreach($produtos as $produto) { ?>
                         <a class="dropdown-item" href="#" data-value="<?php echo $produto->ID; ?>"><?php echo $produto->post_title; ?></a>
@@ -78,10 +79,49 @@ get_header();
 <div id="imoveis">
     <!-- loading -->
     <div data-loader>
-        <span>Carregando</span>
-        
+        <span>...</span>
     </div>
-    <!-- list -->
+    <div class="list-horizontal list-noticias ">
+			<div class="list-items noticias-items" data-list-horizontal>
+
+
+                <?php 
+
+                $query = get_queried_object();
+
+
+                function getCategory($query) {
+                    if($query) {
+                        return $query->slug;
+                    } else {
+                        return 'varejo';
+                    }
+                }
+
+
+                $posts = new WP_Query(array(
+                    'post_type' => 'post',
+                    'post_status' => 'publish',
+                    'posts_per_page' => 6,
+                    'category_name' => getCategory($query),
+                ));
+                foreach($posts->posts as $post) { 
+                
+                setup_postdata($post);
+                
+                ?>
+				
+                <?php 
+                    get_template_part( 'partials/noticia', 'card' );
+                ?>
+
+                <?php } ?>
+                
+                <?php wp_reset_postdata(); ?>
+                
+				<div class="space"></div>
+			</div>
+		</div>
 
 
         <div class="d-flex imoveis-list">

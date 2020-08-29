@@ -35,10 +35,6 @@ function formatarElevadores($imovel) {
 	return $imovel->nelevadores > 1 ? $imovel->nelevadores.' '.$GLOBALS['campos']['config']['geral']['elevadores'] : $imovel->nelevadores.' '.$GLOBALS['campos']['config']['geral']['elevadores'];
 }
 
-function teste() {
-	return  'teste';
-}
-
 function isAberto($horarios) {
 	$map = array(
 		'á' => 'a',
@@ -72,16 +68,39 @@ function isAberto($horarios) {
 	$dayofweek = explode(" ", $dayofweek);  
 	$dayofweek = strtolower(strtr($dayofweek[0], $map));
 
+	//var_dump($dayofweek);
+
+	//var_dump('abertura', $horarios['horario_de_funcionamento']['abertura']);
+	//var_dump('fechamento', $horarios['horario_de_funcionamento']['fechamento']);
+	//compareDates($horarios['horario_de_funcionamento']['abertura'], $horarios['horario_de_funcionamento']['fechamento']);
+	//var_dump(in_array($dayofweek, $horarios['dias_da_semana']));
 	return (in_array($dayofweek, $horarios['dias_da_semana']) && compareDates($horarios['horario_de_funcionamento']['abertura'], $horarios['horario_de_funcionamento']['fechamento'])) ? 'Aberto' : 'Fechado';
 	//return date(strtotime($horarios['horario_de_funcionamento']['abertura']), time());
 }
 
 function compareDates($start, $end) {
-	$now = date(time());
-    $_start = date(strtotime($start), time());
-    $_end = date(strtotime($end), time());
+	// $now = date(time());
 
-    if ($_start < $now && $_end > $now) {
+	$tz = 'America/Sao_Paulo';
+	$timestamp = time();
+	$now = new DateTime("now", new DateTimeZone($tz)); //first argument "must" be a string
+	$now->setTimestamp($timestamp); //adjust the object to correct timestamp
+
+    $_start = (int)str_replace(':', '', date($start));
+	$_end = (int)str_replace(':', '', date($end));
+	$_now = (int)str_replace(':', '', $now->format(get_option('time_format')));
+	
+	//var_dump('now', $_start);
+	
+	// var_dump('now', $_now);
+	// var_dump('start', $_start);
+	// var_dump('end', $_end);
+
+	// var_dump('now', (int)str_replace(':', '', $now->format(get_option('time_format'))));
+	// var_dump('start', (int)str_replace(':', '', $start));
+	// var_dump('end', (int)str_replace(':', '', $end));
+
+    if ($_start < $_now && $_end > $_now) {
       return true;
     } else {
       return false;
@@ -93,9 +112,34 @@ function isRecomendado($recomendado) {
 }
 
 function formatarHorarios($horarios) {
+	//var_dump($horarios);
+
+	$returnHorarios = ''; 
+
 	if(!empty($horarios['dias_da_semana'])) {
-		return $horarios['dias_da_semana'][0] .' - '. end($horarios['dias_da_semana']). ' • ' .  $horarios['horario_de_funcionamento']['abertura'] . ' - ' . $horarios['horario_de_funcionamento']['fechamento'] . 'h';
+		
+		if(($key = array_search('sabado', $horarios['dias_da_semana'])) !== false) {
+			unset($horarios['dias_da_semana'][$key]);
+		}
+		if(($key = array_search('domingo', $horarios['dias_da_semana'])) !== false) {
+			unset($horarios['dias_da_semana'][$key]);
+		}
+
+		if(!empty($horarios['dias_da_semana'])) {
+			$returnHorarios .= ucfirst($horarios['dias_da_semana'][0]) .' - '. ucfirst(end($horarios['dias_da_semana'])). ' • ' .  $horarios['horario_de_funcionamento']['abertura'] . ' - ' . $horarios['horario_de_funcionamento']['fechamento'] . 'h</br>';
+		}
 	}
+	
+	if ((!empty($horarios['horario_de_funcionamento_aos_sabados']['abertura']) && !empty($horarios['horario_de_funcionamento_aos_sabados']['fechamento']))) {
+		$returnHorarios .= 'Sábado' . ' • ' .  $horarios['horario_de_funcionamento_aos_sabados']['abertura'] . ' - ' . $horarios['horario_de_funcionamento_aos_sabados']['fechamento'] . 'h</br>';
+	}
+
+
+	if ((!empty($horarios['horario_de_funcionamento_aos_domingos']['abertura']) && !empty($horarios['horario_de_funcionamento_aos_domingos']['fechamento']))) {
+		$returnHorarios .= 'Domingo' . ' • ' .  $horarios['horario_de_funcionamento_aos_domingos']['abertura'] . ' - ' . $horarios['horario_de_funcionamento_aos_domingos']['fechamento'] . 'h</br>';
+	}
+
+	return $returnHorarios;
 }
 
 add_action ('wp_ajax_nopriv_get_estabelecimentos', 'get_estabelecimentos');
@@ -132,7 +176,7 @@ function get_estabelecimentos() {
 	} else if($filters['subcategoria']) {
 		$categoria = $filters['subcategoria'];
 	} else {
-		$categoria = 'comercio';
+		$categoria = 'varejo';
 	}
 
 	$items = new WP_Query(array(

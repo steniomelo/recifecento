@@ -46,7 +46,7 @@
 
 		</div>
 
-		<div class="col-sm-4 offset-md-1">
+		<div id="contato" class="col-sm-4 offset-md-1">
 			<h4 class="mb-4">CONTATO</h4>
 
 			<?php echo do_shortcode('[ninja_form id=2]'); ?>

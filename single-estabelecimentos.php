@@ -15,6 +15,21 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
 
 <?php if(have_posts()): while(have_posts()) : the_post(); ?>
 
+<?php 
+
+    $imovel = [
+        'horarios' => get_field('horario_de_funcionamento', $post->ID),
+        'endereco' => get_field('endereco', $post->ID),
+        'telefone' => get_field('telefone', $post->ID),
+        'site' => get_field('site', $post->ID),
+        'estacionamentos' => get_field('estacionamentos'),
+        'estacionamento_destacado' => get_field('estacionamento_destacado'),
+        'produtos' => get_field('produtos'),
+    ];
+
+    $estacionamento_destacado = get_field('endereco', $imovel['estacionamento_destacado'][0]->ID );
+?>
+
 <div id="imovel-detalhe" class="container">
     <header class="imovel-header">
         <div class="row no-gutters">
@@ -81,8 +96,8 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
             <div class="col-sm-6 imovel-header__map">
                 <div class="map-buttons">
                     <div class="buttons">
-                        <button class="btn btn-danger">Ir ao estacionamento</button>
-                        <button class="btn btn-danger">Ir ao comércio</button>
+                        <a href="https://www.google.com.br/maps/place/<?php echo $estacionamento_destacado['address'] ?>" class="btn btn-danger">Ir ao estacionamento</a>
+                        <a href="https://www.google.com.br/maps/place/<?php echo $imovel['endereco']['address']; ?>" class="btn btn-danger">Ir ao local</a>
                     </div>
                 </div>
                 <div id="mapa"></div>
@@ -97,19 +112,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
 
                 <div class="imovel-content">
                     
-                    <?php 
-
-                        $imovel = [
-                            'horarios' => get_field('horario_de_funcionamento', $post->ID),
-                            'endereco' => get_field('endereco', $post->ID),
-                            'telefone' => get_field('telefone', $post->ID),
-                            'site' => get_field('site', $post->ID),
-                            'estacionamentos' => get_field('estacionamentos'),
-                            'produtos' => get_field('produtos'),
-                        ];
-
-                        // var_dump($imovel['endereco']); 
-                         ?>
+                    
 
                     <div class="imovel-description">
                         <h4>Informações</h4>
@@ -124,7 +127,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                         
 
 
-                        <?php if (!empty($imovel['horarios'])): ?>
+                        <?php if (!empty($imovel['horarios']['dias_da_semana'])): ?>
                         <div class="info info-horario">
                             <img src="<?php echo ASSETS;?>/img/icons/calendar.svg" />
                             <small><?php echo formatarHorarios($imovel['horarios']); ?></small>
@@ -156,13 +159,13 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                     </div>
 
                         <div class="imovel-more-info">
-                            <div>
-                            <h4>Estacionamentos</h4>
-</div>
-                            <br>
-
                             <?php
                             if( $imovel['estacionamentos'] ): ?>
+                            <div>
+                                <h4>Estacionamentos mais próximos</h4>
+                            </div>
+                            <br>
+
 
                             <div class="estacionamentos">
                                 <?php foreach( $imovel['estacionamentos'] as $post ): 
@@ -171,9 +174,10 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                                     setup_postdata($post); ?>
 
                                     <div class="estacionamento">
-                                        <div><img src="<?php echo ASSETS;?>/img/icons/estacionamento.svg" /></div>
+                                        <div class="mb-3"><img src="<?php echo ASSETS;?>/img/icons/estacionamento.svg" /></div>
                                         <h5><?php the_title();?></h5>
                                         <p><?php the_content(); ?></p>
+                                        <a href="<?php the_permalink(); ?>">Ir até estacionamento</a>
                                     </div>
                                 <?php endforeach; ?>
                             </div>
@@ -185,6 +189,11 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
 
                     </div>
 
+                    <div>
+                        <small><?php display_last_updated_date() ;?></small>
+                        <small class="text-muted">Este estabelecimento é seu? <br> <a href="#contato">Entre em contato</a> para editar informações ou remover as informações da plataforma.</small>
+                    </div>
+
                     
 
                     
@@ -192,10 +201,10 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
             </div>
 
             <div class="col-sm-6 ml-sm-5 imovel-produtos">
+                <?php if( $imovel['produtos'] ): ?>
                 <h4>Produtos</h4>
 
-                <?php
-                            if( $imovel['produtos'] ): ?>
+                
 
                             <div class="produtos row">
                                 <?php foreach( $imovel['produtos'] as $post ): 

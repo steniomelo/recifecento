@@ -1,33 +1,19 @@
-
-<div class="list-item noticia-card ">
-    <a href="<?php the_permalink();?>">
-        <div class="noticia-container">
-            <div class="noticia-content">
-                <div class="noticia-img">
-                    <?php the_post_thumbnail('large');?>
-                </div>
-
-                <div class="noticia-details">
-                    <header class="noticia-category">
-                        <hr>
-                        <?php $categories = get_the_category($post->ID); foreach( $categories as $category) { ?>
-                            <small><?php echo $category->name; ?></small>
-                        <?php } ?>
-                    </header>
-
-                    <div class="noticia-description">
-                        <?php the_title(); ?>
-                    </div>
-
-                    <footer>
-                        <i class="arrow-hover gray"></i>	
-                    </footer>
-
-                </div>
+<div class="list-item noticia-card">
+    <div class="noticia-card__container">
+        <div class="noticia-card__content">
+            <div class="noticia-card__img noticia-img">
+                <?php the_post_thumbnail(); ?>
             </div>
 
-
+            <a href="<?php the_permalink(); ?>" class="noticia-card__details noticia-details">
+                <div class="tags__categoria">
+                    <?php $categoria = get_the_category(); echo $categoria[0]->name; ?>
+                </div>
+                <div class="noticia-card__text">
+                    <h3><?php the_title(); ?></h3>
+                    <?php the_excerpt(); ?>
+                </div>
+            </a>
         </div>
-    </a>
-    
+    </div>
 </div>
