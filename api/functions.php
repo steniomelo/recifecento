@@ -263,5 +263,65 @@ function get_estabelecimentos() {
 	die($response->mensagem);
 }
 
+function get_estabelecimentos_acf($itemsFiltrados) {
 
+$html = array();
+$i = 0;
+
+
+foreach($itemsFiltrados as $imovel) {
+
+        $endereco = get_field('endereco', $imovel->ID);
+		$imovel->lat = $endereco['lat'];
+		$imovel->lng = $endereco['lng'];
+		$imovel->address = $endereco;
+		$imovel->horarios = get_field('horario_de_funcionamento', $imovel->ID);
+		$imovel->categoria = get_the_category($imovel->ID);
+		$imovel->recomendado = get_field('recomendado', $imovel->ID);
+
+			array_push($html, '
+				<div class="list-item imovel-card ">
+					<a href="'. get_post_permalink($imovel->ID) .'">
+					<div class="imovel-container">
+						<div class="imovel-content d-flex"> 
+
+							<div class="imovel-thumbnail">
+								'. isRecomendado($imovel->recomendado) .'
+								'.get_the_post_thumbnail($imovel->ID, array(183,177), array( 'class' => 'imovel-img' )).'
+							</div>
+							
+
+							<div class="imovel-details">
+								<header class="imovel-title d-flex">
+									<div>	
+										<h2 class="imovel-nome">'.$imovel->post_title.'</h2>
+										<small class="imovel-categoria">'. $imovel->categoria[0]->name .'</small>
+									</div>
+									
+									<div class="imovel-aberto imovel-status ml-auto '. strtolower(isAberto($imovel->horarios)) .'">'. isAberto($imovel->horarios) .'</div>
+
+								</header>
+								
+
+								<div class="imovel-description">
+									<div>'.  formatarHorarios($imovel->horarios) .' </div>
+									<div>'. $imovel->address['address'] .'</div>
+								</div>
+
+								
+							</div>
+						</div>
+
+
+					</div>
+					</a>
+					
+				</div>
+            ');
+			$i += 1;
+        }
+        
+return $html;
+
+}
 ?>

@@ -28,6 +28,8 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
     ];
 
     $estacionamento_destacado = get_field('endereco', $imovel['estacionamento_destacado'][0]->ID );
+    $categoria = get_the_category();
+    $categoria_pai = get_category_parents($categoria[0]->term_id);
 ?>
 
 <div id="imovel-detalhe" class="container">
@@ -43,7 +45,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                     <?php endif; ?>
 
                     <div class="tags__categoria">
-                        <?php $categoria = get_the_category(); echo $categoria[0]->name; ?>
+                        <?php echo $categoria[0]->name; ?>
                     </div>
                 </div>
                 <div class="imovel-header__title">
@@ -121,6 +123,17 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
 
 
                         <p class="description"><?php the_content(); ?></p>
+
+                        <p>
+                            <?php
+                                $posttags = get_the_tags();
+                                if ($posttags) {
+                                foreach($posttags as $tag) {
+                                    echo '<span class="badge badge-pill badge-danger" href="'.get_site_url().'/">#'.$tag->name . '</span> '; 
+                                }
+                                }
+                            ?>
+                        </p>
 
                         <div class="imovel-info">
 

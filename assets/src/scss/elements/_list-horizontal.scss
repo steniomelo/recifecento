@@ -28,7 +28,8 @@
         }
 
         .list-item {
-            @include flex();            
+            @include flex();    
+            margin-right: 20px;        
         }
 
         .space {
