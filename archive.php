@@ -6,6 +6,9 @@
 get_header(); 
 ?>
 
+<?php echo do_shortcode("[wp1s id='2370']"); ?>
+
+
 <div class="filtros">
     <div class="container">
     <div class="filters row">
