@@ -8,11 +8,11 @@
  */
 
 get_header(); ?>
-
+	<center>
 	<div class="align-center">
 		<br><br>
-		<p><strong>404 - Page Not Found</strong></p>
-		The page you are looking for can not be found.
+		<p><strong><h2>Página não encontrada</h2></strong></p>
+		<h4>A página que você está procurando não pode ser encontrada.</h4>
 	</div>
-
+	</center>
 <?php get_footer(); ?>
