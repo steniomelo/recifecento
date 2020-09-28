@@ -13,7 +13,16 @@ global $post;
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-179193063-1"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
 
+	gtag('config', 'UA-179193063-1');
+	</script>
+	<meta name="google-site-verification" content="6T395Qf5FK3DPOshL7qzK-j2uWjUlhGgLlweMT79wy0" />
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
