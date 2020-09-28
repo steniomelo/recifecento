@@ -17,7 +17,7 @@ global $post;
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Recife Centro</title>
+	<title>Recife Centro - É fácil e tá na mão</title>
 
 	<link rel="shortcut icon" type="image/png" href="<?php echo ASSETS;?>/img/layout/favicon.png"/>
 
