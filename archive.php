@@ -2,12 +2,8 @@
 
 // Template name: Página Principal
 
-
 get_header(); 
 ?>
-
-<?php echo do_shortcode("[wp1s id='2370']"); ?>
-
 
 <div class="filtros">
     <div class="container">
@@ -20,7 +16,8 @@ get_header();
             
             <div class="select filter-subcategoria">
                 <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    style="float: right; padding-right: 13em;">
                         Subcategoria
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -36,7 +33,6 @@ get_header();
                                 $category = get_category_by_slug('comercio');
                                 $parent = $category->term_id;
                             }
-
 
                             $args = array(
                                 'child_of'      => $parent, 
@@ -57,7 +53,7 @@ get_header();
         <div class="filter col-md-4">
             <div class="select filter-produto">
                 <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button style="float: right;padding-right: 24em;" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Filtrar por produto
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -74,7 +70,6 @@ get_header();
                 </div>
             </div>
         </div>
-
     </div>
     </div>
 </div>
@@ -87,11 +82,9 @@ get_header();
     <div class="list-horizontal list-noticias ">
 			<div class="list-items noticias-items" data-list-horizontal>
 
-
                 <?php 
 
                 $query = get_queried_object();
-
 
                 function getCategory($query) {
                     if($query) {
@@ -100,7 +93,6 @@ get_header();
                         return 'varejo';
                     }
                 }
-
 
                 $posts = new WP_Query(array(
                     'post_type' => 'post',
@@ -126,7 +118,6 @@ get_header();
 			</div>
 		</div>
 
-
         <div class="d-flex imoveis-list">
             <div class="col-xl-6 col-left">
 
@@ -142,7 +133,6 @@ get_header();
                             <p>Altere as características de busca e tente novamente</p>
                         </div>
 
-
                     </div>
                 </div>
                 
@@ -157,11 +147,8 @@ get_header();
             </div>
         </div>
 
-
 </div>           
-
 <?php
-
 wp_enqueue_script('imoveis');
 wp_enqueue_script('markerclusterer');
 wp_enqueue_script('google-maps');
@@ -169,5 +156,4 @@ wp_enqueue_script('google-maps');
 get_footer(); 
 
 //endif;
-
 ?>
