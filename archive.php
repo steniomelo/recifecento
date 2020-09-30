@@ -5,6 +5,7 @@
 get_header(); 
 ?>
 
+
 <div class="filtros">
     <div class="container">
     <div class="filters row">
@@ -17,7 +18,7 @@ get_header();
             <div class="select filter-subcategoria">
                 <div class="dropdown">
                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                    style="float: right; padding-right: 13em;">
+                    >
                         Subcategoria
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -53,7 +54,7 @@ get_header();
         <div class="filter col-md-4">
             <div class="select filter-produto">
                 <div class="dropdown">
-                    <button style="float: right;padding-right: 24em;" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Filtrar por produto
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -61,7 +62,9 @@ get_header();
                         $produtos = get_posts( array(
                             'post_type'      => 'produtos',
                             'post_status'    => 'publish',
-                            'posts_per_page' => -1
+                            'posts_per_page' => -1,
+                            'orderby' => 'title',
+                            'order' => 'ASC'
                         ));
                         foreach($produtos as $produto) { ?>
                         <a class="dropdown-item" href="#" data-value="<?php echo $produto->ID; ?>"><?php echo $produto->post_title; ?></a>
@@ -73,6 +76,10 @@ get_header();
     </div>
     </div>
 </div>
+
+<?php echo do_shortcode("[wp1s id='2370']"); ?>
+<?php //echo do_shortcode("[wp1s id='2825']"); ?>
+
 
 <div id="imoveis">
     <!-- loading -->
@@ -144,6 +151,17 @@ get_header();
             
             <div class="col-xl-6 col-right">
                 <div id="map"></div>
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Mapa -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4672816343502215"
+                    data-ad-slot="4810790669"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
         </div>
 

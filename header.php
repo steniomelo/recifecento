@@ -82,12 +82,6 @@ if ( function_exists( 'dslc_hf_get_header' ) ) {
 				
 			</nav>
 
-			
-
-			
-
-			
-
 		</div>
 
 	</div>
@@ -128,52 +122,7 @@ if ( function_exists( 'dslc_hf_get_header' ) ) {
 	<div id="header-search-container" class="container">
 		<div class="row">
 
-			<?php $args = array(
-				'post_type'      => 'construtoras',
-				'post_status'    => 'publish',
-				'posts_per_page' => -1,
-			);
-			$construtoras = new WP_Query( $args );
-
-			if ( $construtoras->have_posts() ) :  
-			?>
-				<div class="col-sm-3 d-none d-sm-block header-search-construtoras">
-					<nav>
-						<ul>
-							<li class="active ">
-								<div class="construtora-img">
-									<img src="<?php echo ASSETS;?>/img/icons/icon-consr.svg">
-								</div>
-								<div class="construtora-title">
-									<?php echo $GLOBALS['campos']['config']['header_-_busca']['todas_as_construtoras']; ?>
-								</div>
-							</li>
-							<li class="">
-								<div class="construtora-img">
-									<img src="<?php echo ASSETS;?>/img/icons/reseal.svg">
-								</div>
-								<div class="construtora-title">
-									<?php echo $GLOBALS['campos']['config']['header_-_busca']['revenda']; ?>
-								</div>
-							</li>
-							<?php while ( $construtoras->have_posts() ) : $construtoras->the_post(); ?>	
-
-							<li class="construtora" data-value="<?php the_ID(); ?>">
-							<!-- <li class="construtora" data-value="<?php the_field('codigo'); ?>"> -->
-
-								<div class="construtora-img">
-									<?php the_post_thumbnail('small'); ?>
-								</div>
-								<span class="construtora-title">
-									<?php the_title(); ?>
-								</span>
-							</li>
-							<?php endwhile; wp_reset_postdata(); ?>
-
-						</ul>
-					</nav>
-				</div>
-			<?php endif; ?>
+			
 			<div class="col-sm-9 col-12 header-search-content">
 				<header class="header-search-title">
 					<h2><?php echo $GLOBALS['campos']['config']['header_-_busca']['titulo']; ?></h2>
@@ -317,35 +266,7 @@ if ( function_exists( 'dslc_hf_get_header' ) ) {
 			</div>
 			<nav id="header-nav-menu">
 				<?php wp_nav_menu( array( 'theme_location' => 'menu-principal', 'container' => ' ', 'link_after' => '<i class="arrow-hover"></i>' ) );?>
-				<!-- <a href="<?php echo ROTA_IMOVEIS;?>/lancamentos">
-					<span>Lançamento</span>
-					<i class="arrow-hover"></i>	
-				</a>
-				<a href="<?php echo ROTA_IMOVEIS;?>/em-construcao">
-					<span>Em construção</span>
-					<i class="arrow-hover"></i>	
-
-				</a>
-				<a href="<?php echo ROTA_IMOVEIS;?>/pronto">
-					<span>Pronto para morar</span>
-					<i class="arrow-hover"></i>	
-
-				</a>
-				<a href="<?php echo ROTA_IMOVEIS;?>/litoral">
-					<span>Litoral</span>
-					<i class="arrow-hover"></i>	
-
-				</a>
-				<a href="<?php echo ROTA_IMOVEIS;?>/empresarial">
-					<span>Empresarial</span>
-					<i class="arrow-hover"></i>	
-
-				</a>
-				<a href="<?php echo ROTA_IMOVEIS;?>/minha-casa-minha-vida">
-					<span>Minha Casa Minha Vida</span>
-					<i class="arrow-hover"></i>	
-
-				</a> -->
+				
 			</nav>
 
 			<nav id="header-nav-secondary">

@@ -156,28 +156,31 @@ function get_estabelecimentos() {
 	$page = $_POST['page'];
 	$qtdImoveis = 4;
 	$categoria = '';
+	$produto_by_title;
 
-	if($filters['produto']) {
-	$produto = [
-				'key' => 'produtos',
-				'value' => $filters['produto'],
-				'compare' => 'LIKE',
-			];
+	if($filters['produto'] && !$filters['keyword']) {
+		$produto = [
+			'key' => 'produtos',
+			'value' => $filters['produto'],
+			'compare' => 'LIKE',
+		];
 
-			array_push($query_array, $produto); // Busca por produto
+		array_push($query_array, $produto); // Busca por produto
 	}
+
+
 
 	//var_dump($query); die();
 	
 	
-	if($query_vars['category_name'] && !$filters['subcategoria']) {
+	if($query_vars['category_name'] && !$filters['subcategoria'] && !$filters['keyword']) { //Adicionando keyword para que faça uma busca geral por keyword sem limitar a categoria
 		//var_dump();
 		$categoria = $query_vars['category_name'];
 	} else if($filters['subcategoria']) {
 		$categoria = $filters['subcategoria'];
-	} else {
+	} else if(!$filters['keyword']) {
 		$categoria = 'varejo';
-	}
+	} 
 
 	$items = new WP_Query(array(
 		's' => $filters['keyword'], //Busca por termo keyword
@@ -189,7 +192,46 @@ function get_estabelecimentos() {
 		'meta_query' => $query_array,
 	));
 
+	if($filters['keyword']) { // Busca o keyword por Produtos
+		//var_dump($filters['keyword']);
+		$produto_by_title = get_page_by_title( $filters['keyword'], OBJECT, 'produtos' );
+		//var_dump($page); die();
+		$produto = [
+			'key' => 'produtos',
+			'value' => $produto_by_title->ID,
+			'compare' => 'LIKE',
+		];
+
+		array_push($query_array, $produto); // Busca por produto
+	}
+
+	if($items->found_posts == 0 && $produto_by_title) { // Caso não encontre nada com o keyword busca novamente pelo metaquery de produtos por KeyWord
+		
+		$items = new WP_Query(array(
+			'post_type' => 'estabelecimentos',
+			'post_status' => 'publish',
+			'posts_per_page' => $qtdImoveis,
+			'category_name' => $categoria,
+			'paged' => $page,
+			'meta_query' => $query_array,
+		));
+	}
+
+	if($items->found_posts == 0 && $filters['keyword']) { // Caso não encontre nada na busca anterior procura novamente com o keyword como Categoria
+		
+		$items = new WP_Query(array(
+			'post_type' => 'estabelecimentos',
+			'post_status' => 'publish',
+			'posts_per_page' => $qtdImoveis,
+			'category_name' => $filters['keyword'],
+			'paged' => $page,
+		));
+	}
+
+
 	$totalItems = $items->found_posts;
+
+
 	$itemsFiltrados = $items->posts;
 
 	header('Content-type: application/json');

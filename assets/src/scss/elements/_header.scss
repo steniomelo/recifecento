@@ -5,7 +5,7 @@ body {
                 li {
                     &:first-child {
                         a {
-                            color: $accent;
+                            color: $blue;
                         }
                     }
                 }
@@ -167,7 +167,7 @@ body {
 
             &.current-menu-item, &[class*="current"] {
                 a {
-                    color: $accent;
+                    color: $blue;
                 }
             }
 
@@ -227,7 +227,7 @@ body {
             // }
 
             &:hover {
-                color: $accent;
+                color: $blue;
 
                 // &:before {
                 //     @include transform(scaleY(1));

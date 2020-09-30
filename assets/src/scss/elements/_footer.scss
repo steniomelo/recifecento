@@ -1,6 +1,6 @@
 #footer {
     background-color: $blue;
-    padding: 30px 0;
+    padding:0 0 30px 0;
     overflow: hidden;
     #footer-contact {
         @include flexbox();
@@ -52,6 +52,8 @@
     }
 
     #footer-info {
+
+        padding-top: 30px;
 
         > * {
             color: white;
@@ -158,28 +160,6 @@
                 }
             }
 
-            &#nf-form-3-cont {
-
-                nf-fields-wrap {
-                    display: flex;
-
-                    nf-field:first-child {
-                        flex: 1 1 auto;
-                    }
-                }
-
-                .ninja-forms-field {
-
-                    border-radius: 5px 0 0 5px;
-
-                    &[type="button"] {
-                        border-radius:0px 5px 5px 0;
-
-                    }
-                }
-
-                
-            }
 
             #nf-field-4-container {
                 text-align: right;
@@ -200,11 +180,80 @@
             }
         }
     }
+    
 
 
 }
 
+.footer-newsletter {
+    background-color: white;
+    padding: 20px;
+
+    #nf-form-3-cont {
+        // @include flex-grow(1);
+        @include flex-basis(60%);
+        margin-right: 20px;
+            nf-fields-wrap {
+                display: flex;
+
+                nf-field:first-child {
+                    flex: 1 1 auto;
+                }
+            }
+
+            .ninja-forms-field {
+
+                border-radius: 5px 0 0 5px;
+
+                &[type="button"] {
+                    border-radius:0px 5px 5px 0;
+                    background-color:$primary;
+                }
+            }
+
+            #ninja_forms_required_items, .nf-field-container {
+                margin-bottom: 0;;
+            }
+
+            
+        }
+}
+
+.newsletter__container {
+    @include flexbox();
+    @include align-items(center);
+    .newsletter__container-title {
+        margin-bottom: 0;
+        margin-right: 20px;
+        @include flex-basis(15%);
+    }
+}
+
 @include media-breakpoint-down(md) {
+
+    .footer-newsletter {
+        #nf-form-3-cont {
+            margin-right: 0;
+            margin:10px 0;
+
+            .ninja-forms-field {
+                font-size: 12px;
+            }
+
+            .nf-form-content  {
+                padding: 0;
+            }
+        }
+    }
+
+    .newsletter__container {
+        @include flex-direction(column);
+        @include align-items(flex-start);
+        .newsletter__container-title {
+            font-size: 14px;
+        }
+    }
+
     #footer {
         border-top: 1px solid $gray;
         padding: 30px;

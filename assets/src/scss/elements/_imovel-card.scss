@@ -26,6 +26,13 @@
         position: relative;
         @include flex-shrink(0);
 
+        @include media-breakpoint-up(md) {
+            min-width: 183px;
+            min-height: 181px;
+            max-width: 183px;
+            max-height: 183px;
+        }
+
         .tags__recomendado {
             position: absolute;
             top: 10px;
