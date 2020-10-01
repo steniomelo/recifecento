@@ -36,8 +36,8 @@ gulp.task('vendors', function () {
         './node_modules/slick-carousel/slick/slick.min.js',
         './node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
         //'./node_modules/jquery-hammerjs/jquery.hammer.js',
-        './node_modules/hammerjs/hammer.min.js',
-        './node_modules/jquery-range/jquery.range-min.js',
+        // './node_modules/hammerjs/hammer.min.js',
+        // './node_modules/jquery-range/jquery.range-min.js',
     ])
         .pipe(concat('vendors.js'))
         .pipe(rename({ suffix: '.min' }))
@@ -95,7 +95,7 @@ gulp.task('watch', function () {
 
 // Move Fontawesome webfonts to build folder
 gulp.task('icons', function () {
-    return gulp.src('./bower_components/components-font-awesome/webfonts/**.*')
+    return gulp.src('./node_modules/@fortawesome/fontawesome-free/webfonts/**.*')
         .pipe(gulp.dest('./assets/build/fonts'));
 });
 

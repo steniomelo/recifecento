@@ -60,36 +60,9 @@ h5, .h5 {
 }
 
 
-// @import "../../../bower_components/components-font-awesome/scss/fontawesome";    
+$fa-font-path: "../../build/fonts/";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";    
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/brands";    
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/regular";    
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid";    
 
-// @font-face {
-// 	font-family: 'Font Awesome 5 Brands';
-// 	font-style: normal;
-// 	font-weight: normal;
-// 	src: url("../../build/fonts/fa-brands-400.eot");
-// 	src: url("../../build/fonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../../build/fonts/fa-brands-400.woff2") format("woff2"), url("../../build/fonts/fa-brands-400.woff") format("woff"), url("../../build/fonts/fa-brands-400.ttf") format("truetype"), url("../../build/fonts/fa-brands-400.svg#fontawesome") format("svg"); }
-  
-//   .fab {
-// 	font-family: 'Font Awesome 5 Brands' !important; }
-//   @font-face {
-// 	font-family: 'Font Awesome 5 Free';
-// 	font-style: normal;
-// 	font-weight: 300;
-// 	src: url("../../build/fonts/fa-regular-400.eot");
-// 	src: url("../../build/fonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../../build/fonts/fa-regular-400.woff2") format("woff2"), url("../../build/fonts/fa-regular-400.woff") format("woff"), url("../../build/fonts/fa-regular-400.ttf") format("truetype"), url("../../build/fonts/fa-regular-400.svg#fontawesome") format("svg"); }
-  
-//   .far {
-// 	font-family: 'Font Awesome 5 Free' !important;
-// 	font-weight: 300; }
-//   @font-face {
-// 	font-family: 'Font Awesome 5 Free';
-// 	font-style: normal;
-// 	font-weight: 900;
-// 	src: url("../../build/fonts/fa-solid-900.eot");
-// 	src: url("../../build/fonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../../build/fonts/fa-solid-900.woff2") format("woff2"), url("../../build/fonts/fa-solid-900.woff") format("woff"), url("../../build/fonts/fa-solid-900.ttf") format("truetype"), url("../../build/fonts/fa-solid-900.svg#fontawesome") format("svg"); }
-  
-  
-// 	.fas {
-// 	font-family: 'Font Awesome 5 Free' !important;
-// 	font-weight: 900; }
-  

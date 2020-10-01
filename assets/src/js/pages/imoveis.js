@@ -6,34 +6,16 @@
         $page = 1;
         locations = [];
         imoveisHtml = [];
-        // $precoMinimo = '';
-        // $precoMaximo = '';
-        // $areaMinimo = '';
-        // $areaMaximo = '';
         $postVars = ajaxapi.post;
-        // $ordenacao = '';
         $imoveisTotais = 0;
 
         postVars();
         configFilters();
         getImoveis();
-        //initMap();
         loadMoreBtn();
-        //onScroll();
-        //loadMore();
     }
 
-    function onScroll() {
-        $(document).on('scroll', function () {
-            if ($(document).scrollTop() > 80 && $(document).scrollTop() < 370) {
-                $('.col-right').removeClass('fixed-bottom').addClass('fixed');
-            } else if ($(document).scrollTop() > 370) {
-                $('.col-right').removeClass('fixed').addClass('fixed-bottom');
-            } else {
-                $('.col-right').removeClass('fixed fixed-bottom');
-            }
-        });
-    }
+
 
     function postVars() {
         if ($postVars && $postVars.length > 0) {
@@ -65,259 +47,10 @@
             });
         });
 
-        configFilterValue();
-        configFilterSize();
-        configFilterQuartos();
-        configFilterVagas();
-        configFilterOrdenar();
         configFilterSubcategoria();
         configFilterProduto();
         configFilterKeyword();
         resetFilters();
-    }
-
-    function configFilterValue() {
-
-
-        function getValue(val) {
-            var value = val.split(',');
-
-            $precoMinimo = value[0];
-            $precoMaximo = value[1];
-
-            $('.filter-valor .range-header .range-min span').html(parseInt(value[0]).toLocaleString('pt-BR'));
-            $('.filter-valor .range-header .range-max span').html(parseInt(value[1]).toLocaleString('pt-BR'));
-            $('.filter-valor .value').html('R$ ' + parseInt(value[1]).toLocaleString('pt-BR'));
-
-            $('.filter-valor').addClass('valid');
-        }
-
-        //getValue($('.filter-valor').find('.range-value').val());
-
-        $('.filter-valor .range-value').jRange({
-            from: 70000,
-            to: 3000000,
-            step: 500,
-            format: 'R$ %s',
-            showLabels: false,
-            showScale: false,
-            theme: 'theme-blue',
-            isRange: true,
-            onstatechange: function (val) {
-                getValue(val);
-            }
-        });
-
-        if ($postVars['valor'] && $postVars['valor'] != '70000,3000000') {
-            getValue($postVars['valor']);
-            $('.filter-valor .range-value').jRange('setValue', $postVars['valor']);
-            filterActive();
-        }
-
-
-        $('.filter-valor .btn-limpar').on('click', function () {
-            $('.filter-valor .range-value').jRange('setValue', '70000,3000000');
-            delete $filtros.precoMinimo;
-            delete $filtros.precoMaximo;
-            submitFilters();
-        });
-
-        $('.filter-valor .btn-aplicar').on('click', function (e) {
-            if ($('.filter-valor').hasClass('valid')) {
-                filterActive();
-                submitFilters();
-            }
-        });
-
-        function filterActive() {
-            $('.filter-valor').addClass('active');
-            $filtros.precoMinimo = $precoMinimo;
-            $filtros.precoMaximo = $precoMaximo;
-        }
-
-    }
-
-    function configFilterSize() {
-
-
-        function getValue(val) {
-            var value = val.split(',');
-
-            $areaMinimo = value[0];
-            $areaMaximo = value[1];
-
-            $('.filter-tamanho .range-header .range-min span').html($areaMinimo);
-            $('.filter-tamanho .range-header .range-max span').html($areaMaximo);
-            $('.filter-tamanho .value').html($areaMaximo + 'm2');
-
-            $('.filter-tamanho').addClass('valid');
-
-        }
-
-        $('.filter-tamanho .range-size').jRange({
-            from: 20,
-            to: 300,
-            step: 5,
-            format: '%s m2',
-            showLabels: false,
-            showScale: false,
-            theme: 'theme-blue',
-            isRange: true,
-            onstatechange: function (val) {
-                getValue(val);
-            }
-        });
-
-        $('.filter-tamanho .btn-limpar').on('click', function () {
-            $('.filter-tamanho .range-size').jRange('setValue', '20,300');
-            delete $filtros.areaPrivativaMinimo;
-            delete $filtros.areaPrivativaMaximo;
-            submitFilters();
-        });
-
-        $('.filter-tamanho .btn-aplicar').on('click', function () {
-            if ($('.filter-tamanho').hasClass('valid')) {
-                filterActive();
-                submitFilters();
-            }
-        });
-
-        function filterActive() {
-            $('.filter-tamanho').addClass('active');
-            $filtros.areaPrivativaMinimo = $areaMinimo;
-            $filtros.areaPrivativaMaximo = $areaMaximo;
-        }
-
-    }
-
-    function configFilterQuartos() {
-
-        if ($postVars['quartos']) {
-            getValue($postVars['quartos']);
-            $('.filter-quartos').find('[name="quartos"][value=' + $postVars['quartos'] + ']').attr('checked', 'checked');
-            filterActive();
-        }
-
-        function getValue(val) {
-            var value = val;
-
-            $quartosMinimo = value;
-            if (val == 4) {
-                $quartosMaximo = "100";
-            } else {
-                $quartosMaximo = value;
-            }
-
-            if (val > 1) {
-                $('.filter-quartos .value').html($quartosMinimo + ' quartos');
-            } else if (val == 1) {
-                $('.filter-quartos .value').html($quartosMinimo + ' quarto');
-            }
-
-            $('.filter-quartos').addClass('valid');
-
-        }
-
-        //getValue($('.filter-quartos').find('[name="quartos"]').val());
-
-        $('.filter-quartos .btn-limpar').on('click', function () {
-            $('.filter-quartos [name="quartos"]').prop('checked', false);
-            delete $filtros.quartosMinimo;
-            delete $filtros.quartosMaximo;
-            submitFilters();
-        });
-
-        $('.filter-quartos .btn-aplicar').on('click', function () {
-            if ($('.filter-quartos').find('[name="quartos"]:checked').val()) {
-                getValue($('.filter-quartos').find('[name="quartos"]:checked').val());
-                if ($('.filter-quartos').hasClass('valid')) {
-                    filterActive();
-                    submitFilters();
-                }
-            }
-        });
-
-        function filterActive() {
-            $('.filter-quartos').addClass('active');
-            $filtros.quartosMinimo = $quartosMinimo;
-            $filtros.quartosMaximo = $quartosMaximo;
-        }
-
-    }
-
-    function configFilterVagas() {
-
-        if ($postVars['vagas']) {
-            getValue($postVars['vagas']);
-            $('.filter-vagas').find('[name="vagas"][value=' + $postVars['vagas'] + ']').attr('checked', 'checked');
-
-            filterActive();
-        }
-
-        function getValue(val) {
-            var value = val;
-
-            $vagasMinimo = value;
-            if (val == 3) {
-                $vagasMaximo = "100";
-            } else {
-                $vagasMaximo = value;
-            }
-
-            if (val > 1) {
-                $('.filter-vagas .value').html($vagasMinimo + ' vagas');
-            } else if (val == 1) {
-                $('.filter-vagas .value').html($vagasMinimo + ' vaga');
-            } else if (val == 0) {
-                $('.filter-vagas .value').html('Sem vagas');
-            }
-
-            $('.filter-vagas').addClass('valid');
-
-        }
-
-        //getValue($('.filter-vagas').find('[name="vagas"]').val());
-
-        $('.filter-vagas .btn-limpar').on('click', function () {
-            $('.filter-vagas [name="vagas"]').prop('checked', false);
-            delete $filtros.garagensMinimo;
-            delete $filtros.garagensMaximo;
-            submitFilters();
-        });
-
-        $('.filter-vagas .btn-aplicar').on('click', function () {
-            if ($('.filter-vagas').find('[name="vagas"]:checked').val()) {
-                getValue($('.filter-vagas').find('[name="vagas"]:checked').val());
-                if ($('.filter-vagas').hasClass('valid')) {
-                    filterActive();
-                    submitFilters();
-                }
-            }
-        });
-
-        function filterActive() {
-            $('.filter-vagas').addClass('active');
-            $filtros.garagensMinimo = $vagasMinimo;
-            $filtros.garagensMaximo = $vagasMaximo;
-        }
-
-    }
-
-    function configFilterOrdenar() {
-        function getValue(val) {
-            var value = val;
-
-            $ordenacao = value.data('value');
-
-            $('.filter-ordenacao .btn').html(value.html());
-        }
-
-        $('.filter-ordenacao .dropdown-item').on('click', function () {
-            getValue($(this));
-            $filtros.ordenacao = $ordenacao
-            resetConfig();
-            getImoveis();
-        });
     }
 
     function configFilterSubcategoria() {
@@ -385,10 +118,6 @@
             } else {
                 delete $filtros.ordenacao;
             }
-            $('.filter-vagas [name="vagas"]').prop('checked', false);
-            $('.filter-quartos [name="quartos"]').prop('checked', false);
-            $('.filter-tamanho .range-size').jRange('setValue', '20,300');
-            $('.filter-valor .range-value').jRange('setValue', '70000,3000000');
             $('.filters .filter').removeClass("opened active valid");
             toogleFiltered(false);
             resetConfig();
@@ -396,12 +125,6 @@
         })
     }
 
-    function submitFilters() {
-        resetConfig();
-        toogleFiltered(true);
-        getImoveis();
-        initMap();
-    }
 
     function toogleFiltered(bool) {
         if (bool) {

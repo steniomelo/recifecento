@@ -4,64 +4,11 @@
         $precoMinimo = '';
         $precoMaximo = '';
 
-        configFilters();
         smoothScroll();
         slickImovelCard();
 
         $('#header').find('.header-search').on('click', toggleSearch);
         $('#header').find('.hamburger').on('click', toogleHeaderNav);
-    }
-
-    function configFilters() {
-        configFilterValue();
-    }
-
-    function configFilterValue() {
-        function getValue(val) {
-            var value = val.split(',');
-
-            $precoMinimo = value[0];
-            $precoMaximo = value[1];
-
-            $('.filters-search .filter-valor .range-header .range-min span').html(parseInt(value[0]).toLocaleString('pt-BR'));
-            $('.filters-search .filter-valor .range-header .range-max span').html(parseInt(value[1]).toLocaleString('pt-BR'));
-            $('.filters-search .filter-valor .value').html('R$ ' + parseInt(value[1]).toLocaleString('pt-BR'));
-        }
-
-        getValue($('.filters-search .filter-valor').find('.range-value').val());
-
-        $('.filters-search .filter-valor .range-value').jRange({
-            from: 70000,
-            to: 3000000,
-            step: 500,
-            format: 'R$ %s',
-            showLabels: false,
-            showScale: false,
-            theme: 'theme-green',
-            isRange: true,
-            onstatechange: function (val) {
-                getValue(val);
-            }
-        });
-
-        $('.filters-search .filter-valor .btn-limpar').on('click', function () {
-            $('.filters-search .filter-valor .range-value').jRange('setValue', '70000,3000000');
-            delete $filtros.precoMinimo;
-            delete $filtros.precoMaximo;
-            submitFilters();
-        });
-
-        // Pega o código da construtora
-        $('.header-search-construtoras ul li').on('click', function () {
-            $('.header-search-construtoras ul li').removeClass('active');
-            $(this).addClass('active');
-
-            if ($(this).data('value')) {
-                $('#construtora').val($(this).data('value'));
-                //console.log($('#construtora').val());
-            }
-        })
-
     }
 
     function toggleSearch(action) {
