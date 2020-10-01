@@ -100,7 +100,8 @@ function load_scripts() {
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'vendors', get_template_directory_uri() . '/assets/build/js/vendors.min.js', array(), '20151215', true );
 	wp_enqueue_script( 'general', get_template_directory_uri() . '/assets/build/js/general.js', array(), '20151215', true );
-	wp_register_script( 'markerclusterer', 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js', '', '', true );
+	wp_register_script( 'markerclusterer', 'https://cdnjs.cloudflare.com/ajax/libs/js-marker-clusterer/1.0.0/markerclusterer_compiled.js', '', '', true );
+	// wp_register_script( 'markerclusterer', 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js', '', '', true );
 	wp_register_script( 'google-maps', 'https://maps.googleapis.com/maps/api/js?key='.GOOGLE_API.'&callback=init', '', '', true );
 	wp_enqueue_script( 'destaques', get_template_directory_uri() . '/assets/build/js/elements/destaques-slider.js', array(), '20151215', true );
 	wp_enqueue_script( 'list-horizontal', get_template_directory_uri() . '/assets/build/js/elements/list-horizontal.js', array(), '20151215', true );
