@@ -54,9 +54,15 @@ get_header();
         <div class="filter col-md-4">
             <div class="select filter-produto">
                 <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Filtrar por produto
-                    </button>
+                    <?php if(!is_category("turismo")) : ?>
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                            Filtrar por produto
+                        </button>
+                    <?php else : ?>
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled="disabled" >
+                            Filtrar por produto
+                        </button>
+                    <?php endif; ?>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <?php 
                         $produtos = get_posts( array(

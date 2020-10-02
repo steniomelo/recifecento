@@ -1,0 +1,29 @@
+
+            .imovel-aberto {
+                @include flex-shrink(0);
+                color: $primary !important;
+
+                &:before {
+                    content: '';
+                    padding: 3px;
+                    border: 5px solid rgba($primary, .2);
+                    background-color: $primary;
+                    width: 10px;
+                    height: 10px;
+                    border-radius:100%;
+                    display: inline-block;
+                    position: relative;
+                    bottom: -3px;
+                    margin-right: 6px;
+                }
+
+                &.aberto {
+                    color: $success !important;
+
+                    &:before {
+                                            border: 5px solid rgba($success, .2);
+
+                        background-color: $success;
+                    }
+                }
+            }

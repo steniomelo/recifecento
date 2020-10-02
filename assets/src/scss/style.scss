@@ -11,27 +11,22 @@ $grid-gutter-width: 15px;
 --------------------------------------------------------------*/
 @import "elements/btn";
 @import "elements/arrow-hover";
-@import "elements/price";
 @import "elements/imovel-title";
 @import "elements/header";
 @import "elements/hamburger";
-@import "elements/destaques-slider";
 @import "elements/list-horizontal";
 @import "elements/list-imoveis";
-@import "elements/list-similares";
 @import "elements/list-noticias";
-@import "elements/list-integrantes";
 @import "elements/list-estabelecimentos";
 @import "elements/nav-pills";
 @import "elements/imovel-card";
 @import "elements/filters";
-@import "elements/range";
 @import "elements/dropdown";
 @import "elements/footer";
-@import "elements/tolvnow";
 @import "elements/recomendado";
 @import "elements/categoria";
 @import "elements/noticia-card";
+@import "elements/widget-abertofechado";
 
 /*--------------------------------------------------------------
 # Forms
@@ -50,5 +45,3 @@ $grid-gutter-width: 15px;
 @import "pages/imovel-detalhe";
 @import "pages/imoveis";
 @import "pages/single";
-@import "pages/sobre";
-@import "pages/contato";

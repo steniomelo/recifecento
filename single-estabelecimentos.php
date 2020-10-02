@@ -119,7 +119,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                     <div class="imovel-description">
                         <h4>Informações</h4>
 
-                        <div class="imovel-aberto ml-auto <?php echo strtolower(isAberto($imovel['horarios']))?>"><?php echo isAberto($imovel['horarios']) ?></div>
+                        <div class="imovel-aberto ml-auto widget-abertofechado <?php echo strtolower(isAberto($imovel['horarios']))?>"><?php echo isAberto($imovel['horarios']) ?></div>
 
 
                         <p class="description"><?php the_content(); ?></p>
@@ -129,7 +129,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                                 $posttags = get_the_tags();
                                 if ($posttags) {
                                 foreach($posttags as $tag) {
-                                    echo '<span class="badge badge-pill badge-danger" href="'.get_site_url().'/">#'.$tag->name . '</span> '; 
+                                    echo '<span class="badge badge-pill badge-danger " style="font-size:12px; font-weight:normal" href="'.get_site_url().'/">#'.$tag->name . '</span> '; 
                                 }
                                 }
                             ?>
@@ -141,10 +141,17 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
 
 
                         <?php if (!empty($imovel['horarios']['dias_da_semana'])): ?>
-                        <div class="info info-horario">
-                            <img src="<?php echo ASSETS;?>/img/icons/calendar.svg" />
-                            <small><?php echo formatarHorarios($imovel['horarios']); ?></small>
-                        </div>
+                            <div class="info info-horario">
+                                <img src="<?php echo ASSETS;?>/img/icons/calendar.svg" />
+                                <small><?php echo formatarHorarios($imovel['horarios']); ?></small>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if (empty($imovel['horarios']['dias_da_semana'])): ?>
+                            <div class="info info-horario">
+                                <img src="<?php echo ASSETS;?>/img/icons/calendar.svg" />
+                                <small>Consultar o local</small>
+                            </div>
                         <?php endif; ?>
 
                         <?php if ($imovel['endereco']): ?>
