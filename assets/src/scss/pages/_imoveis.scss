@@ -48,14 +48,14 @@
         .col-left {
             padding-right: 30px;
             // height: calc(150vh - 65px);
-            height: calc(115vh);
+            //height: calc(115vh);
 
             .imoveis {
                 position: relative;
                 .imoveis-container {
-                    overflow: hidden;
+                    //overflow: hidden;
                     // height: calc(150vh - 345px);
-                    height: calc(100vh - 20px);
+                    //height: calc(100vh - 20px);
                 }
             }
 
@@ -67,7 +67,7 @@
             }
         }
         .col-right {
-            background-color: $gray;
+            //background-color: $gray;
             height: calc(100vh - 80px);
             padding: 0;
 
@@ -91,6 +91,9 @@
                 width: 100%;
                 height: calc(100vh - 80px);
                 background-color: white;
+                            position:sticky !important;
+                            top:0;
+
 
                 .col-sm-6 {
                     width: 100%;

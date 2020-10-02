@@ -154,7 +154,7 @@ function get_estabelecimentos() {
 	$post = $_POST['post'];
 	$filters = $_POST['filters'];
 	$page = $_POST['page'];
-	$qtdImoveis = 4;
+	$qtdImoveis = 5;
 	$categoria = '';
 	$produto_by_title;
 

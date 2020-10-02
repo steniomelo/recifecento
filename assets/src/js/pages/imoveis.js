@@ -224,28 +224,28 @@
                 $('.imoveis-list .imoveis #loader, .imoveis-list .imoveis #error').remove();
                 $('.imoveis-list .imoveis .imoveis-row').append(response.html);
 
-                if ($(window).width() > 991) {
+                // if ($(window).width() > 991) {
 
-                    //response.imoveis.forEach(latLng);
-                    //latLng(response.imoveis[0]);
+                //     //response.imoveis.forEach(latLng);
+                //     //latLng(response.imoveis[0]);
 
-                    $('.col-left .imoveis .imoveis-container').mCustomScrollbar({
-                        //setWidth: 4500,
-                        theme: "ang",
-                        autoHideScrollbar: true,
-                        mouseWheel: {
-                            enable: true,
-                            preventDefault: false,
-                        },
-                        scrollInertia: 100000,
-                        scrollbarPosition: 'outside',
-                        // callbacks: {
-                        //     onTotalScroll: function () {
-                        //         loadMore();
-                        //     }
-                        // }
-                    });
-                }
+                //     $('.col-left .imoveis .imoveis-container').mCustomScrollbar({
+                //         //setWidth: 4500,
+                //         theme: "ang",
+                //         autoHideScrollbar: true,
+                //         mouseWheel: {
+                //             enable: true,
+                //             preventDefault: false,
+                //         },
+                //         scrollInertia: 100000,
+                //         scrollbarPosition: 'outside',
+                //         // callbacks: {
+                //         //     onTotalScroll: function () {
+                //         //         loadMore();
+                //         //     }
+                //         // }
+                //     });
+                // }
 
                 if (!more) {
                     slickImovelCard();
