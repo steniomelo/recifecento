@@ -119,7 +119,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                     <div class="imovel-description">
                         <h4>Informações</h4>
 
-                        <div class="imovel-aberto ml-auto widget-abertofechado <?php echo strtolower(isAberto($imovel['horarios']))?>"><?php echo isAberto($imovel['horarios']) ?></div>
+                            <div class="imovel-aberto ml-auto widget-abertofechado <?php echo strtolower(isAberto($imovel['horarios']))?>"><?php echo isAberto($imovel['horarios']) ?></div>
 
 
                         <p class="description"><?php the_content(); ?></p>
@@ -147,12 +147,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                             </div>
                         <?php endif; ?>
 
-                        <?php if (empty($imovel['horarios']['dias_da_semana'])): ?>
-                            <div class="info info-horario">
-                                <img src="<?php echo ASSETS;?>/img/icons/calendar.svg" />
-                                <small>Consultar o local</small>
-                            </div>
-                        <?php endif; ?>
+                        
 
                         <?php if ($imovel['endereco']): ?>
                         <div class="info info-endereco">
@@ -211,7 +206,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
 
                     <div>
                         <small><?php display_last_updated_date() ;?></small>
-                        <small class="text-muted">Este estabelecimento é seu? <br> <a href="#contato">Entre em contato</a> para editar informações ou remover as informações da plataforma.</small>
+                       
                     </div>
 
                     
@@ -222,7 +217,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
 
             <div class="col-sm-6 ml-sm-5 imovel-produtos">
                 <?php if( $imovel['produtos'] ): ?>
-                <h4>Produtos</h4>
+                <h4>Produtos / Serviços</h4>
 
                 
 
@@ -247,6 +242,10 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                             // Reset the global post object so that the rest of the page works correctly.
                             wp_reset_postdata(); ?>
                             <?php endif; ?>
+
+                <br>
+                <br>
+                 <h4>Este estabelecimento é seu?</h4> <p> <a href="#contato">Entre em contato</a> para editar informações ou remover as informações da plataforma.</p>
             </div>
 
 

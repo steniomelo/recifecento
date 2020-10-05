@@ -25,6 +25,10 @@
     .imovel-thumbnail {
         position: relative;
         @include flex-shrink(0);
+        background: #ececec url('../img/layout/logo-gray.png') no-repeat center center;
+        background-size: 50%;
+        box-shadow: inset 0 0 50px -20px rgba(0,0,0,0.2);
+
 
         @include media-breakpoint-up(md) {
             min-width: 183px;

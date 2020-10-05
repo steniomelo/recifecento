@@ -131,8 +131,7 @@ function load_scripts() {
 function register_my_menu() {
 	register_nav_menu('menu-principal',__( 'Menu Principal' ));
 	register_nav_menu('menu-secundário',__( 'Menu Secundário' ));
-	register_nav_menu('menu-institucional',__( 'Menu Institucional' ));
-	register_nav_menu('menu-idioma',__( 'Menu Idioma' ));
+	register_nav_menu('menu-rodape',__( 'Menu Rodapé' ));
   }
 add_action( 'init', 'register_my_menu' );
 

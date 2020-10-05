@@ -29,7 +29,7 @@
 	<div id="footer-info" class="row">
 		<nav class="info-nav col-sm-3">
 			<h4 class="mb-4">MENU</h4>
-			<?php wp_nav_menu( array( 'theme_location' => 'menu-secundário', 'container' => ' ' ) );?>
+			<?php wp_nav_menu( array( 'theme_location' => 'menu-rodape', 'container' => ' ' ) );?>
 
 			
 			

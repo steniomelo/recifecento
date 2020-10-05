@@ -89,7 +89,6 @@
         });
 
         $(this).parent().find('.arrow-next').on('click', function () {
-            console.log('oi');
             $('[data-list-horizontal-nobar]:eq(' + index + ')').mCustomScrollbar("scrollTo", '-=250', {
                 scrollInertia: 300
             });

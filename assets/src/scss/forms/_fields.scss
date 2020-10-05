@@ -112,8 +112,8 @@ select,
 
 		.btn {
 			padding: 10px 15px;
-			//padding-right: 45px !important;
-			width: calc(100% - 45px);
+			padding-right: 45px !important;
+			width: 100%;
 			font-size: 13px;
 			text-align: left;
 			overflow: hidden;

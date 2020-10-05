@@ -17,29 +17,41 @@ get_header();
             
             <div class="select filter-subcategoria">
                 <div class="dropdown">
+                    <?php 
+                    
+                        $query = $wp_query->query;
+
+                        if($query['category_name']) {
+                            $category = get_category_by_slug($query['category_name']);
+                            $parent = $category->term_id;
+                        } else {
+                            $category = get_category_by_slug('varejo');
+                            $parent = $category->term_id;
+                        }
+
+                        $args = array(
+                            'child_of'      => $parent, 
+                        ); 
+
+                        $terms = get_terms('category', $args);
+
+                        if(!empty($terms)) :
+                    ?>
                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                     >
                         Subcategoria
                     </button>
+                    <?php else : ?>
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled="disabled"
+                    >
+                        Subcategoria
+                    </button>
+                    <?php endif; ?>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <?php
 
                         // var_dump($wp_query->query); die();
-                            $query = $wp_query->query;
-
-                            if($query['category_name']) {
-                                $category = get_category_by_slug($query['category_name']);
-                                $parent = $category->term_id;
-                            } else {
-                                $category = get_category_by_slug('comercio');
-                                $parent = $category->term_id;
-                            }
-
-                            $args = array(
-                                'child_of'      => $parent, 
-                            ); 
-
-                            $terms = get_terms('category', $args);
+                            
 
                             foreach($terms as $term) {
                                 //var_dump($term->name);
@@ -54,7 +66,7 @@ get_header();
         <div class="filter col-md-4">
             <div class="select filter-produto">
                 <div class="dropdown">
-                    <?php if(!is_category("turismo")) : ?>
+                    <?php if(!is_category("turismo") && !is_category("gastronomia") && !is_category("mobilidade")) : ?>
                         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                             Filtrar por produto
                         </button>
@@ -83,8 +95,7 @@ get_header();
     </div>
 </div>
 
-<?php echo do_shortcode("[wp1s id='2370']"); ?>
-<?php //echo do_shortcode("[wp1s id='2825']"); ?>
+<?php echo do_shortcode("[wp1s id='2825']"); ?>
 
 
 <div id="imoveis">
@@ -168,6 +179,15 @@ get_header();
                 <script>
                     (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
+            </div>
+        </div>
+
+        <div class="depoimentos text-center ">
+            <div class="container">
+            <h2 class="depoimentos__titulo">Depoimentos</h2>
+            <br>
+            <?php echo do_shortcode('[sp_testimonial id="3084"]'); ?>
+
             </div>
         </div>
 

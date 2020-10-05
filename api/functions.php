@@ -74,7 +74,11 @@ function isAberto($horarios) {
 	//var_dump('fechamento', $horarios['horario_de_funcionamento']['fechamento']);
 	//compareDates($horarios['horario_de_funcionamento']['abertura'], $horarios['horario_de_funcionamento']['fechamento']);
 	//var_dump(in_array($dayofweek, $horarios['dias_da_semana']));
-	return (in_array($dayofweek, $horarios['dias_da_semana']) && compareDates($horarios['horario_de_funcionamento']['abertura'], $horarios['horario_de_funcionamento']['fechamento'])) ? 'Aberto' : 'Fechado';
+	if($horarios['dias_da_semana']) {
+		return (in_array($dayofweek, $horarios['dias_da_semana']) && compareDates($horarios['horario_de_funcionamento']['abertura'], $horarios['horario_de_funcionamento']['fechamento'])) ? 'Aberto' : 'Fechado';
+	} else {
+		return 'Consultar o local';
+	}
 	//return date(strtotime($horarios['horario_de_funcionamento']['abertura']), time());
 }
 
@@ -271,6 +275,7 @@ function get_estabelecimentos() {
 										<small class="imovel-categoria">'. $imovel->categoria[0]->name .'</small>
 									</div>
 									
+
 									<div class="imovel-aberto imovel-status ml-auto '. strtolower(isAberto($imovel->horarios)) .'">'. isAberto($imovel->horarios) .'</div>
 
 								</header>

@@ -158,7 +158,6 @@
     }
 
     function getImoveis(more) {
-        console.log('AjaxAPI >>>>>', ajaxapi);
         $.ajax({
             url: ajaxapi.ajaxurl,
             type: 'post',
@@ -191,7 +190,6 @@
                 var responseHtml = response.html;
                 var responseImoveis = response.imoveis;
 
-                console.log('Imoveis', responseImoveis);
 
                 responseImoveis.forEach((item, i) => {
                     if (item.lat && item.lng) {
@@ -247,11 +245,11 @@
                 //     });
                 // }
 
-                if (!more) {
-                    slickImovelCard();
-                } else {
-                    slickImovelCard(true);
-                }
+                // if (!more) {
+                //     slickImovelCard();
+                // } else {
+                //     slickImovelCard(true);
+                // }
 
 
                 //

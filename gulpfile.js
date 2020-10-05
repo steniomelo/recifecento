@@ -36,7 +36,7 @@ gulp.task('vendors', function () {
         './node_modules/slick-carousel/slick/slick.min.js',
         './node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
         //'./node_modules/jquery-hammerjs/jquery.hammer.js',
-        // './node_modules/hammerjs/hammer.min.js',
+        './node_modules/hammerjs/hammer.min.js',
         // './node_modules/jquery-range/jquery.range-min.js',
     ])
         .pipe(concat('vendors.js'))
