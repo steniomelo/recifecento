@@ -75,7 +75,7 @@ function isAberto($horarios) {
 	//compareDates($horarios['horario_de_funcionamento']['abertura'], $horarios['horario_de_funcionamento']['fechamento']);
 	//var_dump(in_array($dayofweek, $horarios['dias_da_semana']));
 	if($horarios['dias_da_semana']) {
-		return (in_array($dayofweek, $horarios['dias_da_semana']) && compareDates($horarios['horario_de_funcionamento']['abertura'], $horarios['horario_de_funcionamento']['fechamento'])) ? 'Aberto' : 'Fechado';
+		return (in_array($dayofweek, $horarios['dias_da_semana']) || compareDates($horarios['horario_de_funcionamento']['abertura'], $horarios['horario_de_funcionamento']['fechamento'])) ? 'Aberto' : 'Fechado';
 	} else {
 		return 'Consultar o local';
 	}
