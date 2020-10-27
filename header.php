@@ -95,7 +95,7 @@ if ( function_exists( 'dslc_hf_get_header' ) ) {
 				
 			</nav>
 
-			<div class="header-nav">
+			<div class="header-nav header-nav--secondary header-nav--social">
 					
 						<a href="https://www.facebook.com/recifecentro/" target="_blank" >
 						<i class="fab fa-facebook-f"></i>

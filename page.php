@@ -58,6 +58,20 @@ get_header();
                     <?php endif; ?>
 
             </div>
+
+            <div class="col-sm-3">
+                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Single Post -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4672816343502215"
+                    data-ad-slot="8531038660"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+        </div>
             
         </div>
     </div>
