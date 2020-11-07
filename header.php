@@ -97,11 +97,11 @@ if ( function_exists( 'dslc_hf_get_header' ) ) {
 
 			<div class="header-nav header-nav--secondary header-nav--social">
 					
-						<a href="https://www.facebook.com/recifecentro/" target="_blank" >
+						<a rel="noreferrer noopener" href="https://www.facebook.com/recifecentro/" target="_blank" >
 						<i class="fab fa-facebook-f"></i>
 					
 					
-					<a href="https://www.instagram.com/recifecentro/" target="_blank">
+					<a rel="noreferrer noopener" href="https://www.instagram.com/recifecentro/" target="_blank">
 						<i class="fab fa-instagram"></i>
 					</a>
 				</div>

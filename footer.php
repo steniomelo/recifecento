@@ -38,11 +38,11 @@
 			<div class="mb-5">
 						<h4 class="mb-4">REDES SOCIAIS</h4>
 						<div class="social">
-							<a href="https://www.facebook.com/recifecentro/" target="_blank" class="mr-4">
+							<a rel="noreferrer noopener" href="https://www.facebook.com/recifecentro/" target="_blank" class="mr-4">
 							<img src="<?php echo ASSETS;?>/img/icons/facebook.svg" alt="Facebook">
 						</a>
 						
-						<a href="https://www.instagram.com/recifecentro/" target="_blank">
+						<a rel="noreferrer noopener" href="https://www.instagram.com/recifecentro/" target="_blank">
 						<img src="<?php echo ASSETS;?>/img/icons/instagram.svg" alt="Instagram">
 					</a>
 				</div>
