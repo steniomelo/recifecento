@@ -34,3 +34,14 @@ a {
 .img-fluid {
     width: 100%;
 }
+
+.logo-carousel-free .wpl-logo {
+    border: 0 !important;
+    padding: 20px;
+}
+
+.logo-carousel-free .slick-track {
+    display: flex;
+align-content: center;
+align-items: center;
+}

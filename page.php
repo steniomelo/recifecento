@@ -19,10 +19,30 @@ get_header();
                     <?php else : ?>
                         <div class="post">
                     <?php endif; ?>
-                        <h1><?php the_title(); ?></h1>
+
+                        <header class="imovel-header">
+                            <div class="row no-gutters">
+                                <div class="col-sm-12 imovel-header__details">
+                                   
+                                    <div class="imovel-header__title">
+                                        <?php the_title(); ?>
+                                    </div>
+
+                                    <div class="imovel-header__details-photos" data-destaque-galeria>
+                                        <div class="photo">
+                                            <?php the_post_thumbnail(array(567,304)); ?>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            
+                            </div>
+                        </header>
+
+                        <!-- <h1><?php the_title(); ?></h1>
 
                         <br>
-                        <br>
+                        <br> -->
 
 
                         <div class="imovel-container">

@@ -204,10 +204,6 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
 
                     </div>
 
-                    <div>
-                        <small><?php display_last_updated_date() ;?></small>
-                       
-                    </div>
 
                     
 
@@ -246,6 +242,11 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                 <br>
                 <br>
                  <h4>Este estabelecimento é seu?</h4> <p> <a href="#contato">Entre em contato</a> para editar informações ou remover as informações da plataforma.</p>
+                                     <div>
+                        <small><?php display_last_updated_date() ;?></small>
+                       
+                    </div>
+
             </div>
 
 
