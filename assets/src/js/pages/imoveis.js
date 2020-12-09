@@ -415,7 +415,7 @@
     }
 
     function fix() {
-
+        if ($(window).width() > 991) {
         var footerValue = $('#footer').offset();
         var vh = $(window).height();
         var bottomValue = (footerValue.top - vh);
@@ -431,6 +431,7 @@
                 $('.col-right').removeClass('fixed-bottom fixed');
             }
         });
+    }
     }
 
     function slickImovelCard(reinit) {
