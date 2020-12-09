@@ -4,7 +4,7 @@
     @include justify-content(center);
     &:before {
         content: '';
-        background: url('../img/icons/arrow.svg') no-repeat;
+        background: url('./assets/build/img/icons/arrow.svg') no-repeat;
         background-size: auto 100%;
         background-position: left center;
         margin-top: 5px;
@@ -16,7 +16,7 @@
     }
     &:after {
         content: '';
-        background: url('../img/icons/arrow.svg') no-repeat;
+        background: url('./assets/build/img/icons/arrow.svg') no-repeat;
         background-size: contain;
         margin-top: 5px;
         width:32px;
@@ -28,7 +28,7 @@
 
     &.gray {
         &:before, &:after {
-            background-image: url('../img/icons/arrow-gray.svg');
+            background-image: url('./assets/build/img/icons/arrow-gray.svg');
         }
     }
 }

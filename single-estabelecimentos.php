@@ -159,7 +159,8 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                         <?php if ($imovel['telefone']): ?>
                         <div class="info info-telefone">
                             <img src="<?php echo ASSETS;?>/img/icons/phone.svg" />
-                            <small><?php echo $imovel['telefone']; ?></small>
+                            <small><a class="btn btn-danger btn-telefone">Ver telefone</a></small>
+                            <small class="telefone"><a href="tel:<?php echo $imovel['telefone']; ?>"><?php echo $imovel['telefone']; ?></a></small>
                         </div>
                         <?php endif; ?>
 

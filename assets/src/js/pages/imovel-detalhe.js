@@ -38,6 +38,13 @@
 
     }
 
+    function btnTelefone() {
+        $('.btn-telefone').click(function() {
+            console.log('oi');
+            $(this).parents('.info-telefone').find('.telefone').show();
+        })
+    }
+
     function btnNegociar() {
 
         $(document).on('nfFormReady', function () {
@@ -224,6 +231,7 @@
         btnNegociar();
         Tabs();
         nfFormReadys();
+        btnTelefone();
     }
 
     init();

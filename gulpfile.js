@@ -52,10 +52,10 @@ gulp.task('vendors', function () {
 gulp.task('sass', function () {
     return gulp.src('./assets/src/scss/style.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(concatCss("style.min.css"))
+        .pipe(concatCss("style.css"))
         .pipe(stripCssComments({ preserve: false }))
         .pipe(cleanCSS({ compatibility: 'ie8' }))
-        .pipe(gulp.dest(dest + 'css'))
+        .pipe(gulp.dest('./'))
         .pipe(browserSync.stream());
 });
 
@@ -74,7 +74,7 @@ gulp.task('watch', function () {
     ];
 
     browserSync.init(files, {
-        proxy: 'localhost/recifecentro/',
+        proxy: 'localhost:8888/recifecentro/',
         injectChanges: true,
         port: 4000,
         notify: true,

@@ -168,6 +168,9 @@ body {
             &.current-menu-item, &[class*="current"] {
                 a {
                     color: $blue;
+                    background-color: #f9f9f9;
+                    padding: 10px 15px;
+
                 }
             }
 
@@ -196,7 +199,7 @@ body {
             //     top: 50%;
             //     margin-top: -5px;
             //     right: 20px;
-            //     background:url('../img/icons/plus.svg') no-repeat;
+            //     background:url('./assets/build/img/icons/plus.svg') no-repeat;
             //     background-size:contain;
             //     width: 11px;
             //     height: 11px;

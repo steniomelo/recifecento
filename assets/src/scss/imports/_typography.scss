@@ -7,8 +7,8 @@
 
 @font-face {
 	font-family: 'ITC Avant Garde Gothic';
-	src: url('../fonts/AvantGarde-Book.woff2') format('woff2'),
-			url('../fonts/AvantGarde-Book.woff') format('woff');
+	src: url('./assets/build/fonts/AvantGarde-Book.woff2') format('woff2'),
+			url('./assets/build/fonts/AvantGarde-Book.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -16,35 +16,35 @@
 
 @font-face {
 	font-family: 'ITC Avant Garde Gothic';
-	src: url('../fonts/AvantGarde-Medium.woff2') format('woff2'),
-			url('../fonts/AvantGarde-Medium.woff') format('woff');
+	src: url('./assets/build/fonts/AvantGarde-Medium.woff2') format('woff2'),
+			url('./assets/build/fonts/AvantGarde-Medium.woff') format('woff');
 	font-weight: 300;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'ITC Avant Garde Gothic';
-	src: url('../fonts/AvantGarde-Demi.woff2') format('woff2'),
-			url('../fonts/AvantGarde-Demi.woff') format('woff');
+	src: url('./assets/build/fonts/AvantGarde-Demi.woff2') format('woff2'),
+			url('./assets/build/fonts/AvantGarde-Demi.woff') format('woff');
 	font-weight: 500;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'ITC Avant Garde Gothic';
-	src: url('../fonts/AvantGarde-Bold.woff2') format('woff2'),
-			url('../fonts/AvantGarde-Bold.woff') format('woff');
+	src: url('./assets/build/fonts/AvantGarde-Bold.woff2') format('woff2'),
+			url('./assets/build/fonts/AvantGarde-Bold.woff') format('woff');
 	font-weight: bold;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Helvetica';
-    src: url('../fonts/Helvetica-Light.eot');
-    src: url('../fonts/Helvetica-Light.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/Helvetica-Light.woff2') format('woff2'),
-        url('../fonts/Helvetica-Light.woff') format('woff'),
-        url('../fonts/Helvetica-Light.ttf') format('truetype');
+    src: url('./assets/build/fonts/Helvetica-Light.eot');
+    src: url('./assets/build/fonts/Helvetica-Light.eot?#iefix') format('embedded-opentype'),
+        url('./assets/build/fonts/Helvetica-Light.woff2') format('woff2'),
+        url('./assets/build/fonts/Helvetica-Light.woff') format('woff'),
+        url('./assets/build/fonts/Helvetica-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
 }

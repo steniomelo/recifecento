@@ -10,9 +10,9 @@
         $imoveisTotais = 0;
 
         postVars();
-        configFilters();
         getImoveis();
         loadMoreBtn();
+        fix();
     }
 
 
@@ -45,12 +45,23 @@
             $(this).find('.btn-limpar').on('click', function () {
                 $(this).parents('.filter').removeClass('active opened valid');
             });
+
+            $(this).find('.filter-autocomplete').on('input', function() {
+                if($(this).val().length > 0) {
+                    $(this).parents('.dropdown-menu').find('.dropdown-item').hide();
+                    $(this).parents('.dropdown-menu').find('.dropdown-item:contains("'+$(this).val()+'")').show();
+                    $(this).parents('.dropdown-menu').find('.dropdown-item:contains("' + $(this).val().toLowerCase()+'")').show();
+                    $(this).parents('.dropdown-menu').find('.dropdown-item:contains("' + $(this).val().charAt(0).toUpperCase() + $(this).val().substr(1).toLowerCase()+'")').show();
+                } else {
+                    $(this).parents('.dropdown-menu').find('.dropdown-item').show();
+                }
+            })
         });
 
         configFilterSubcategoria();
         configFilterProduto();
         configFilterKeyword();
-        resetFilters();
+        //resetFilters();
     }
 
     function configFilterSubcategoria() {
@@ -62,11 +73,15 @@
             $('.filter-subcategoria .btn').html(value.html());
         }
 
+        if (localStorage.getItem('filtros')) {
+            $('.filter-subcategoria .btn').html(JSON.parse(localStorage.getItem('filtros')).subcategoria);
+        }
+
         $('.filter-subcategoria .dropdown-item').on('click', function () {
             getValue($(this));
             $filtros.subcategoria = $subcategoria;
             resetConfig();
-            getImoveis();
+            getImoveis(null, true);
         });
     }
 
@@ -75,15 +90,23 @@
             var value = val;
 
             $produto = value.data('value');
+            $produto_nome = value.html();
 
             $('.filter-produto .btn').html(value.html());
         }
 
+        if (localStorage.getItem('filtros')) {
+            $('.filter-produto .btn').html(JSON.parse(localStorage.getItem('filtros')).produto_nome);
+        }
+
+
+
         $('.filter-produto .dropdown-item').on('click', function () {
             getValue($(this));
             $filtros.produto = $produto;
+            $filtros.produto_nome = $produto_nome;
             resetConfig();
-            getImoveis();
+            getImoveis(null, true);
         });
     }
 
@@ -91,7 +114,7 @@
         $('.filter-keyword').bind('enterKey', function () {
             $filtros.keyword = $(this).val();
             resetConfig();
-            getImoveis();
+            getImoveis(null, true);
         });
 
         $('.filter-keyword').keyup(function (e) {
@@ -99,6 +122,10 @@
                 $(this).trigger("enterKey");
             }
         });
+
+        $('.filter-keyword').find('.filter-btn').click(function () {
+            $('.filter-keyword').trigger("enterKey");
+        })
     }
 
     function resetConfig() {
@@ -157,7 +184,26 @@
         }
     }
 
-    function getImoveis(more) {
+    function getImoveis(more, setItem) {
+
+        let category_name = JSON.parse(ajaxapi.query_vars).category_name;
+
+        if (localStorage.getItem('filtros') && !setItem) {
+            let filtros = JSON.parse(localStorage.getItem('filtros'));
+
+            if (filtros.category_name == category_name) {
+                $filtros = filtros;
+            } else {
+                localStorage.removeItem('filtros');
+            }
+        } else if (Object.keys($filtros).length != 0) {
+            $filtros.category_name = JSON.parse(ajaxapi.query_vars).category_name;
+            localStorage.setItem('filtros', JSON.stringify($filtros));
+        }
+
+        configFilters();
+
+
         $.ajax({
             url: ajaxapi.ajaxurl,
             type: 'post',
@@ -184,7 +230,6 @@
                 $i = 0;
 
                 toogleTotalImoveis(true);
-
                 toogleLoadMoreBtn(true);
 
                 var responseHtml = response.html;
@@ -360,6 +405,27 @@
                 }]
             }
         );
+    }
+
+    function fix() {
+
+        var footerValue = $('#footer').offset();
+        var vh = $(window).height();
+        var bottomValue = (footerValue.top - vh);
+
+        console.log(bottomValue);
+
+        $(window).on('scroll', function (event) {
+            var scrollValue = $(window).scrollTop();
+            console.log(scrollValue);
+            if (scrollValue > 500 && scrollValue < bottomValue ) {
+                $('.col-right').addClass('fixed').removeClass('fixed-bottom');
+            } else if (scrollValue > bottomValue) {
+                $('.col-right').addClass('fixed-bottom').removeClass('fixed');
+            } else if (scrollValue < 500) {
+                $('.col-right').removeClass('fixed-bottom fixed');
+            }
+        });
     }
 
     function slickImovelCard(reinit) {

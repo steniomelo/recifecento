@@ -9,8 +9,9 @@ get_header();
 <div class="filtros">
     <div class="container">
     <div class="filters row">
-        <div class="filter col-md-6 ">
+        <div class="filter col-md-6 filter-keyword " style="position:relative">
             <input type="text" class="form-control filter-keyword" placeholder="Digite um termo para buscar">
+            <button class="filter-btn" style="position:absolute; right: 15px; top:0px; border: 0; padding: 10px; background: none; width: auto; min-width: auto; color: #e3072a" ><i class="fas fa-search " ></i></button>
         </div>
 
         <div class="filter col-md-2">
@@ -48,6 +49,11 @@ get_header();
                     </button>
                     <?php endif; ?>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-autocomplete">
+                            <input type="text" placeholder="Filtrar" class="filter-autocomplete">
+                        </div>
+
+                        <div class="dropdown-list">
                         <?php
 
                         // var_dump($wp_query->query); die();
@@ -58,6 +64,7 @@ get_header();
                         ?>
                                 <a class="dropdown-item" href="#" data-value="<?php echo $term->slug; ?>"><?php echo $term->name; ?></a>
                             <?php } ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -76,17 +83,23 @@ get_header();
                         </button>
                     <?php endif; ?>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <?php 
-                        $produtos = get_posts( array(
-                            'post_type'      => 'produtos',
-                            'post_status'    => 'publish',
-                            'posts_per_page' => -1,
-                            'orderby' => 'title',
-                            'order' => 'ASC'
-                        ));
-                        foreach($produtos as $produto) { ?>
-                        <a class="dropdown-item" href="#" data-value="<?php echo $produto->ID; ?>"><?php echo $produto->post_title; ?></a>
-                        <?php } ?>
+                        <div class="dropdown-autocomplete">
+                            <input type="text" placeholder="Filtrar" class="filter-autocomplete">
+                        </div>
+
+                        <div class="dropdown-list">
+                            <?php 
+                            $produtos = get_posts( array(
+                                'post_type'      => 'produtos',
+                                'post_status'    => 'publish',
+                                'posts_per_page' => -1,
+                                'orderby' => 'title',
+                                'order' => 'ASC'
+                            ));
+                            foreach($produtos as $produto) { ?>
+                            <a class="dropdown-item" href="#" data-value="<?php echo $produto->ID; ?>"><?php echo $produto->post_title; ?></a>
+                            <?php } ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -154,7 +167,7 @@ get_header();
                         <div class="imoveis-blank">
                             <img src="<?php echo ASSETS;?>/img/layout/blank-state-imoveis@3x.png">
                             <strong>Não encontrou o que procurava?</strong>
-                            <p>Altere as características de busca e tente novamente</p>
+                            <p>No centro tem. Refaça a sua pesquisa!</p>
                         </div>
 
                     </div>
@@ -167,18 +180,22 @@ get_header();
             </div>
             
             <div class="col-xl-6 col-right">
-                <div id="map"></div>
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- Mapa -->
-                <ins class="adsbygoogle"
-                    style="display:block"
-                    data-ad-client="ca-pub-4672816343502215"
-                    data-ad-slot="4810790669"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
+                <div class="col-right-apoio"></div>
+
+                <div class="col-right-content">
+                    <div id="map"></div>
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Mapa -->
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-client="ca-pub-4672816343502215"
+                        data-ad-slot="4810790669"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
             </div>
         </div>
 
