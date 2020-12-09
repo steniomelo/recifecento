@@ -108,7 +108,35 @@ get_header();
     </div>
 </div>
 
-<?php echo do_shortcode("[wp1s id='2825']"); ?>
+<?php //echo do_shortcode("[wp1s id='2825']"); ?>
+
+<div id="destaques" data-destaque-slider>
+ <?php 
+    $destaques = get_posts( array(
+        'post_type'      => 'destaques',
+        'post_status'    => 'publish',
+        'posts_per_page' => -1,
+    ));
+    foreach($destaques as $destaque) { ?>
+
+            <div class="destaque">
+                <?php 
+                $image = get_field('imagem_desktop', $destaque->ID);
+                $image_mobile = get_field('imagem_mobile', $destaque->ID);
+
+                if( !empty( $image ) ): ?>
+                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="w-100 d-none d-sm-block" />
+                <?php endif;
+                if( !empty( $image_mobile ) ): ?>
+                    <img src="<?php echo esc_url($image_mobile['url']); ?>" alt="<?php echo esc_attr($image_mobile['alt']); ?>" class="w-100 d-block d-sm-none" />
+                <?php else: ?>
+                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="w-100 d-block d-sm-none" />
+
+                <?php endif; ?>
+            </div>
+            
+    <?php } ?>
+</div>
 
 
 <div id="imoveis">

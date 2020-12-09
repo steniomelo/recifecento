@@ -6,6 +6,7 @@
 
         smoothScroll();
         slickImovelCard();
+        //slickDestaques();
 
         $('#header').find('.header-search').on('click', toggleSearch);
         $('#header').find('.hamburger').on('click', toogleHeaderNav);
@@ -35,6 +36,19 @@
             $('.header-logo, .header-hamburger, #header-nav').addClass('active');
             $('html').css('overflow', 'hidden');
         }
+    }
+
+    function slickDestaques() {
+        $("#destaques").slick({
+            infinite: true,
+            autoplay: true,
+            slidesToShow: 1,
+            pauseOnHover: true,
+            pauseOnFocus: true,
+            arrows: true,
+            dots: true,
+            swipe: true,
+        });
     }
 
     function slickImovelCard() {
