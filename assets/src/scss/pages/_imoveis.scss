@@ -47,6 +47,8 @@
 
         .col-left {
             padding-right: 30px;
+            position: relative;
+            z-index: 2;
             // height: calc(150vh - 65px);
             //height: calc(115vh);
 
@@ -80,6 +82,7 @@
                 max-width: 100%;
                 padding-left: calc(50% - 570px);
                 display: flex;
+                z-index: 1;
 
                 .col-right-apoio {
                     flex: 0 0 50%;
@@ -97,6 +100,10 @@
             &.fixed-bottom {
                 margin-top: 320px;
                 position: relative;
+                display: flex;
+                align-items: flex-end;
+                align-content: flex-end;
+                justify-content: flex-end;
             }
 
             #map {
@@ -353,4 +360,8 @@
             }
         }
     }
+}
+
+#destaques {
+    max-height: 432px;
 }

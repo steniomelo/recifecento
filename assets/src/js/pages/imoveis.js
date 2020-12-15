@@ -12,7 +12,6 @@
         postVars();
         getImoveis();
         loadMoreBtn();
-        fix();
     }
 
 
@@ -204,6 +203,7 @@
         configFilters();
 
 
+
         $.ajax({
             url: ajaxapi.ajaxurl,
             type: 'post',
@@ -228,6 +228,8 @@
                 $imoveisTotais = response.total;
                 $imoveisCarregadosTotais = response.imoveis.length;
                 $i = 0;
+
+                
 
                 toogleTotalImoveis(true);
                 toogleLoadMoreBtn(true);
@@ -266,6 +268,11 @@
 
                 $('.imoveis-list .imoveis #loader, .imoveis-list .imoveis #error').remove();
                 $('.imoveis-list .imoveis .imoveis-row').append(response.html);
+
+
+                if ($('.imoveis-list .imoveis .imoveis-row').children().length > 5) {
+                    fix();
+                }
 
                 // if ($(window).width() > 991) {
 
@@ -408,24 +415,23 @@
     }
 
     function fix() {
-
+        if ($(window).width() > 991) {
         var footerValue = $('#footer').offset();
         var vh = $(window).height();
         var bottomValue = (footerValue.top - vh);
 
-        console.log(bottomValue);
 
         $(window).on('scroll', function (event) {
             var scrollValue = $(window).scrollTop();
-            console.log(scrollValue);
-            if (scrollValue > 500 && scrollValue < bottomValue ) {
+            if (scrollValue > 995 && scrollValue < bottomValue ) {
                 $('.col-right').addClass('fixed').removeClass('fixed-bottom');
-            } else if (scrollValue > bottomValue) {
+            } else if (scrollValue > (bottomValue - 50)) {
                 $('.col-right').addClass('fixed-bottom').removeClass('fixed');
-            } else if (scrollValue < 500) {
+            } else if (scrollValue < 995) {
                 $('.col-right').removeClass('fixed-bottom fixed');
             }
         });
+    }
     }
 
     function slickImovelCard(reinit) {
