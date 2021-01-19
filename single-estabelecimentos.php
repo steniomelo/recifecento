@@ -15,7 +15,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
 
 <?php if(have_posts()): while(have_posts()) : the_post(); ?>
 
-<?php 
+<?php
 
     $imovel = [
         'horarios' => get_field('horario_de_funcionamento', $post->ID),
@@ -60,7 +60,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                         <?php the_post_thumbnail(array(567,304)); ?>
                     </div>
                     <?php if( have_rows('imagens') ): ?>
-                        <?php while( have_rows('imagens') ): the_row(); 
+                        <?php while( have_rows('imagens') ): the_row();
 
                             // Get sub field values.
                             $image1 = get_sub_field('imagem_1');
@@ -69,7 +69,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                             $image4 = get_sub_field('imagem_4');
 
                             ?>
-                            
+
                             <?php if($image1) : ?>
                                 <div class="photo">
                                 <?php echo wp_get_attachment_image( $image1, array(567,304)); ?>
@@ -113,8 +113,8 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
             <div class="col-sm-5">
 
                 <div class="imovel-content">
-                    
-                    
+
+
 
                     <div class="imovel-description">
                         <h4>Informações</h4>
@@ -129,7 +129,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                                 $posttags = get_the_tags();
                                 if ($posttags) {
                                 foreach($posttags as $tag) {
-                                    echo '<span class="badge badge-pill badge-danger " style="font-size:12px; font-weight:normal" href="'.get_site_url().'/">#'.$tag->name . '</span> '; 
+                                    echo '<span class="badge badge-pill badge-danger " style="font-size:12px; font-weight:normal" href="'.get_site_url().'/">#'.$tag->name . '</span> ';
                                 }
                                 }
                             ?>
@@ -137,7 +137,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
 
                         <div class="imovel-info">
 
-                        
+
 
 
                         <?php if (!empty($imovel['horarios']['dias_da_semana'])): ?>
@@ -147,7 +147,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                             </div>
                         <?php endif; ?>
 
-                        
+
 
                         <?php if ($imovel['endereco']): ?>
                         <div class="info info-endereco">
@@ -170,8 +170,8 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                             <small><?php echo $imovel['site']; ?></small>
                         </div>
                         <?php endif; ?>
-                        
-                        
+
+
                     </div>
 
                         <div class="imovel-more-info">
@@ -184,7 +184,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
 
 
                             <div class="estacionamentos">
-                                <?php foreach( $imovel['estacionamentos'] as $post ): 
+                                <?php foreach( $imovel['estacionamentos'] as $post ):
 
                                     // Setup this post for WP functions (variable must be named $post).
                                     setup_postdata($post); ?>
@@ -197,7 +197,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                                     </div>
                                 <?php endforeach; ?>
                             </div>
-                            <?php 
+                            <?php
                             // Reset the global post object so that the rest of the page works correctly.
                             wp_reset_postdata(); ?>
                             <?php endif; ?>
@@ -206,9 +206,9 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                     </div>
 
 
-                    
 
-                    
+
+
                 </div>
             </div>
 
@@ -216,10 +216,10 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                 <?php if( $imovel['produtos'] ): ?>
                 <h4>Produtos / Serviços</h4>
 
-                
+
 
                             <div class="produtos row">
-                                <?php foreach( $imovel['produtos'] as $post ): 
+                                <?php foreach( $imovel['produtos'] as $post ):
 
                                     // Setup this post for WP functions (variable must be named $post).
                                     setup_postdata($post); ?>
@@ -235,7 +235,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                                     </div>
                                 <?php endforeach; ?>
                             </div>
-                            <?php 
+                            <?php
                             // Reset the global post object so that the rest of the page works correctly.
                             wp_reset_postdata(); ?>
                             <?php endif; ?>
@@ -245,9 +245,9 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                  <h4>Este estabelecimento é seu?</h4> <p> <a href="#contato">Entre em contato</a> para editar informações ou remover as informações da plataforma.</p>
                                      <div>
                         <small><?php display_last_updated_date() ;?></small>
-                       
-                    </div>
 
+                    </div>
+                    <?php echo do_shortcode( '[wpusb layout="buttons" items="whatsapp"]' ); ?>
             </div>
 
 
@@ -255,7 +255,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
     </div>
 </div>
 
-<?php 
+<?php
     $similares = get_field('properties_related', $imovel[0]->ID);
     if ($similares):
 ?>
@@ -267,8 +267,8 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                 <header class="section-header">
                     <h2 class="section-title">Similares</h2>
                 </header>
-                <?php 
-                    foreach($similares as $similar): 
+                <?php
+                    foreach($similares as $similar):
                         set_query_var('similar', $similar);
                         get_template_part( 'partials/imovel', 'card' );
                     endforeach;
@@ -278,7 +278,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
         </div>
     </div>
 </section>
-<?php endif; 
+<?php endif;
 
 $endereco = get_field('endereco');
 
@@ -327,5 +327,5 @@ function initMap() {
 <?php
 wp_enqueue_script('google-maps');
 wp_enqueue_script('imovel-detalhe');
-get_footer(); 
+get_footer();
 ?>
