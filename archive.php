@@ -2,7 +2,7 @@
 
 // Template name: Página Principal
 
-get_header(); 
+get_header();
 ?>
 
 
@@ -15,11 +15,11 @@ get_header();
         </div>
 
         <div class="filter col-md-2">
-            
+
             <div class="select filter-subcategoria">
                 <div class="dropdown">
-                    <?php 
-                    
+                    <?php
+
                         $query = $wp_query->query;
 
                         if($query['category_name']) {
@@ -31,8 +31,8 @@ get_header();
                         }
 
                         $args = array(
-                            'child_of'      => $parent, 
-                        ); 
+                            'child_of'      => $parent,
+                        );
 
                         $terms = get_terms('category', $args);
 
@@ -57,7 +57,7 @@ get_header();
                         <?php
 
                         // var_dump($wp_query->query); die();
-                            
+
 
                             foreach($terms as $term) {
                                 //var_dump($term->name);
@@ -88,7 +88,7 @@ get_header();
                         </div>
 
                         <div class="dropdown-list">
-                            <?php 
+                            <?php
                             $produtos = get_posts( array(
                                 'post_type'      => 'produtos',
                                 'post_status'    => 'publish',
@@ -108,10 +108,13 @@ get_header();
     </div>
 </div>
 
-<?php //echo do_shortcode("[wp1s id='2825']"); ?>
+<a href="http://bit.ly/ZAPSITE" target="_blank">
+<?php echo do_shortcode("[wp1s id='10569']"); ?>
+</a>
+
 
 <div id="destaques" data-destaque-slider>
- <?php 
+ <?php
     $destaques = get_posts( array(
         'post_type'      => 'destaques',
         'post_status'    => 'publish',
@@ -120,7 +123,7 @@ get_header();
     foreach($destaques as $destaque) { ?>
 
             <div class="destaque">
-                <?php 
+                <?php
                 $image = get_field('imagem_desktop', $destaque->ID);
                 $image_mobile = get_field('imagem_mobile', $destaque->ID);
 
@@ -134,7 +137,7 @@ get_header();
 
                 <?php endif; ?>
             </div>
-            
+
     <?php } ?>
 </div>
 
@@ -147,7 +150,7 @@ get_header();
     <div class="list-horizontal list-noticias ">
 			<div class="list-items noticias-items" data-list-horizontal>
 
-                <?php 
+                <?php
 
                 $query = get_queried_object();
 
@@ -165,20 +168,20 @@ get_header();
                     'posts_per_page' => 6,
                     'category_name' => getCategory($query),
                 ));
-                foreach($posts->posts as $post) { 
-                
+                foreach($posts->posts as $post) {
+
                 setup_postdata($post);
-                
+
                 ?>
-				
-                <?php 
+
+                <?php
                     get_template_part( 'partials/noticia', 'card' );
                 ?>
 
                 <?php } ?>
-                
+
                 <?php wp_reset_postdata(); ?>
-                
+
 				<div class="space"></div>
 			</div>
 		</div>
@@ -189,7 +192,7 @@ get_header();
                 <div class="imoveis">
                     <div class="imoveis-container">
                         <div class="row imoveis-row">
-                            
+
                         </div>
 
                         <div class="imoveis-blank">
@@ -200,13 +203,13 @@ get_header();
 
                     </div>
                 </div>
-                
+
                 <div class="p-5 col-sm-5 mx-auto ">
                     <a href="#" class="btn btn-block btn-danger d-none" data-loadmorebtn>Carregar mais</a>
                 </div>
 
             </div>
-            
+
             <div class="col-xl-6 col-right">
                 <div class="col-right-apoio"></div>
 
@@ -236,13 +239,13 @@ get_header();
             </div>
         </div>
 
-</div>           
+</div>
 <?php
 wp_enqueue_script('imoveis');
 wp_enqueue_script('markerclusterer');
 wp_enqueue_script('google-maps');
 
-get_footer(); 
+get_footer();
 
 //endif;
 ?>
