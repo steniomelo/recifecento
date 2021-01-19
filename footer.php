@@ -17,8 +17,8 @@
 				<h4 class="newsletter__container-title">Receba novidades no seu e-mail</h4>
 				<?php echo do_shortcode('[ninja_form id=3]'); ?>
 				<div>
-					<span>E-mail protegido!</span><br>
-					<small>Não enviamos spams! Seu e-mail está seguro</small>
+					<span>E-mail seguro!</span><br>
+					<small>Não enviamos spams!</small>
 				</div>
 			</div>
 		</div>
@@ -31,8 +31,8 @@
 			<h4 class="mb-4">MENU</h4>
 			<?php wp_nav_menu( array( 'theme_location' => 'menu-rodape', 'container' => ' ' ) );?>
 
-			
-			
+
+
 		</nav>
 		<div class=" col-sm-4 ">
 			<div class="mb-5">
@@ -41,7 +41,7 @@
 							<a rel="noreferrer noopener" href="https://www.facebook.com/recifecentro/" target="_blank" class="mr-4">
 							<img src="<?php echo ASSETS;?>/img/icons/facebook.svg" alt="Facebook">
 						</a>
-						
+
 						<a rel="noreferrer noopener" href="https://www.instagram.com/recifecentro/" target="_blank">
 						<img src="<?php echo ASSETS;?>/img/icons/instagram.svg" alt="Instagram">
 					</a>
@@ -52,7 +52,7 @@
 				<p>CNPJ: 37.601.761/0001-09</p>
 			</div>
 
-			
+
 
 
 		</div>
