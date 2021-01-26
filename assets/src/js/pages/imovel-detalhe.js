@@ -40,8 +40,16 @@
 
     function btnTelefone() {
         $('.btn-telefone').click(function() {
-            console.log('oi');
+            console.log($(this).parents('.info-telefone').find('.telefone a').html());
             $(this).parents('.info-telefone').find('.telefone').show();
+            ga('send', 'event', 'Telefone', 'Visualizar', $(this).parents('.info-telefone').find('.telefone a').html());
+            dataLayer.push({ 'event': 'Telefone' });
+            gtag('event', 'Ver telefone do estabelecimento', {
+                'event_category': 'Telefone',
+                'event_label': $(this).parents('.info-telefone').find('.telefone').data('nome'),
+                'value': $(this).parents('.info-telefone').find('.telefone a').html()
+            });
+
         })
     }
 

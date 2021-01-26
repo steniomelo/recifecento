@@ -8,6 +8,7 @@
         imoveisHtml = [];
         $postVars = ajaxapi.post;
         $imoveisTotais = 0;
+        $loading = false;
 
         postVars();
         getImoveis();
@@ -123,7 +124,7 @@
         });
 
         $('.filter-keyword').find('.filter-btn').click(function () {
-            $('.filter-keyword').trigger("enterKey");
+            $('.filter-keyword input').trigger("enterKey");
         })
     }
 
@@ -178,139 +179,149 @@
     function toogleLoader(bool) {
         if (bool) {
             $('[data-loader]').addClass('active');
+            $loading = true;
         } else {
             $('[data-loader]').removeClass('active');
+            $loading = false;
         }
     }
 
     function getImoveis(more, setItem) {
+        console.log($loading);
 
-        let category_name = JSON.parse(ajaxapi.query_vars).category_name;
-
-        if (localStorage.getItem('filtros') && !setItem) {
-            let filtros = JSON.parse(localStorage.getItem('filtros'));
-
-            if (filtros.category_name == category_name) {
-                $filtros = filtros;
-            } else {
-                localStorage.removeItem('filtros');
-            }
-        } else if (Object.keys($filtros).length != 0) {
-            $filtros.category_name = JSON.parse(ajaxapi.query_vars).category_name;
-            localStorage.setItem('filtros', JSON.stringify($filtros));
-        }
-
-        configFilters();
+        if(!$loading) {
+            console.log("...loading");
+            toogleLoader(true);
 
 
+            let category_name = JSON.parse(ajaxapi.query_vars).category_name;
 
-        $.ajax({
-            url: ajaxapi.ajaxurl,
-            type: 'post',
-            data: {
-                action: 'get_estabelecimentos',
-                query_vars: ajaxapi.query_vars,
-                get: ajaxapi.get,
-                post: ajaxapi.post,
-                query: ajaxapi.query,
-                filters: $filtros,
-                page: $page
-            },
-            beforeSend: function () {
-                toogleError(false);
-                if (!more) {
-                    toogleTotalImoveis(false);
-                }
-                toogleLoader(true);
-                toogleLoadMoreBtn(false);
-            },
-            success: function (response) {
-                $imoveisTotais = response.total;
-                $imoveisCarregadosTotais = response.imoveis.length;
-                $i = 0;
+            if (localStorage.getItem('filtros') && !setItem) {
+                let filtros = JSON.parse(localStorage.getItem('filtros'));
 
-                
-
-                toogleTotalImoveis(true);
-                toogleLoadMoreBtn(true);
-
-                var responseHtml = response.html;
-                var responseImoveis = response.imoveis;
-
-
-                responseImoveis.forEach((item, i) => {
-                    if (item.lat && item.lng) {
-                        let location = {
-                            'lat': item.lat,
-                            'lng': item.lng
-                        }
-                        locations.push(location);
-                        imoveisHtml.push(responseHtml[i])
-                    }
-                })
-
-                initMap();
-                toogleLoader(false);
-
-
-                if ($imoveisTotais == 1) {
-                    $('.listItemTotal [data-total]').html('Achamos <strong class="totalImoveis">' + $imoveisTotais + '</strong> imóvel com essas características');
-                } else if ($imoveisTotais == 0 || $imoveisTotais > 1) {
-                    $('.listItemTotal [data-total]').html('Achamos <strong class="totalImoveis">' + $imoveisTotais + '</strong> imóveis com essas características');
-                }
-
-                // Controlando o blank state da listagem de imóveis
-                if ($imoveisTotais > 0) {
-                    $('.imoveis-blank').removeClass('show');
+                if (filtros.category_name == category_name) {
+                    $filtros = filtros;
                 } else {
-                    $('.imoveis-blank').addClass('show');
+                    localStorage.removeItem('filtros');
                 }
-
-                $('.imoveis-list .imoveis #loader, .imoveis-list .imoveis #error').remove();
-                $('.imoveis-list .imoveis .imoveis-row').append(response.html);
-
-
-                if ($('.imoveis-list .imoveis .imoveis-row').children().length > 5) {
-                    fix();
-                }
-
-                // if ($(window).width() > 991) {
-
-                //     //response.imoveis.forEach(latLng);
-                //     //latLng(response.imoveis[0]);
-
-                //     $('.col-left .imoveis .imoveis-container').mCustomScrollbar({
-                //         //setWidth: 4500,
-                //         theme: "ang",
-                //         autoHideScrollbar: true,
-                //         mouseWheel: {
-                //             enable: true,
-                //             preventDefault: false,
-                //         },
-                //         scrollInertia: 100000,
-                //         scrollbarPosition: 'outside',
-                //         // callbacks: {
-                //         //     onTotalScroll: function () {
-                //         //         loadMore();
-                //         //     }
-                //         // }
-                //     });
-                // }
-
-                // if (!more) {
-                //     slickImovelCard();
-                // } else {
-                //     slickImovelCard(true);
-                // }
-
-
-                //
-            }, error: function (response, status, error) {
-                $('.imoveis-list .imoveis #loader').remove();
-                toogleLoader(false);
-                toogleError(true, response.responseText);
+            } else if (Object.keys($filtros).length != 0) {
+                $filtros.category_name = JSON.parse(ajaxapi.query_vars).category_name;
+                localStorage.setItem('filtros', JSON.stringify($filtros));
             }
-        });
+
+            configFilters();
+
+
+
+            $.ajax({
+                url: ajaxapi.ajaxurl,
+                type: 'post',
+                data: {
+                    action: 'get_estabelecimentos',
+                    query_vars: ajaxapi.query_vars,
+                    get: ajaxapi.get,
+                    post: ajaxapi.post,
+                    query: ajaxapi.query,
+                    filters: $filtros,
+                    page: $page
+                },
+                beforeSend: function () {
+                    toogleError(false);
+                    if (!more) {
+                        toogleTotalImoveis(false);
+                    }
+                    toogleLoader(true);
+                    toogleLoadMoreBtn(false);
+                },
+                success: function (response) {
+                    $imoveisTotais = response.total;
+                    $imoveisCarregadosTotais = response.imoveis.length;
+                    $i = 0;
+
+                    toogleTotalImoveis(true);
+
+                    if($imoveisTotais > 5) {
+                        toogleLoadMoreBtn(true);
+                    }
+
+                    var responseHtml = response.html;
+                    var responseImoveis = response.imoveis;
+
+
+                    responseImoveis.forEach((item, i) => {
+                        if (item.lat && item.lng) {
+                            let location = {
+                                'lat': item.lat,
+                                'lng': item.lng
+                            }
+                            locations.push(location);
+                            imoveisHtml.push(responseHtml[i])
+                        }
+                    })
+
+                    initMap();
+                    toogleLoader(false);
+
+
+                    if ($imoveisTotais == 1) {
+                        $('.listItemTotal [data-total]').html('Achamos <strong class="totalImoveis">' + $imoveisTotais + '</strong> imóvel com essas características');
+                    } else if ($imoveisTotais == 0 || $imoveisTotais > 1) {
+                        $('.listItemTotal [data-total]').html('Achamos <strong class="totalImoveis">' + $imoveisTotais + '</strong> imóveis com essas características');
+                    }
+
+                    // Controlando o blank state da listagem de imóveis
+                    if ($imoveisTotais > 0) {
+                        $('.imoveis-blank').removeClass('show');
+                    } else {
+                        $('.imoveis-blank').addClass('show');
+                    }
+
+                    $('.imoveis-list .imoveis #loader, .imoveis-list .imoveis #error').remove();
+                    $('.imoveis-list .imoveis .imoveis-row').append(response.html);
+
+
+                    if ($('.imoveis-list .imoveis .imoveis-row').children().length > 5) {
+                        fix();
+                    }
+
+                    // if ($(window).width() > 991) {
+
+                    //     //response.imoveis.forEach(latLng);
+                    //     //latLng(response.imoveis[0]);
+
+                    //     $('.col-left .imoveis .imoveis-container').mCustomScrollbar({
+                    //         //setWidth: 4500,
+                    //         theme: "ang",
+                    //         autoHideScrollbar: true,
+                    //         mouseWheel: {
+                    //             enable: true,
+                    //             preventDefault: false,
+                    //         },
+                    //         scrollInertia: 100000,
+                    //         scrollbarPosition: 'outside',
+                    //         // callbacks: {
+                    //         //     onTotalScroll: function () {
+                    //         //         loadMore();
+                    //         //     }
+                    //         // }
+                    //     });
+                    // }
+
+                    // if (!more) {
+                    //     slickImovelCard();
+                    // } else {
+                    //     slickImovelCard(true);
+                    // }
+
+
+                    //
+                }, error: function (response, status, error) {
+                    $('.imoveis-list .imoveis #loader').remove();
+                    toogleLoader(false);
+                    toogleError(true, response.responseText);
+                }
+            });
+        }
     }
 
     // function loadMore() {

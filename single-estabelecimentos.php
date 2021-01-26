@@ -30,6 +30,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
     $estacionamento_destacado = get_field('endereco', $imovel['estacionamento_destacado'][0]->ID );
     $categoria = get_the_category();
     $categoria_pai = get_category_parents($categoria[0]->term_id);
+    
 ?>
 
 <div id="imovel-detalhe" class="container">
@@ -160,7 +161,7 @@ $photos_extras = json_decode(get_field('properties_photo', $imovel[0]->ID));
                         <div class="info info-telefone">
                             <img src="<?php echo ASSETS;?>/img/icons/phone.svg" />
                             <small><a class="btn btn-danger btn-telefone">Ver telefone</a></small>
-                            <small class="telefone"><a href="tel:<?php echo $imovel['telefone']; ?>"><?php echo $imovel['telefone']; ?></a></small>
+                            <small class="telefone" data-nome="<?php echo $post->post_title; ?>"><a href="tel:<?php echo $imovel['telefone']; ?>"><?php echo $imovel['telefone']; ?></a></small>
                         </div>
                         <?php endif; ?>
 
