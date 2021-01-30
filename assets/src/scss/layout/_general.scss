@@ -45,3 +45,18 @@ a {
 align-content: center;
 align-items: center;
 }
+
+.acf-label {
+    display: flex;
+    label {
+        display: inline-block !important;
+        order: 2;
+    }
+    .description {
+        display: inline-block !important;
+        font-weight: bold !important;
+        color: black !important;
+        font-size: 12px !important;
+        order: 1;
+    }
+}
