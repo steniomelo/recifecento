@@ -1,6 +1,8 @@
 html {
     font-size: 10px;
     overflow-x: hidden;
+    scroll-behavior: smooth;
+    .footer-newsletter #nf-form-3-cont .ninja-forms-field[type=button]:hover {border-radius:0 5px 5px 0;background-color:#be0623;}
 }
 
 body {
@@ -10,11 +12,11 @@ body {
     font-size:12px;
     overflow-x:hidden;
     background-color: $gray3;
-    
+
     &.search-opnened {
         overflow: hidden;
     }
-    
+
 }
 
 @include media-breakpoint-down(md) {
